@@ -1,8 +1,5 @@
 # Preview scope
-The preview allows you to prevent accidental deletions. The feature allows you to define a threshold, that if exceeded, would cause the provioning job to stop executing and prompt for an admin to confirm that the deletions are expected. 
-
-# Known Limitations
-* Changing scope from sync all users and groups to assigned users and groups should trigger disables for users and groups that aren't assigned. Those disables aren't covered by the current preview
+The preview allows you to prevent accidental deletions. You can define a threshold, that if exceeded, would cause the provioning job to stop executing and prompt for an admin to confirm that the deletions are expected. 
 
 # Testing the preview capability
 ## Identifiers required for testing
@@ -48,4 +45,5 @@ POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/job
 }
 ```
 
-#
+# Known Limitations
+* Changing scope from sync all users and groups to assigned users and groups should trigger disables for users and groups that aren't assigned. Those disables aren't covered by the current preview
