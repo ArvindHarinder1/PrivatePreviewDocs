@@ -4,7 +4,12 @@ The preview allows you to prevent accidental deletions. The feature allows you t
 # Known Limitations
 * Changing scope from sync all users and groups to assigned users and groups should trigger disables for users and groups that aren't assigned. Those disables aren't covered by the current preview
 
-# Instructions
+# Testing the preview capability
+## Identifiers required for testing
+* The servicePrincipal id can be found by navigating to your enterprise application and navigating to the properties page
+* The jobID can be found in the provisioning configuration page in the progress bar under "view technical information" 
+
+## Test steps
 1) Configure your application for provisioning as you would today
 2) Provision users into your application
 2) Sign into graph explorer as a global administrator
