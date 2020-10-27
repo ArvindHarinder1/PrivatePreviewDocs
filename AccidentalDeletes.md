@@ -1,11 +1,12 @@
 # Preview scope
-The preview allows you to prevent unexpected deletions by defining a threshold for deletions. When the number of deletions excceds the defined threshold, the provisioning job will go into quarantine and trigger an email. You can choose to accept the deletions or reject them. 
+The preview allows you to prevent accidental deletions. The feature allows you to define a threshold, that if exceeded, would cause the provioning job to stop executing and prompt for an admin to confirm that the deletions are expected. 
 
 # Known Limitations
 * Changing scope from sync all users and groups to assigned users and groups should trigger disables for users and groups that aren't assigned. Those disables aren't covered by the current preview
 
 # Instructions
 1) Configure your application for provisioning as you would today
+2) Provision users into your application
 2) Sign into graph explorer as a global administrator
 3) Perform a get secrets operation
 
@@ -35,11 +36,10 @@ PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secr
 6) Allow the disables / deletes to be processed
 ```HTTP
 POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
-Authorization: Bearer <token>
-Content-type: application/json
 
 {
-   "criteria": {
+   "criteria": 
+   {
        "resetScope": "ForceDeletes"
    }
 }
