@@ -2,6 +2,9 @@
 The preview allows you to prevent accidental deletions. You can define a threshold, that if exceeded, would cause the provioning job to stop executing and prompt for an admin to confirm that the deletions are expected. 
 
 # Testing the preview capability
+## Test environment
+It is okay to use this in a production tenant, but you should create a second enterprise application for testing and point that to a **non production** instance of your application. 
+
 ## Identifiers required for testing
 * The servicePrincipal id can be found by navigating to your enterprise application and navigating to the properties page
 * The jobID can be found in the provisioning configuration page in the progress bar under "view technical information" 
