@@ -18,12 +18,10 @@ The preview allows you to prevent accidental deletions. The feature allows you t
 ```HTTP
 GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets
 
-{"value":[{"key":"SyncNotificationSettings","value":"{\"Enabled\":true,\"Recipients\":\"johndoe@xyz.com\",\"DeleteThresholdEnabled\":true,\"DeleteThresholdValue\":50}"}]}
-
 ```
 
 
-4) Perform a PUT secrets operation
+4) Copy the response from the previous request and add the 'DeleteThresholdEnabled' and 'DeleteThresholdValue' properties. Ensure that the 'DeleteThresholdEnabled' property is set to true and specify a threshold value. 
 
 ```HTTP
 PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets
@@ -33,10 +31,10 @@ PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secr
 ```
 
 5) Trigger disables / deletes. There are a umber of ways of doing this
-  - Disabling a user in Azure AD through the Azure Portal / Powershell / MS Graph
-  - Deleting a previously disabled user in Azure AD through the Azure Portal / Powershell / MS Graph
-  - Changing a scoping filter so the user or group goes out of scope
-  - Unassigning the user from the app
+    * Disabling a user in Azure AD through the Azure Portal / Powershell / MS Graph
+    * Deleting a previously disabled user in Azure AD through the Azure Portal / Powershell / MS Graph
+    * Changing a scoping filter so the user or group goes out of scope
+    * Unassigning the user from the app
 
 6) Allow the disables / deletes to be processed
 ```HTTP
