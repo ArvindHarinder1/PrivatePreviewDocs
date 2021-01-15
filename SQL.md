@@ -1,55 +1,12 @@
+# Generic SQL Connector technical reference
 
-
-## Appendix G: Building a demo SQL environment for testing
-
-1. Download SQL Server - [https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019)
-
-1. Download SSMS - [https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?redirectedfrom=MSDN&amp;view=sql-server-ver15](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?redirectedfrom=MSDN&amp;view=sql-server-ver15)
-
-1. Open SQL Server management studio (SSMS)
-
-1. Click on Browse for more, select the database under database engine (in my case 1110VM), and connect.
-
-![](RackMultipart20210115-4-mlm6xl_html_5deb250b6bf40dc6.png)
-
-1. Right click databases and create a new database and provide a name. Mine is &quot;ECMA2Host\_AppName&quot;.
-
-1. Click new query and copy in the query from the employees file. Ensure that the table name matches as highlighted below.
-
-![](RackMultipart20210115-4-mlm6xl_html_59e4119366bf37c7.png)
-
-1. Open the sap.dsn file and update the server name (in my case it is &quot;SERVER=1110VM&quot;).
-
-1. Ensure that the database name matches the name from step 6.
-
-## Appendix H: Configuring the host using SQL
-
-The following screenshots show you how to configure the host, if you are using the demo environment described above.
-
- 
-
-
-## Appendix B: Configuring the Generic SQL Connector for SQL Server
-
-If you do not have a connector MA, but have SQL Server in your environment, then you can still validate the provisioning process, using the instructions in the Generic SQL Connector guide at [https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql) and  [https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql-step-by-step](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql-step-by-step)
-
-After creating an ODBC file, you can then use that file when creating a new Connector.
-
-
-
-
-
-# Generic LDAP Connector technical reference
-
-This tutorial describes the steps you need to perform to automatically provision and deprovision users from Azure AD into an [LDAP v3 server](https://LinkToSectionBelowWithFullList) (e.g. Apache DS, OpenLDAP, or ODSEE). This tutorial should not be used to [write users into Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/16887037-enable-user-writeback-to-on-premise-ad-from-azure). Click [here](https://sectionLaterInTheDoc) for a list of tested LDAP directories. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
+This tutorial describes the steps you need to perform to automatically provision and deprovision users from Azure AD into a SQL DB.  For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## Capabilities Supported
 > [!div class="checklist"]
-> * Create users in a LDAP directory
-> * Remove users from a LDAP directory when they do not require access anymore
-> * Keep user attributes synchronized between Azure AD and the LDAP directory
-> * Discover schema from the LDAP directory (RFC3673 and RFC4512/4.2). Supports structural classes, aux classes, and extensibleObject object class (RFC4512/4.3)
-> * Full import and export are supported for all directories. Delta imports are supported for [specified directories]().
+> * Create users in a SQL DB
+> * Remove users from a SL DB when they do not require access anymore
+> * Keep user attributes synchronized between Azure AD and the SQL DB
 
 > [!Note]
 > Notable known directories or features not supported: Microsoft Active Directory Domain Services (AD DS), Password Change Notification, Service(PCNS), Exchange provisioning, Delete of Active Sync Devices,Support for TDescurityDescriptor,Oracle Internet Directory (OID)
@@ -93,4 +50,44 @@ Once you've configured provisioning, use the following resources to monitor your
 
 * LDAP referrals between servers not supported (RFC 4511/4.1.10)
 
-# Content removed from previous version
+
+
+
+
+## Appendix G: Building a demo SQL environment for testing
+
+1. Download SQL Server - [https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019)
+
+1. Download SSMS - [https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?redirectedfrom=MSDN&amp;view=sql-server-ver15](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?redirectedfrom=MSDN&amp;view=sql-server-ver15)
+
+1. Open SQL Server management studio (SSMS)
+
+1. Click on Browse for more, select the database under database engine (in my case 1110VM), and connect.
+
+![](RackMultipart20210115-4-mlm6xl_html_5deb250b6bf40dc6.png)
+
+1. Right click databases and create a new database and provide a name. Mine is &quot;ECMA2Host\_AppName&quot;.
+
+1. Click new query and copy in the query from the employees file. Ensure that the table name matches as highlighted below.
+
+![](RackMultipart20210115-4-mlm6xl_html_59e4119366bf37c7.png)
+
+1. Open the sap.dsn file and update the server name (in my case it is &quot;SERVER=1110VM&quot;).
+
+1. Ensure that the database name matches the name from step 6.
+
+## Appendix H: Configuring the host using SQL
+
+The following screenshots show you how to configure the host, if you are using the demo environment described above.
+
+ 
+
+
+## Appendix B: Configuring the Generic SQL Connector for SQL Server
+
+If you do not have a connector MA, but have SQL Server in your environment, then you can still validate the provisioning process, using the instructions in the Generic SQL Connector guide at [https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql) and  [https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql-step-by-step](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql-step-by-step)
+
+After creating an ODBC file, you can then use that file when creating a new Connector.
+
+
+
