@@ -80,8 +80,8 @@ Note: If you have ECMA Connector Host previously installed:
 ## Step 2. Download and install the provisioning agent and on-prem host
 ### Download provisioning agent and host
 
-1. Download the provisoining agent bits [here]()
-2. Download the ECMA host bits [here]()
+1. Download the provisoining agent bits [here]().
+2. Download the ECMA host bits [here]().
 
 ### Install provisioning agent
 
