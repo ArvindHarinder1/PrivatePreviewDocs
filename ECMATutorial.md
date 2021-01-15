@@ -222,9 +222,15 @@ In the tenant URL field, enter the following URL. Replace the hostname with the 
 12. Enter the secret token you created earlier during configuration in the field Secret Token.
 
 
-### [Determine who should be in scope for provisioning](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts).
-### [Assign users to your application](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-assign-users) if scoping is based on assignment to the application (recommended).
-4. [Configure your attribute mappings.](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/customize-application-attributes)
+### Scoping
+
+[Determine who should be in scope for provisioning](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts).
+### Assign users
+
+[Assign users to your application](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-assign-users) if scoping is based on assignment to the application (recommended).
+
+### Attribute mappings
+[Configure your attribute mappings.](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/customize-application-attributes)
 
 1. Click Test Connection and wait one minute. If the error message &quot;We encountered an error&quot; or &quot;You appear to have entered invalid credentials&quot; appears, check the IP address or host name of the server is correct, that the server is reachable and look at the event log of the Windows Server, as described in the section Monitoring the Azure AD ECMA Connector Host service below, to see if there are any error messages.  If there are no messages, this may indicate that the firewall was unable to permit an incoming connection to the service, or that the connector name was not correctly specified.  **Please see the appendix for how to troubleshoot connectivity issues. **
 
@@ -269,7 +275,9 @@ _Mapping to an application-required attributes in the Azure portal_
 1. Change to the users and groups screen for this application and click Add user.  Select one user and assign them to the application. Ensure that they have the properties that you defined in the attribute mappings earlier.    You can retrieve those using [Graph explorer](https://developer.microsoft.com/graph/graph-explorer), however keep in mind that in Microsoft Graph, you need to ask for the attributes to be returned. Explicitly select the attributes like this:
  https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension\_9d98ed114c4840d298fad781915f27e4\_employeeID,extension\_9d98ed114c4840d298fad781915f27e4\_division
 
-### 5. [Provision a user on-demand.](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/provision-on-demand)
+### Provision on demand
+
+[Provision a user on-demand.](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/provision-on-demand)
 
 1. Navigate to the single sign-on blade and then back to the provisioning blade. From the new provisioning overview blade, click on on-demand provisioning to provision a user and test out a few users.
 
