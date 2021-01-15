@@ -82,79 +82,77 @@ Getting started
 
 1. Prepare a Windows Server 2016 or later server with at least 3GB of RAM to run the Azure AD ECMA Connector Host.  One way to set up this server is by deploying an Azure Virtual Machine.  Note that this server requires Internet connectivity for incoming connections, either directly or via an HTTP proxy.  Record the IP address or hostname of that server.
 
-1. Sign in as a user who is an administrator on that server.
+2. Sign in as a user who is an administrator on that server.
 
-1. Ensure Microsoft .NET 4.5.2 Framework or a later version of the .NET Framework is installed.  If using Windows Server 2016, launch Server Manager, click Add roles and features, and on the Features step of the wizard, ensure that &quot;.NET Framework 4.6&quot; is installed.
+3. Ensure Microsoft .NET 4.5.2 Framework or a later version of the .NET Framework is installed.  If using Windows Server 2016, launch Server Manager, click Add roles and features, and on the Features step of the wizard, ensure that &quot;.NET Framework 4.6&quot; is installed.
 
-1. Create a folder on a local drive on the server that will contain the software, e.g., c:\temp.
+4. Create a folder on a local drive on the server that will contain the software, e.g., c:\temp.
 
-1. Copy the ZIP file containing the Azure AD ECMA Connector Host software and unpack to that folder, so it creates a subfolder.
+5. Copy the ZIP file containing the Azure AD ECMA Connector Host software and unpack to that folder, so it creates a subfolder.
 
-1. Generate a self-signed certificate with the hostname as the subject as described in the appendix.
+6. Generate a self-signed certificate with the hostname as the subject as described in the appendix.
 
-1. Open an elevated command shell, by right clicking on Command Prompt on the Start menu and selecting &quot;Run as administrator&quot;.
+7. Open an elevated command shell, by right clicking on Command Prompt on the Start menu and selecting &quot;Run as administrator&quot;.
 
-1. In that elevated command shell, change to the subfolder where the software was unpacked.
+8. In that elevated command shell, change to the subfolder where the software was unpacked.
 
-cd \temp
+``cd \temp``
 
-1. Use msiexec to install the software, by typing
+9. Use msiexec to install the software, by typing
 
+``msiexec /log log.txt /i Microsoft.ECMA2Host.Setup.msi``
 
-msiexec /log log.txt /i Microsoft.ECMA2Host.Setup.msi
+11. When prompted, select a certificate to be used for HTTPS endpoint. You can use the steps outlined in the appendix to generate the certificate.
 
-
-1. When prompted, select a certificate to be used for HTTPS endpoint. You can use the steps outlined in the appendix to generate the certificate.
-
-1. Provide the username and password of an account that is a local administrator. The user must be a member of the local Administrators group on the computer where the software is being installed.  If the account is a local machine account (not a domain account), provide the account name in the form &quot;hostname\username&quot;. _Otherwise, if the account is a domain account, provide the account name in the  &quot;domain\_fqdn\username&quot; form, including the full DNS domain name not just the NETBIOS name of the domain._ Then click Install, and when the install completes, click Finish.
+12. Provide the username and password of an account that is a local administrator. The user must be a member of the local Administrators group on the computer where the software is being installed.  If the account is a local machine account (not a domain account), provide the account name in the form &quot;hostname\username&quot;. _Otherwise, if the account is a domain account, provide the account name in the  &quot;domain\_fqdn\username&quot; form, including the full DNS domain name not just the NETBIOS name of the domain._ Then click Install, and when the install completes, click Finish.
 
 ## Step 3. Configure the host
 
 1. After installation is complete, if you specified an account in step 9 above which is different than the account you&#39;re currently signed in as, sign out and switch to that account.
 
-1. Change to the directory c:\program files\Microsoft ECMA2host\Service\ECMA and ensure there are one or more DLLs already present in that directory.  (Those DLLs correspond to Microsoft-delivered connectors).
+2. Change to the directory c:\program files\Microsoft ECMA2host\Service\ECMA and ensure there are one or more DLLs already present in that directory.  (Those DLLs correspond to Microsoft-delivered connectors).
 
-cd &quot;c:\Program Files\Microsoft ECMA2Host\Service\ECMA&quot;
+``cd &quot;c:\Program Files\Microsoft ECMA2Host\Service\ECMA&quot;``
 
-1. Copy the MA DLL for your connector, and any of its prerequisite DLLs, to that same ECMA subdirectory of the Service directory.   If you do not have a DLL for your connector, but have a SQL Server in your environment, then you can continue testing with the Generic SQL Connector.    Similarly, if you have an LDAP Server or PowerShell, you can use one of included Generic connectors.
+3. Copy the MA DLL for your connector, and any of its prerequisite DLLs, to that same ECMA subdirectory of the Service directory.   If you do not have a DLL for your connector, but have a SQL Server in your environment, then you can continue testing with the Generic SQL Connector.    Similarly, if you have an LDAP Server or PowerShell, you can use one of included Generic connectors.
 
 Note: If you are using an LDAP connector, there is a virtual \&lt;dn\&gt; attribute that could be mapped to SCIM attribute for connectors that require DN calculation outside of connector logic. For example, using the Generic LDAP MA, you will be able to set up a mapping of _urn:ietf:params:scim:schemas:extension:ECMA:1.0:User:distinguishedName_ to \&lt;dn\&gt; in ECMA Connector Host Configuration Wizard and set up your custom expression in Azure AD to populate _urn:ietf:params:scim:schemas:extension:ECMA:1.0:User:distinguishedName_.
 
-1. Change to the directory C:\program files\Microsoft ECMA2Host\Wizard and run as an administrator the program Microsoft.ECMA2Host.ConfigWizard.exe to set up the ECMA Connector Host configuration.
+4. Change to the directory C:\program files\Microsoft ECMA2Host\Wizard and run as an administrator the program Microsoft.ECMA2Host.ConfigWizard.exe to set up the ECMA Connector Host configuration.
 
-cd &quot;c:\Program Files\Microsoft ECMA2Host\Wizard&quot;
- Microsoft.ECMA2Host.ConfigWizard.exe
+``cd &quot;c:\Program Files\Microsoft ECMA2Host\Wizard&quot;
+ Microsoft.ECMA2Host.ConfigWizard.exe``
 
 
-1. A new window will appear with a list of connectors. The first time this is run, no connector configurations will be present.  Click &quot;New Connector&quot;.
+5. A new window will appear with a list of connectors. The first time this is run, no connector configurations will be present.  Click &quot;New Connector&quot;.
 
  ![](RackMultipart20210115-4-mlm6xl_html_51c835392a6b14a9.png)
 _New connector properties page_
 
 If you will be importing an existing MA configuration from MIM, then perform the steps in Appendix A before proceeding.
 
-1. Pick and record the name of the connector, and a shared secret for use on the new connector properties page. The name of the connector should be exclusively ASCII letters and digits, the autosync timer should be 60 minutes, and the secret token a string of 10-20 ASCII letters and digits.    (You&#39;ll use the secret token later in configuring outgoing provisioning in Azure AD). For Connector, select from the drop-down the name DLL that was placed in the ECMA folder at the earlier step. Then click &quot;Next&quot;.
+6. Pick and record the name of the connector, and a shared secret for use on the new connector properties page. The name of the connector should be exclusively ASCII letters and digits, the autosync timer should be 60 minutes, and the secret token a string of 10-20 ASCII letters and digits.    (You&#39;ll use the secret token later in configuring outgoing provisioning in Azure AD). For Connector, select from the drop-down the name DLL that was placed in the ECMA folder at the earlier step. Then click &quot;Next&quot;.
 
-1. The left-hand side of the wizard window may change to add additional tabs, such as Connectivity, as required by the connector.  Click &quot;Next&quot; after completing each tab.
+7. The left-hand side of the wizard window may change to add additional tabs, such as Connectivity, as required by the connector.  Click &quot;Next&quot; after completing each tab.
 
-1. On the Partitions tab, if the connector does not have any partitions, leave the default partition selected, and click Next.
+8. On the Partitions tab, if the connector does not have any partitions, leave the default partition selected, and click Next.
 
-1. On the Run Profiles tab, select the run profiles which the connector is capable of being used in.  The export profile is mandatory, but full and delta import are optional.  Note that if neither full import nor delta import is configured, the ECMA Connector host will not be able to determine whether an object already exists in the target system prior to exporting it.
+9. On the Run Profiles tab, select the run profiles which the connector is capable of being used in.  The export profile is mandatory, but full and delta import are optional.  Note that if neither full import nor delta import is configured, the ECMA Connector host will not be able to determine whether an object already exists in the target system prior to exporting it.
 
-1. On the Export tab, specify the page size – default to 100.
+10. On the Export tab, specify the page size – default to 100.
 
-1. On the Object Types tab, select which object type provided by the target system corresponds to an Azure AD user. Then, select the anchor attribute for that object type.
+11. On the Object Types tab, select which object type provided by the target system corresponds to an Azure AD user. Then, select the anchor attribute for that object type.
 
 ![](RackMultipart20210115-4-mlm6xl_html_a8b62338c0274b4d.png)_Object type and anchor attribute mapping for the Azure AD User object type_
 
-1. On the Schema Mapping tab, configure the unique identifier attribute for the Azure AD user.  The unique identifier will correspond to the primary key attribute that will be configured later in Azure AD portal. Then, add attribute mappings for each attribute in your target system&#39;s user to the corresponding Azure AD attribute, by clicking &quot;Add attribute mapping&quot; tab, selecting the attribute name of the connected system, and the corresponding SCIM attribute.  By default, the attribute names from SCIM are displayed; if you do not see a corresponding attribute, then type in the attribute name.  In the configuration wizard, custom attributes that are not displayed in the drop down must be written in the same format as in Azure AD portal, e.g.
+12. On the Schema Mapping tab, configure the unique identifier attribute for the Azure AD user.  The unique identifier will correspond to the primary key attribute that will be configured later in Azure AD portal. Then, add attribute mappings for each attribute in your target system&#39;s user to the corresponding Azure AD attribute, by clicking &quot;Add attribute mapping&quot; tab, selecting the attribute name of the connected system, and the corresponding SCIM attribute.  By default, the attribute names from SCIM are displayed; if you do not see a corresponding attribute, then type in the attribute name.  In the configuration wizard, custom attributes that are not displayed in the drop down must be written in the same format as in Azure AD portal, e.g.
 
  urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User
 
 ![](RackMultipart20210115-4-mlm6xl_html_f59f681d68cf102a.png)
 _Schema Mappings tab for a user&#39;s attributes with a custom attribute_
 
-1. On the Deprovisioning tab, configure the desired behavior when a user&#39;s account in Azure AD is disabled from being able to sign in, and the desired behavior when a user&#39;s account in Azure AD is deleted.  If you do not wish users to be removed from the target system, then select &quot;None&quot; for the delete flow. Then click &quot;Finish&quot;.
+13. On the Deprovisioning tab, configure the desired behavior when a user&#39;s account in Azure AD is disabled from being able to sign in, and the desired behavior when a user&#39;s account in Azure AD is deleted.  If you do not wish users to be removed from the target system, then select &quot;None&quot; for the delete flow. Then click &quot;Finish&quot;.
 
 _Both deprovisioning flows use hardcoded SCIM attribute &quot;active&quot; which is available by default in Azure AD portal. Therefore, if you choose to Set attribute value in the Disable flow, the boolean value of &quot;active&quot; attribute will be copied to an attribute you select from the drop down list as follows:_
 
@@ -162,13 +160,13 @@ _Both deprovisioning flows use hardcoded SCIM attribute &quot;active&quot; which
 
 _Deprovisioning tab _
 
-1. At this point you should now see the connector listed, and you can close the wizard window.
+14. At this point you should now see the connector listed, and you can close the wizard window.
 
-1. After configuration is complete, restart the Microsoft ECMA2Host service, if it is not running or paused, launch control panel, change to Services. In the list of services, right click on Microsoft ECMA2Host, and select either Start or Restart.
+15. After configuration is complete, restart the Microsoft ECMA2Host service, if it is not running or paused, launch control panel, change to Services. In the list of services, right click on Microsoft ECMA2Host, and select either Start or Restart.
 
-1. After a few seconds, the service should start. When it starts, for the connectors which support full import, the connector host will perform a full import. if the service does not start, or stops afterward, launch event viewer and check the log Applications and Services Log \&gt; Microsoft ECMA2Host Logs.
+16. After a few seconds, the service should start. When it starts, for the connectors which support full import, the connector host will perform a full import. if the service does not start, or stops afterward, launch event viewer and check the log Applications and Services Log \&gt; Microsoft ECMA2Host Logs.
 
-1. Test that you can make a request to the host by navigating to your browser and providing the endpoint for your host. If successful, you should receive a 405 message similar to the below screenshot. Please see the appendix for more details.
+17. Test that you can make a request to the host by navigating to your browser and providing the endpoint for your host. If successful, you should receive a 405 message similar to the below screenshot. Please see the appendix for more details.
 
 [https://hostname:8585/ecma2host\_connectorName/scim/users](https://hostname:8585/ecma2host_connectorName/scim/usersm)
 
