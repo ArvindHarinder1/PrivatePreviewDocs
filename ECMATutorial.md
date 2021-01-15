@@ -1,7 +1,19 @@
 # Azure AD Outbound Provisioning with the Azure AD ECMA Connector Host Private Preview
 
-# Test Lab Guide for version 1.6.83.3
+## Test Lab Guide for version 1.6.83.3
+## Step 1. Plan your provisioning deployment
+## Step 2. 
+## Step 4. Configure provisioning in Azure AD
+1. Assign the agents to your application (get steps from preview doc).
+2. Provide the URL and secret token (get steps from preview doc). 
+2. [Determine who should be in scope for provisioning](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts).
+3. [Assign users to your application](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-assign-users) if scoping is based on assignment to the application (recommended).
+4. [Configure your attribute mappings.](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/customize-application-attributes)
+5. [Provision a user on-demand.](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/provision-on-demand)
+6. Add additional users to your application.
+7. Turn provisioning on.
 
+## Step 5. Monitor your deployment
 
  Last updated December 2020
 
