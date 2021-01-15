@@ -189,47 +189,42 @@ _Deprovisioning tab _
 ![](RackMultipart20210115-4-mlm6xl_html_137c00ae78714e61.png)
 
 ## Step 4. Configure provisioning in Azure AD
-1. Assign the agents to your application (get steps from preview doc).
-2. Provide the URL and secret token (get steps from preview doc). 
-2. [Determine who should be in scope for provisioning](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts).
-3. [Assign users to your application](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-assign-users) if scoping is based on assignment to the application (recommended).
-4. [Configure your attribute mappings.](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/customize-application-attributes)
-5. [Provision a user on-demand.](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/provision-on-demand)
-6. Add additional users to your application.
-7. Turn provisioning on.
+###Assign the agents to your application (get steps from preview doc).
 
 1. Check to ensure that the connector host Windows Service is running.  Click on the start menu, and type services. In the services list, scroll to &quot;Microsoft ECMA2Host&quot;.  Ensure that the status is &quot;Running&quot;.  If the status is blank, click &quot;Start&quot;.
 
-1. Sign into Azure Portal as a global administrator in a tenant that has Azure AD Premium P1 or Premium P2 (EMS E3 or E5). This is required to be able to configure outbound provisioning via a non-gallery application.
+2. Sign into Azure Portal as a global administrator in a tenant that has Azure AD Premium P1 or Premium P2 (EMS E3 or E5). This is required to be able to configure outbound provisioning via a non-gallery application.
 
-1. In the Azure Portal, change to the Azure Active Directory area, change to Enterprise Applications, and click on New Application.
+3. In the Azure Portal, change to the Azure Active Directory area, change to Enterprise Applications, and click on New Application.
 
-1. Search for &quot;Provisioning Private Preview Test Application&quot;. If the UI looks different than in the screenshot below, you can click the banner at the top of the screen to try the new preview experience.
+4. Search for &quot;Provisioning Private Preview Test Application&quot;. If the UI looks different than in the screenshot below, you can click the banner at the top of the screen to try the new preview experience.
 
 ![](RackMultipart20210115-4-mlm6xl_html_65d3bb0c9062ec2b.png)
 
+5. Once the app has been created, click on the Provisioning item in the Manage section of the app. If you see an error when you click on the provisioning page, please wait and refresh.
 
-### Adding a non-gallery application in the Azure portal_
+6. Click get started.
 
-1. Once the app has been created, click on the Provisioning item in the Manage section of the app. If you see an error when you click on the provisioning page, please wait and refresh.
+7. Change the Provisioning Mode to Automatic. Additional settings will appear on that screen.
 
-1. Click get started.
-
-1. Change the Provisioning Mode to Automatic. Additional settings will appear on that screen.
-
-1. In the on-premises connectivity section, select the agent that you just deployed and click assign agent(s).
+8. In the on-premises connectivity section, select the agent that you just deployed and click assign agent(s).
 
 ![](RackMultipart20210115-4-mlm6xl_html_38fc14246a9c85ce.png)
 
-1. Assigning agents
+9. Assigning agents
 
-1. Before performing the next step,  **wait about 30 minutes**  for the agent registration to complete. Test connection will not succeed until the agent registration is completed.
+10. Before performing the next step,  **wait about 30 minutes**  for the agent registration to complete. Test connection will not succeed until the agent registration is completed.
 
-1. In the tenant URL field, enter the following URL, replacing the IP address with that of the connector host system, and adding the name of the connector to the before the &quot;/scim&quot; suffix.  For example, if your hostname is &quot;10.20.30.40&quot;, the port number is the default 8585, and the connector name is &quot;connector1&quot;, then provide the URL
+11. In the tenant URL field, enter the following URL, replacing the IP address with that of the connector host system, and adding the name of the connector to the before the &quot;/scim&quot; suffix.  For example, if your hostname is &quot;10.20.30.40&quot;, the port number is the default 8585, and the connector name is &quot;connector1&quot;, then provide the URL
 
 In the tenant URL field, enter the following URL. Replace the hostname with the name of your VM and connectorName with the name of your connector. [https://hostname:8585/ecma2host\_connectorName/scim](https://hostname:8585/ecma2host_connectorName/scim)
 
-1. Enter the secret token you created earlier during configuration in the field Secret Token.
+12. Enter the secret token you created earlier during configuration in the field Secret Token.
+
+
+### [Determine who should be in scope for provisioning](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts).
+### [Assign users to your application](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-assign-users) if scoping is based on assignment to the application (recommended).
+4. [Configure your attribute mappings.](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/customize-application-attributes)
 
 1. Click Test Connection and wait one minute. If the error message &quot;We encountered an error&quot; or &quot;You appear to have entered invalid credentials&quot; appears, check the IP address or host name of the server is correct, that the server is reachable and look at the event log of the Windows Server, as described in the section Monitoring the Azure AD ECMA Connector Host service below, to see if there are any error messages.  If there are no messages, this may indicate that the firewall was unable to permit an incoming connection to the service, or that the connector name was not correctly specified.  **Please see the appendix for how to troubleshoot connectivity issues. **
 
@@ -274,6 +269,8 @@ _Mapping to an application-required attributes in the Azure portal_
 1. Change to the users and groups screen for this application and click Add user.  Select one user and assign them to the application. Ensure that they have the properties that you defined in the attribute mappings earlier.    You can retrieve those using [Graph explorer](https://developer.microsoft.com/graph/graph-explorer), however keep in mind that in Microsoft Graph, you need to ask for the attributes to be returned. Explicitly select the attributes like this:
  https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension\_9d98ed114c4840d298fad781915f27e4\_employeeID,extension\_9d98ed114c4840d298fad781915f27e4\_division
 
+### 5. [Provision a user on-demand.](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/provision-on-demand)
+
 1. Navigate to the single sign-on blade and then back to the provisioning blade. From the new provisioning overview blade, click on on-demand provisioning to provision a user and test out a few users.
 
 1. Test provisioning by provisioning a user on-demand as described [here](https://aka.ms/provisionondemanddocumentation).
@@ -286,7 +283,8 @@ _Setting the provisioning status and scope for an application in the Azure porta
 
 1. Wait several minutes for provisioning to start (it may take up to 40 minutes).  You can learn more about the provisioning service performance [here](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user). After the provisioning job has been completed, as described in the next section, you can change the provisioning status to Off, and click Save. This will stop the provisioning service from running in the future.
 
-Validating user provisioning from Azure AD has been successful
+
+### Validating user provisioning from Azure AD has been successful
 
 Azure AD provisioning service will send a GET request with a test user to validate the tenant URL secret token and the format of the response.
 
@@ -295,6 +293,12 @@ Then, once the Azure AD provisioning service has been enabled, the Azure AD prov
 For example, if a user is assigned to an application, then the Azure AD provisioning service will check if the user already exists, by querying the connector host.  If the user already exists, then Azure AD will either continue with the next user, or update that user with a PATCH with the latest attributes, if needed. However, if the user is not already present, then the Azure AD provisioning service will then send a POST request to create the user.  A POST request will be transformed by the connector host into a PutExportEntries call with an ObjectModificationType of Add, and the attributes named in the configuration of the connector.
 
 If you are unsure if the Azure AD provisioning service has attempted to contact the connector host, start by checking the Azure AD provisioning logs..  Next, check for any  log messages on the ECMA Connector Host at the time of an update – if there are any errors or warnings they will indicate the connector host was unable to transform a request into an ECMA call, or the connector returned an exception, as described for the next section.
+
+
+### Add additional users to your application.
+
+### Turn provisioning on.
+
 
 ## Step 5. Monitor your deployment
 1. [Enable logging on the ECMA host](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/Monitoring.md).
