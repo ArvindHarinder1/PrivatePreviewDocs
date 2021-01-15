@@ -13,24 +13,6 @@ This guide outlines how to validate that an Extensible Connectivity Management A
 
 In you have feedback on this private preview, or if you have questions, please contact us at [msiga@microsoft.com](mailto:msiga@microsoft.com).  Please do not use other Internet forums for discussing this preview, as this preview is not a generally available or supported release.
 
-Contents
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Overview of the Azure AD outbound provisioning via Azure AD ECMA Connector Host preview
 
 The purpose of this preview is to determine whether existing Extensible Connectivity Management Agent (ECMA) connectors implementing the [Microsoft Identity Manager (MIM)](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016) [Extensible Connectivity 2.2 Management Agent (ECMA2) API](https://docs.microsoft.com/en-us/previous-versions/windows/desktop/forefront-2010/hh859557(v=vs.100)?redirectedfrom=MSDN) can also be used for provisioning to target systems, independent of MIM.
@@ -47,7 +29,7 @@ Once the setup described in this document is complete, then a user assignment to
 
 Note that the purpose of this preview is to verify API compatibility; it is not a supported production release.
 
-Prerequisites for this preview
+## Prerequisites for this preview
 
 This preview requires the following in the environment:
 
@@ -62,7 +44,7 @@ This preview requires the following in the environment:
 
 - (optional) A MIM 2016 sync deployment (or FIM 2010 R2), in order to export an existing connector configuration file.
 
-Updates and Known limitations of this preview
+## Updates and Known limitations of this preview
 
 The September 2020 private preview build 1.6.83.0 has the following updates:
 
@@ -142,7 +124,7 @@ Note: If you have ECMA Connector Host previously installed:
 
 
 
-Installing the Azure AD ECMA Connector Host
+## Installing the Azure AD ECMA Connector Host
 
 1. Prepare a Windows Server 2016 or later server with at least 3GB of RAM to run the Azure AD ECMA Connector Host.  One way to set up this server is by deploying an Azure Virtual Machine.  Note that this server requires Internet connectivity for incoming connections, either directly or via an HTTP proxy.  Record the IP address or hostname of that server.
 
@@ -238,7 +220,7 @@ _Deprovisioning tab _
 
 ![](RackMultipart20210115-4-mlm6xl_html_137c00ae78714e61.png)
 
-Deploy the provisioning agent for connectivity
+## Deploy the provisioning agent for connectivity
 
 1. Download the provisioning agent, found in the zip file.
 
@@ -248,7 +230,7 @@ Deploy the provisioning agent for connectivity
 
 1. When prompted, you will need to provide credentials for a user that is a global administrator or hybrid administrator in Azure AD.
 
-Configuring outbound provisioning in Azure AD
+### Configuring outbound provisioning in Azure AD
 
 1. Check to ensure that the connector host Windows Service is running.  Click on the start menu, and type services. In the services list, scroll to &quot;Microsoft ECMA2Host&quot;.  Ensure that the status is &quot;Running&quot;.  If the status is blank, click &quot;Start&quot;.
 
@@ -261,7 +243,7 @@ Configuring outbound provisioning in Azure AD
 ![](RackMultipart20210115-4-mlm6xl_html_65d3bb0c9062ec2b.png)
 
 
-_Adding a non-gallery application in the Azure portal_
+### Adding a non-gallery application in the Azure portal_
 
 1. Once the app has been created, click on the Provisioning item in the Manage section of the app. If you see an error when you click on the provisioning page, please wait and refresh.
 
@@ -358,13 +340,14 @@ Once the ECMA Connector host schema mapping has been configured, start the servi
 
 1. As changes are received by the connector host, events will be written to the application log.
 
-Feedback
+## Feedback
 
 In you have feedback on this private preview, please report any issues at [https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyEYaD-36kVGmx4Eyyk10npUMUtDN0tLRlRVTkVOSzBGS0NDSlFYSVpLRC4u](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyEYaD-36kVGmx4Eyyk10npUMUtDN0tLRlRVTkVOSzBGS0NDSlFYSVpLRC4u) or if you have questions, please contact us at [msiga@microsoft.com](mailto:msiga@microsoft.com).
 
-Page Break
 
-Appendix A: Creating and exporting a connector configuration in MIM Sync
+
+
+## Appendix A: Creating and exporting a connector configuration in MIM Sync
 
 You can import into Azure AD ECMA Connector Host a configuration for a specific connector from a FIM Sync or MIM Sync installation.  Note that the MIM Sync installation is only used for configuration, not for the ongoing synchronization from Azure AD.
 
@@ -407,15 +390,15 @@ At this point, the MIM Sync server is no longer needed.
 
 1. Specify the management agent xml file that was exported from MIM earlier.  Continue with the configuration and schema mapping instructions from the section Configuring a connector above.
 
-Page Break
 
-Appendix B: Configuring the Generic SQL Connector for SQL Server
+
+## Appendix B: Configuring the Generic SQL Connector for SQL Server
 
 If you do not have a connector MA, but have SQL Server in your environment, then you can still validate the provisioning process, using the instructions in the Generic SQL Connector guide at [https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql) and  [https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql-step-by-step](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql-step-by-step)
 
 After creating an ODBC file, you can then use that file when creating a new Connector.
 
-Appendix C: Troubleshooting
+## Appendix C: Troubleshooting
 
 After (during) configuration, if you wish to further debug the generic SQL or generic LDAP connectors, then you can enable the Connector specific log file, following the instructions in the PowerShell script [https://raw.githubusercontent.com/microsoft/MIMPowerShellConnectors/master/src/LyncConnector/EventLogConfig/Register-EventSource.ps1](https://raw.githubusercontent.com/microsoft/MIMPowerShellConnectors/master/src/LyncConnector/EventLogConfig/Register-EventSource.ps1) and updating the system.diagnostics section of the file c:\program files\Microsoft ECMA2Host\Service\Microsoft.ECMA2Host.Service.exe.config as follows:
 
@@ -708,7 +691,7 @@ The instructions below demonstrate how to build a Virtual Machine for testing th
 
 ![](RackMultipart20210115-4-mlm6xl_html_22a92499812348e2.png)
 
-Appendix F: Generating a self-signed certificate
+## Appendix F: Generating a self-signed certificate
 
 Follow the steps below to create a certificate that can be used as part of the agent installation.  Note that this certificate will have only a 1-year validity period by default:
 
@@ -730,7 +713,7 @@ New-SelfSignedCertificate -DnsName hostName -CertStoreLocation cert:\LocalMachin
 
 
 
-Appendix G: Building a demo SQL environment for testing
+## Appendix G: Building a demo SQL environment for testing
 
 1. Download SQL Server - [https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019)
 
@@ -752,7 +735,7 @@ Appendix G: Building a demo SQL environment for testing
 
 1. Ensure that the database name matches the name from step 6.
 
-Appendix H: Configuring the host using SQL
+## Appendix H: Configuring the host using SQL
 
 The following screenshots show you how to configure the host, if you are using the demo environment described above.
 
@@ -808,7 +791,7 @@ The following screenshots show you how to configure the host, if you are using t
 
 Notice: The information contained in this document is Microsoft Confidential. This document is an overview and is intended to be utilized for informational purposes only. Microsoft makes no warranties, express or implied, in this document. Nothing in this document modifies any of the terms and conditions of Microsoft&#39;s written and signed agreements. This is not an offer and this document may be changed at any time by Microsoft.
 
-Appendix I: Troubleshooting connectivity
+## Appendix I: Troubleshooting connectivity
 
 Test connection is failing. How do I troubleshoot?
 
@@ -834,7 +817,7 @@ Test connection is failing. How do I troubleshoot?
 
 
 
-Appendix J: Upgrade host to the latest version
+## Appendix J: Upgrade host to the latest version
 
 1. Download the latest version of the host from the [SharePoint site](https://microsoft.sharepoint.com/:f:/t/AzureADIGAPreview/Et8GetPchJRNuE4MKN0wwRcB4KIsrrV3PPO5ZkyouIcpqA).
 
