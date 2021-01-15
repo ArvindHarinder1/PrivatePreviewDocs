@@ -188,7 +188,7 @@ _Deprovisioning tab _
 ![](RackMultipart20210115-4-mlm6xl_html_137c00ae78714e61.png)
 
 ## Step 4. Configure provisioning in Azure AD
-###Assign the agents to your application (get steps from preview doc).
+### Establish connectivity between Azure AD and the ECMA Host 
 
 1. Check to ensure that the connector host Windows Service is running.  Click on the start menu, and type services. In the services list, scroll to &quot;Microsoft ECMA2Host&quot;.  Ensure that the status is &quot;Running&quot;.  If the status is blank, click &quot;Start&quot;.
 
