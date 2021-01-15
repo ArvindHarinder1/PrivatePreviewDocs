@@ -78,7 +78,23 @@ Note: If you have ECMA Connector Host previously installed:
 
 
 ## Step 2. Download and install the provisioning agent and on-prem host
-Getting started
+### Download provisioning agent and host
+
+1. Download the provisoining agent bits [here]()
+2. Download the ECMA host bits [here]()
+
+### Install provisioning agent
+
+1. Download the provisioning agent, found in the zip file.
+
+2. Install it on your virtual machine or on-premises server.
+
+3. Select the extension to provision to on-prem applications (selecting this will skip over the step to provide AD credentials).
+
+4. When prompted, you will need to provide credentials for a user that is a global administrator or hybrid administrator in Azure AD.
+
+
+### Install ECMA host
 
 1. Prepare a Windows Server 2016 or later server with at least 3GB of RAM to run the Azure AD ECMA Connector Host.  One way to set up this server is by deploying an Azure Virtual Machine.  Note that this server requires Internet connectivity for incoming connections, either directly or via an HTTP proxy.  Record the IP address or hostname of that server.
 
@@ -171,16 +187,6 @@ _Deprovisioning tab _
 [https://hostname:8585/ecma2host\_connectorName/scim/users](https://hostname:8585/ecma2host_connectorName/scim/usersm)
 
 ![](RackMultipart20210115-4-mlm6xl_html_137c00ae78714e61.png)
-
-## Deploy the provisioning agent for connectivity
-
-1. Download the provisioning agent, found in the zip file.
-
-1. Install it on your virtual machine or on-premises server.
-
-1. Select the extension to provision to on-prem applications (selecting this will skip over the step to provide AD credentials).
-
-1. When prompted, you will need to provide credentials for a user that is a global administrator or hybrid administrator in Azure AD.
 
 ## Step 4. Configure provisioning in Azure AD
 1. Assign the agents to your application (get steps from preview doc).
