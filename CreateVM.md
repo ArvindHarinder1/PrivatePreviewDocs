@@ -1,4 +1,4 @@
-Build a VM for testing
+## Build a VM for testing
 
 The instructions below demonstrate how to build a Virtual Machine for testing the ECMA host. These steps are not required and you can use your own on-prem server.
 
