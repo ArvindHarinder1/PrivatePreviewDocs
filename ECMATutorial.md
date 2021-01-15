@@ -1,6 +1,4 @@
-# Azure AD Outbound Provisioning
- with the Azure AD ECMA Connector Host
- Private Preview
+# Azure AD Outbound Provisioning with the Azure AD ECMA Connector Host Private Preview
 
 # Test Lab Guide for version 1.6.83.3
 
