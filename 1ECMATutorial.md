@@ -192,35 +192,39 @@ _Deprovisioning tab _
 
 1. Check to ensure that the connector host Windows Service is running.  Click on the start menu, and type services. In the services list, scroll to &quot;Microsoft ECMA2Host&quot;.  Ensure that the status is &quot;Running&quot;.  If the status is blank, click &quot;Start&quot;.
 
-2. Sign into Azure Portal as a global administrator in a tenant that has Azure AD Premium P1 or Premium P2 (EMS E3 or E5). This is required to be able to configure outbound provisioning via a non-gallery application.
+1. Sign into Azure Portal as a global administrator in a tenant that has Azure AD Premium P1 or Premium P2 (EMS E3 or E5). This is required to be able to configure outbound provisioning via a non-gallery application.
 
-3. In the Azure Portal, change to the Azure Active Directory area, change to Enterprise Applications, and click on New Application.
+1. In the Azure Portal, change to the Azure Active Directory area, change to Enterprise Applications, and click on New Application.
 
-4. Search for &quot;Provisioning Private Preview Test Application&quot;. If the UI looks different than in the screenshot below, you can click the banner at the top of the screen to try the new preview experience.
+1. Search for &quot;Provisioning Private Preview Test Application&quot;. If the UI looks different than in the screenshot below, you can click the banner at the top of the screen to try the new preview experience.
 
 ![](RackMultipart20210115-4-mlm6xl_html_65d3bb0c9062ec2b.png)
 
-5. Once the app has been created, click on the Provisioning item in the Manage section of the app. If you see an error when you click on the provisioning page, please wait and refresh.
+1. Once the app has been created, click on the Provisioning item in the Manage section of the app. If you see an error when you click on the provisioning page, please wait and refresh.
 
-6. Click get started.
+1. Click get started.
 
-7. Change the Provisioning Mode to Automatic. Additional settings will appear on that screen.
+1. Change the Provisioning Mode to Automatic. Additional settings will appear on that screen.
 
-8. In the on-premises connectivity section, select the agent that you just deployed and click assign agent(s).
+1. In the on-premises connectivity section, select the agent that you just deployed and click assign agent(s).
 
 ![](RackMultipart20210115-4-mlm6xl_html_38fc14246a9c85ce.png)
 
-9. Assigning agents
+1. Assigning agents
 
-10. Before performing the next step,  **wait about 30 minutes**  for the agent registration to complete. Test connection will not succeed until the agent registration is completed.
+1. Before performing the next step,  **wait about 30 minutes**  for the agent registration to complete. Test connection will not succeed until the agent registration is completed.
 
-11. In the tenant URL field, enter the following URL, replacing the IP address with that of the connector host system, and adding the name of the connector to the before the &quot;/scim&quot; suffix.  For example, if your hostname is &quot;10.20.30.40&quot;, the port number is the default 8585, and the connector name is &quot;connector1&quot;, then provide the URL
+1. In the tenant URL field, enter the following URL, replacing the IP address with that of the connector host system, and adding the name of the connector to the before the &quot;/scim&quot; suffix.  For example, if your hostname is &quot;10.20.30.40&quot;, the port number is the default 8585, and the connector name is &quot;connector1&quot;, then provide the URL
 
 In the tenant URL field, enter the following URL. Replace the hostname with the name of your VM and connectorName with the name of your connector. [https://hostname:8585/ecma2host\_connectorName/scim](https://hostname:8585/ecma2host_connectorName/scim)
 
-12. Enter the secret token you created earlier during configuration in the field Secret Token.
+1. Enter the secret token you created earlier during configuration in the field Secret Token.
 
+1. Click Test Connection and wait one minute. If the error message &quot;We encountered an error&quot; or &quot;You appear to have entered invalid credentials&quot; appears, check the IP address or host name of the server is correct, that the server is reachable and look at the event log of the Windows Server, as described in the section Monitoring the Azure AD ECMA Connector Host service below, to see if there are any error messages.  If there are no messages, this may indicate that the firewall was unable to permit an incoming connection to the service, or that the connector name was not correctly specified.  **Please see the appendix for how to troubleshoot connectivity issues. **
 
+1. Once the connection test is complete and the message &quot;The supplied credentials are authorized&quot; appears, click Save.
+
+![](RackMultipart20210115-4-mlm6xl_html_fb1870091ae0d83f.png)
 ### Scoping
 
 Azure AD allows you to scope who should be provisioned based on assignment to an application and / or by filtering on a particular attribute. [Determine who should be in scope for provisioning](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts) and define your scoping rule as necessary. Most customers will stick with the default scope of "assigned users and groups," without doing any additional scoping configuration. 
@@ -232,11 +236,7 @@ If you chose scoping based on assignment in the previous step, please [assign us
 ### Attribute mappings
 [Configure your attribute mappings.](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/customize-application-attributes)
 
-1. Click Test Connection and wait one minute. If the error message &quot;We encountered an error&quot; or &quot;You appear to have entered invalid credentials&quot; appears, check the IP address or host name of the server is correct, that the server is reachable and look at the event log of the Windows Server, as described in the section Monitoring the Azure AD ECMA Connector Host service below, to see if there are any error messages.  If there are no messages, this may indicate that the firewall was unable to permit an incoming connection to the service, or that the connector name was not correctly specified.  **Please see the appendix for how to troubleshoot connectivity issues. **
-
-1. Once the connection test is complete and the message &quot;The supplied credentials are authorized&quot; appears, click Save.
-
-![](RackMultipart20210115-4-mlm6xl_html_fb1870091ae0d83f.png)
+1. Navigate to the provisioning page of your application.
 
 1. Expand the Mappings section and click on &quot;Provision Azure Active Directory Users&quot;.
 
