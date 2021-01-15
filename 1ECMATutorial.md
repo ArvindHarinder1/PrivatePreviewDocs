@@ -39,7 +39,6 @@ This preview requires the following in the environment:
 
 - An Azure AD tenant with Azure AD Premium P1 or Premium P2 (or EMS E3 or E5).  You can get a free developer test tenant [here](https://developer.microsoft.com/office/dev-program). The tenant where the preview is being configured cannot be located in one of the  **European Union** ,  **European Economic Area** , candidate for inclusion in the European Union,  **China** , or  **Switzerland ** country/regions.  Tenants that are deployed in Azure Government, China, or other specialized cloud are not currently available for use in this preview.  A list of country/regions that are not currently available for use in this preview as well as instructions to check the country or region that your tenant is in, is included in Appendix C.  (This restriction will be removed at a later date.)   The ECMA connector host preview is not intended for use with production target systems, this tenant should hold only simulated/test data.
 
-- (optional) A MIM 2016 sync deployment (or FIM 2010 R2), in order to export an existing connector configuration file.
 
 ## Step 1. Plan your provisioning deployment
 
@@ -85,13 +84,13 @@ Note: If you have ECMA Connector Host previously installed:
 
 ### Install provisioning agent
 
-1. Download the provisioning agent, found in the zip file.
+1. Install it on your virtual machine or on-premises server.
 
-2. Install it on your virtual machine or on-premises server.
+1. Select the extension to provision to on-prem applications (selecting this will skip over the step to provide AD credentials).
 
-3. Select the extension to provision to on-prem applications (selecting this will skip over the step to provide AD credentials).
+1. When prompted, you will need to provide credentials for a user that is a global administrator or hybrid administrator in Azure AD.
 
-4. When prompted, you will need to provide credentials for a user that is a global administrator or hybrid administrator in Azure AD.
+1. Click next and confirm to complete the installation. 
 
 
 ### Install ECMA host
@@ -124,7 +123,7 @@ Note: If you have ECMA Connector Host previously installed:
 
 ## Step 3. Configure the host
 
-1. After installation is complete, if you specified an account in step 9 above which is different than the account you&#39;re currently signed in as, sign out and switch to that account.
+1. After installation is complete, if you specified an account above which is different than the account you&#39;re currently signed in as, sign out and switch to that account.
 
 2. Change to the directory c:\program files\Microsoft ECMA2host\Service\ECMA and ensure there are one or more DLLs already present in that directory.  (Those DLLs correspond to Microsoft-delivered connectors).
 
@@ -182,7 +181,7 @@ _Deprovisioning tab _
 
 16. After a few seconds, the service should start. When it starts, for the connectors which support full import, the connector host will perform a full import. if the service does not start, or stops afterward, launch event viewer and check the log Applications and Services Log \&gt; Microsoft ECMA2Host Logs.
 
-17. Test that you can make a request to the host by navigating to your browser and providing the endpoint for your host. If successful, you should receive a 405 message similar to the below screenshot. Please see the appendix for more details.
+17. Test that you can make a request to the host by navigating to your browser and providing the endpoint for your host. If successful, you should receive a 405 message similar to the below screenshot. Please see the troubleshooting connectivity section for more details.
 
 [https://hostname:8585/ecma2host\_connectorName/scim/users](https://hostname:8585/ecma2host_connectorName/scim/usersm)
 
@@ -224,10 +223,11 @@ In the tenant URL field, enter the following URL. Replace the hostname with the 
 
 ### Scoping
 
-[Determine who should be in scope for provisioning](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts).
+Azure AD allows you to scope who should be provisioned based on assignment to an application and / or by filtering on a particular attribute. [Determine who should be in scope for provisioning](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts) and define your scoping rule as necessary. Most customers will stick with the default scope of "assigned users and groups," without doing any additional scoping configuration. 
+
 ### Assign users
 
-[Assign users to your application](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-assign-users) if scoping is based on assignment to the application (recommended).
+If you chose scoping based on assignment in the previous step, please [assign users and / or groups to your application](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-assign-users) if scoping is based on assignment to the application (recommended).
 
 ### Attribute mappings
 [Configure your attribute mappings.](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/customize-application-attributes)
