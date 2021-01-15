@@ -124,3 +124,14 @@ Replace the variables [proxy-server] and [proxy-port] with your proxy server nam
 
 
 ## Next steps 
+
+
+Once the ECMA Connector host schema mapping has been configured, start the service so it will listen for incoming connections, if you haven&#39;t already, as described in step 29 above.  Then, monitor for incoming requests.
+
+1. Click on the start menu, type &quot;event viewer&quot;, and click on Event Viewer.
+
+1. In Event Viewer, expand Applications and Services Logs, and select ECMA2Host Logs.
+
+1. As changes are received by the connector host, events will be written to the application log.
+
+
