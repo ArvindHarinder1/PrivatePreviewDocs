@@ -1,6 +1,9 @@
 # Preview scope
 The preview allows you to prevent accidental deletions. You can define a threshold, that if exceeded, would cause the provioning job to stop executing and prompt for an admin to confirm that the deletions are expected. 
 
+# Important
+When using the accidental deletions capabiliy, please don't restart provisioning. It can cause events to be missed. 
+
 # Testing the preview capability
 ## Test environment
 It is okay to use this in a production tenant, but you should create a second enterprise application for testing and point that to a **non production** instance of your application. 
