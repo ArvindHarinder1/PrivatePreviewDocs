@@ -24,6 +24,9 @@ This tutorial describes the steps you need to perform to automatically provision
 You will need to download the provisioning agent and ECMA connector host to provide connectivity to your application. [Review the detailed steps for downloading and installing the components.]()
 
 ## Step 3. Setup your SQL encironment
+Create SQL Database in Azure.
+https://docs.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart
+
 The steps below show you how to setup Microsoft SQL Server 2019. You can skip this tep if you already have a SQL DB setup. 
 
 1. Download SQL Server - [https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019)
@@ -75,7 +78,8 @@ Once you've configured provisioning, use the following resources to monitor your
 
 
 ## Appendix G: Building a demo SQL environment for testing
-
+https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql-step-by-step
+https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql
 
 
 ## Appendix H: Configuring the host using SQL
