@@ -43,7 +43,7 @@ Before you use the Connector, make sure you have the following on the synchroniz
 1. Review the steps to configure [on-prem provisioning](https://linkToNewTutorial) 
 2. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 3. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-4. Determine what data to [map between Azure AD and ServiceNow](../app-provisioning/customize-application-attributes.md). 
+4. Determine what data to [map between Azure AD and your LDAP directory](../app-provisioning/customize-application-attributes.md). 
 
 ## Step 2. Download and install the provisioning agent and on-prem host
 
