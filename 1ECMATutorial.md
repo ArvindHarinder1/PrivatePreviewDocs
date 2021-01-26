@@ -46,7 +46,7 @@ As you complete the following configuration steps, be sure to record the followi
 
 | **Parameter**   | **Determined in step**   | **Your value**   |
 | --- | --- | --- |
-| Hostname or public IP address of the Windows Server hosting the ECMA Connector Host  | 1  |   |
+| Hostname of the Windows Server hosting the ECMA Connector Host (will be used to define the tenant URL in the Azure Portal).| 1  |   |
 | Username of the account the Connector Host will run as  | 9  |   |
 | Password of the account the Connector Host will run as  | 9  |   |
 | Port number of the ECMA Connector Host  | Default  | 8585  |
