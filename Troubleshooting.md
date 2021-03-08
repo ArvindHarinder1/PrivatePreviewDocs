@@ -1,6 +1,4 @@
-## Troubleshooting connectivity
-
-Test connection is failing. How do I troubleshoot?
+## Test connection is failing. How do I troubleshoot?
 
 1. Ensure the agent and host services are running. Search for services in your windows task bar > identify the Microsoft Azure AD Connect provisioning agent and Microsoft ECMA connector host services > ensure they are started / running. 
 
@@ -19,6 +17,11 @@ Test connection is failing. How do I troubleshoot?
 1. Ensure that you are using a valid certificate. Please see Appendix F for instructions on how to create a valid certificate.
 
 1. Restart the provisioning agent by navigating to the task bar on your VM \&gt; searching for the Microsoft Azure AD Connect provisioning agent \&gt; Right click stop and then start
+
+
+## How do I troubleshoot configuration of the ECMA host? 
+Test connector in MIM...
+
 
 
 ## Appendix C: Troubleshooting
