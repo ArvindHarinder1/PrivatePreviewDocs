@@ -69,33 +69,6 @@ If you wish to further debug the generic SQL or generic LDAP connectors, then yo
      </system.diagnostics> 
 ```
 
-## Testing connectivity to LDAP 
- 
-@ArvindHarinder1 ArvindHarinder1 8 days ago 
-This can probably go into the LDAP tutorial once we build it. Can keep it here for now.
-
-@ArvindHarinder1	Reply…
-
-Also one other thing to check is to ensure that you have TCP connectivity from the system to your LDAP server.  One way to check this is to open a PowerShell window on the same computer as where ECMA Connector Host is installed, and type 
-
-```Powershell
-Test-NetConnection -ComputerName <valid IP address> -port 389 -InformationLevel "Detailed" 
-```
-
-(replacing &lt;valid IP address&gt; with the IP address of your LDAP server, and a different port number if not 389) 
-
-If the output's last line is  
-
-`
-TcpTestSucceeded        : False 
-`
-
-then this indicates there is a network connectivity problem to the LDAP server from that system, which will need to be addressed prior to continuing with the configuration of the ECMA Connector Host. 
-
-For reference, see the test-netconnection documentation [here](https://docs.microsoft.com/powershell/module/nettcpip/test-netconnection?view=win10-ps).
-
-
-
 ## Next Steps
 
 Once the ECMA Connector host schema mapping has been configured, start the service so it will listen for incoming connections, if you haven&#39;t already, as described in step 29 above.  Then, monitor for incoming requests.
