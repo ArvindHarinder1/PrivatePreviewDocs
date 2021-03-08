@@ -15,8 +15,6 @@ ms.collection: M365-identity-device-management
 
 # On-premises application provisioning architecture
 
-## Overview
-
 There are three primary components to provisioning users into an on-premises application.
 
 1. The **Azure AD provisioning** service serves as the synchronization engine.
