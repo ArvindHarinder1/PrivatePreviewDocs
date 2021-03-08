@@ -2,9 +2,7 @@
 
 Test connection is failing. How do I troubleshoot?
 
-1. Ensure the agent and host services are running.
-
-1. Search for services in your windows task bar and check to ensure the Microsoft Azure AD Connect provisioning agent service is running as well as the Microsoft ECMA connector host service
+1. Ensure the agent and host services are running. Search for services in your windows task bar > identify the Microsoft Azure AD Connect provisioning agent and Microsoft ECMA connector host services > ensure they are started / running. 
 
 1. Test if a SCIM request works locally. If the request below returns a 405, you have the right endpoint and the host is receiving the request. If the request below does not return 405, you need to troubleshoot your host setup and ensure that you&#39;re using the right URL. See instructions below for the URL format. Make sure to add /users to the end of the request when testing in your browser (/users is not required when providing the URL in the cloud).
 
