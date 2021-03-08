@@ -53,14 +53,16 @@ The steps below show you how to setup Microsoft SQL Server 2019. You can skip th
 
 
 ## Step 5. Configure provisioning in Azure AD
+1. Add the application from the app gallery > navigate to the provisioning page
 1. Assign the agents to your application (get steps from preview doc).
-2. Provide the URL and secret token (get steps from preview doc). 
-2. [Determine who should be in scope for provisioning](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts).
-3. [Assign users to your application](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-assign-users) if scoping is based on assignment to the application (recommended).
-4. [Configure your attribute mappings.](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/customize-application-attributes)
-5. [Provision a user on-demand.](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/provision-on-demand)
-6. Add additional users to your application.
-7. Turn provisioning on.
+1. Provide the URL and secret token (get steps from preview doc). 
+1. Click test connection and save. (note you have to wait **10 minutes** between assigning the agents to the application and testing connection) 
+1. [Determine who should be in scope for provisioning](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts).
+1. [Assign users to your application](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-assign-users) if scoping is based on assignment to the application (recommended).
+1. [Configure your attribute mappings.](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/customize-application-attributes)
+1. [Provision a user on-demand.](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/provision-on-demand)
+1. Add additional users to your application.
+1. Turn provisioning on.
 
 ## Step 6. Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
