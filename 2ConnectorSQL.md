@@ -49,7 +49,7 @@ The steps below show you how to setup Microsoft SQL Server 2019. You can skip th
 
 1. Ensure that the database name matches the name from step 6.
 
-## Step 4. Configure the host
+## Step 4. Configure the ECMA host
 
 
 ## Step 5. Configure provisioning in Azure AD
