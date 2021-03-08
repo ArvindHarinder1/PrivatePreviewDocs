@@ -21,7 +21,7 @@ There are three primary components to provisioning users into an on-premises app
 
 1. The **Azure AD provisioning** service serves as the synchronization engine.
 1. The **Provisioning agent** provides connectivity to your on-premises environment or virtual machine.
-1. The **ECMA host** allows you to import existing ECMA2 connectors used to connect to your on-premises applications. 
+1. The **ECMA host** allows you to import existing ECMA2 connectors used to connect to your on-premises applications. Note, the ECMA host is not required if you have built a SCIM application or SCIM gateway.
 
 The following diagram shows how they interact:
 
@@ -43,14 +43,6 @@ Microsoft currently supports active / passive high availability. You can configu
 ### Firewall requirements
 
 The provisioning agents only use outbound connections to the provisioning service, which means that there is **no need to open firewall ports** for incoming connections. You also do not need a perimeter (DMZ) network because all connections are outbound and take place over a secure channel. 
-
-### Agent location
-
-The agent has to communicate with both Azure and your application, so the placement of the agent affects the latency of those two connections.  You can minimize the latency of the end-to-end traffic by optimizing each network connection. Each connection can be optimized by: 
-
-- Reducing the distance between the two ends of the hop. 
-- Choosing the right network to traverse. For example, traversing a private network rather than the public Internet may be faster, due to dedicated links. 
-
 
 ## Agent best practices
 
