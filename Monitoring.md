@@ -13,6 +13,8 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
+Azure AD allows you monitor the provisioning service in the cloud as well as collect logs on-premises. The provisioning service emits logs for each user that was evaluated as part of the synchronization process. Those logs can be consumed through the Azure Portal UI, APIs, and log analytics. In addition, the ECMA host generates logs on-premises, showing each provisioning request received and the response sent to Azure AD.
+
 # How to monitor the ECMA connector host for on-premises app provisioning
 
 Once the ECMA Connector host schema mapping has been configured, start the service so it will listen for incoming connections.  Then, monitor for incoming requests. To do this, do the following:
