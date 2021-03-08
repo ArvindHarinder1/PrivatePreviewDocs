@@ -46,26 +46,21 @@ As you complete the following configuration steps, be sure to record the followi
 
 | **Parameter**   | **Determined in step**   | **Your value**   |
 | --- | --- | --- |
-| Hostname of the Windows Server hosting the ECMA Connector Host (will be used to define the tenant URL in the Azure Portal).| 1  |   |
-| Username of the account the Connector Host will run as  | 9  |   |
-| Password of the account the Connector Host will run as  | 9  |   |
+| Hostname of the Windows Server hosting the ECMA Connector Host (will be used to define the tenant URL in the Azure Portal).|   |   |
+| Username of the account the Connector Host will run as  |   |   |
+| Password of the account the Connector Host will run as  |   |   |
 | Port number of the ECMA Connector Host  | Default  | 8585  |
-| Connector Name  | 15  |   |
-| Secret Token  | 15  |   |
-| Primary key and query attribute  | 21  |   |
+| Connector Name  |   |   |
+| Secret Token  |   |   |
+| Primary key and query attribute  |   |   |
 
 Also, you&#39;ll record the schema mappings between your connector&#39;s schema for the target system, the name of the attribute as transmitted in the SCIM protocol, and the name of the attribute in Azure AD.  Several examples are shown below.  _Note that the representation of attribute names in the Config Wizard and in the Azure AD portal is currently the same_, for extension attributes to SCIM.
 
-| **Attribute name in connector**   | **Attribute name in SCIM as represented in the Config Wizard**   | **Attribute name in Azure AD custom schema mapping**   | **Attribute name in Azure AD**   |
-| --- | --- | --- | --- |
-| User  | urn:ietf:params:scim:schemas:
- extension:CustomExtensionName:
- 2.0:CustomAttribute:User  | urn:ietf:params:scim:schemas:
-extension:CustomExtensionName:
-2.0:CustomAttribute:User    | employeeid  |
-| displayName  | displayName  | displayName  | displayName  |
-| email  | userName  | userName  | userPrincipalName  |
-| ...  | ...  | ...  | ...  |
+| **Attribute name in target application**   | **Attribute name in SCIM**   | **Attribute name in Azure AD**   | 
+| --- | --- | --- |
+|   |   |   | 
+|   |   |   | 
+
 
 
 
