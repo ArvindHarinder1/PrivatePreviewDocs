@@ -41,13 +41,14 @@ The provisioning agents only use outbound connections to the provisioning servic
 
 ## Agent best practices
 
- - Place agents on different outbound connections to avoid a single point of failure. If agents use the same outbound connection, a network problem with the connection may impact all agents using it. 
+- Ensure the auto update service is running. Auto update is required for Microsoft to support your deployment. 
+- Place agents on different outbound connections to avoid a single point of failure. If agents use the same outbound connection, a network problem with the connection may impact all agents using it. 
 - Avoid all forms of inline inspection on outbound TLS communications between agents and Azure. This type of inline inspection causes degradation to the communication flow. 
 - Make sure to keep automatic updates running for your agents. This is required for Microsoft to support your configuration.  
 - The agent has to communicate with both Azure and your application, so the placement of the agent affects the latency of those two connections.  You can minimize the latency of the end-to-end traffic by optimizing each network connection. Each connection can be optimized by: 
   - Reducing the distance between the two ends of the hop. 
   - Choosing the right network to traverse. For example, traversing a private network rather than the public Internet may be faster, due to dedicated links. 
-
+ - [Learn more](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/Troubleshooting.md) about troubleshooting agent issues. 
 
 # Ignore below
 ## Agents and Agent Groups 
