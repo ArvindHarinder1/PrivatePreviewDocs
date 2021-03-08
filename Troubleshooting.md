@@ -3,8 +3,8 @@
 1. Verify that the agent is running:
    1. On the server with the agent installed, open **Services** by either navigating to it or by going to **Start** > **Run** > **Services.msc**.
    1. Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater** and **Microsoft Azure AD Connect Provisioning Agent** are there and their status is *Running*.
-![image](https://user-images.githubusercontent.com/36525136/110371325-ad8db500-8001-11eb-95b0-d1a1d1d8f3a3.png)
 
+![image](https://user-images.githubusercontent.com/36525136/110372252-eaa67700-8002-11eb-968e-a6ea61a435ea.png)
 
 1. Test if a SCIM request works locally. If the request below returns a 405, you have the right endpoint and the host is receiving the request. If the request below does not return 405, you need to troubleshoot your host setup and ensure that you&#39;re using the right URL. See instructions below for the URL format. Make sure to add /users to the end of the request when testing in your browser (/users is not required when providing the URL in the cloud).
 
