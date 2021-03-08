@@ -1,6 +1,6 @@
 ## Build a VM for testing
 
-The instructions below demonstrate how to build a Virtual Machine for testing the ECMA host. These steps are not required and you can use your own on-prem server.
+The instructions below demonstrate how to build a Virtual Machine for testing the ECMA host. You can use your own on-prem server or IaaS provider of choice.
 
 1. Navigate to  **portal.azure.com** > **Virtual Machines** > **add machine.**
 
@@ -51,7 +51,7 @@ The instructions below demonstrate how to build a Virtual Machine for testing th
 
 16. Search for &quot;Dsa.msc &quot; in the windows task bar.
 
-17. Right click on user and click &quot;add new.&quot;
+17. Right click on user and click add new
 
 ![image](https://user-images.githubusercontent.com/36525136/110342162-f2a0ef80-7fdf-11eb-9fa9-49c3daaa2450.png)
 
