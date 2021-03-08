@@ -17,20 +17,17 @@ ms.collection: M365-identity-device-management
 
 There are three primary components to provisioning users into an on-premises application.
 
-1. The **Azure AD provisioning** service serves as the synchronization engine.
-1. The **Provisioning agent** provides connectivity to your on-premises environment or virtual machine.
-1. The **ECMA host** allows you to import existing ECMA2 connectors used to connect to your on-premises applications. Note, the ECMA host is not required if you have built a SCIM application or SCIM gateway.
+1. The **Provisioning agent** provides connectivity between Azure AD and your on-premises environment or virtual machine.
+1. The **ECMA host** converts provisioning requests from Azure AD to requests made to your target application. It serves as a gateway between Azure AD and your application. It allows you to import existing ECMA2 connectors used with Microsoft Identity Manager. Note, the ECMA host is not required if you have built a SCIM application or SCIM gateway.
+1. The **Azure AD provisioning service** serves as the synchronization engine.
 
-The following diagram shows how they interact:
+Note: MIM Sync is not required. However, you can use MIM sync to build and test your ECMA connector before importing it into the ECMA host. 
+
+The following diagram shows how the three components interact:
 
 ![image](https://user-images.githubusercontent.com/36525136/110339150-aef8b680-7fdc-11eb-8ddf-20e64573dfa2.png)
 
 
-The following information is a detailed description of what is occuring through every step of the process:
-
-  1. Configure the provisioning agent to provide connectivity between your Azure AD and on-premises environment or virtual machine.  
-  2. Configure the ECMA host to connect to your target application.  
-  3. Configure provisioning in Azure AD to send requests to on-premises to create, update, and delete users. 
 
 ### High availability  
 
