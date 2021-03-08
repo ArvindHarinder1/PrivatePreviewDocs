@@ -7,8 +7,8 @@
 
       1. Attempting to use Azure AD Connect and the on-prem provisioning to provision groups / users into AD DS can lead to creation of a loop, where Azure AD Connect can overwrite a change was made by the provisioning service in the cloud. Microsoft is working on a dedicated capability for group / user writeback. Please upvote the  UserVoice feedback [here](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/16887037-enable-user-writeback-to-on-premise-ad-from-azure) to track the status of the preview.
 
-1. Connectors other than generic LDAP and SQL
-   1. The ECMA host is officially supported for the GLDAP and GSQL connectors. While it is possible to use other connectors such as the web services connector or custom ECMA connectors, it is not yet supported. We plan to support for all ECMA2 connectors, but have not yet announced support for connectors other than GSQL and GLDAP. 
+   1. Connectors other than generic LDAP and SQL
+      1. The ECMA host is officially supported for the GLDAP and GSQL connectors. While it is possible to use other connectors such as the web services connector or custom ECMA connectors, it is not yet supported. We plan to support for all ECMA2 connectors, but have not yet announced support for connectors other than GSQL and GLDAP. 
 
 1. Attributes and objects not yet supported
    1. Multi-valued attributes
