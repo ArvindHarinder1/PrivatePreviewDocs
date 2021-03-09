@@ -7,7 +7,7 @@ Tutorials
 * [Generic tutorial](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/1ECMATutorial.md)
 
 Concepts
-* [Architecture](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/Architecture.md)
+* [Architecture](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/3Architecture.md)
 
 How-to guides
 * [Monitoring](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/Monitoring.md)
