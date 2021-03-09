@@ -18,6 +18,7 @@ This tutorial describes the steps you need to perform to automatically provision
 2. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 3. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 4. Determine what data to [map between Azure AD and ServiceNow](../app-provisioning/customize-application-attributes.md). 
+5. Review [known limitations](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/KnownLimitations.md).
 
 ## Step 2. Download and install the provisioning agent and on-prem host
 
