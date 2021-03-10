@@ -10,7 +10,6 @@ Concepts
 * [Architecture](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/3Architecture.md)
 
 How-to guides
-* [Monitoring](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/Monitoring.md)
 * [Troubleshooting](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/Monitoring.md)
 * [MIM Migration](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/MIMmigration.md)
 
