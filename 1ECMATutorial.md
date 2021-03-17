@@ -291,9 +291,11 @@ If you are unsure if the Azure AD provisioning service has attempted to contact 
 
 
 ### Add additional users to your application.
+Assign additional users and groups to your application - https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/assign-user-or-group-access-portal
+
 
 ### Turn provisioning on.
-
+Click start to enable provisioning. The service will then synchronize all users and groups in scope. 
 
 ## Step 5. Monitor your deployment
 1. [Enable logging on the ECMA host](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/Monitoring.md).
