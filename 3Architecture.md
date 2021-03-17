@@ -25,7 +25,7 @@ Note: MIM Sync is not required. However, you can use MIM sync to build and test 
 
 The following diagram shows how the three components interact:
 
-![image](https://user-images.githubusercontent.com/36525136/110339150-aef8b680-7fdc-11eb-8ddf-20e64573dfa2.png)
+![image](https://user-images.githubusercontent.com/36525136/111520402-4c5a9580-8715-11eb-94f6-1311b66b900e.png)
 
 
 
