@@ -24,6 +24,9 @@
 
 
 ## How do I troubleshoot configuration of the ECMA host? 
+#### I'm unable to start or edit configuration in the ECMA host
+You will need to run the ECMA host as an admin. Close the host and open it again as an admin. 
+
 #### Test connector in MIM...
 
 
