@@ -69,7 +69,12 @@ The provisioning agent and host are two separate windows services that are insta
 7. Open the agent installer > agree to the terms of service > click install
 
 ### Configure the provisioning agent
+1. Launch the provisioning agent wizard. A shortcut should be available in your desktop after completing the step above.
+2. When prompted to select an extension, select the on-prem provisioning option.
+3. Click authorize and provide Azure AD credentials. The credentials provided should be for a user that is a global administrator or hybrid administrator.  
+4. Click confirm.
 
+Note: You will see two steps about providing AD credentials and setting up gMSA. Those steps are not required and will automatically be skipped in the latest version of the provisioning agent. 
 
 ## Step 3. Configure the host
 
