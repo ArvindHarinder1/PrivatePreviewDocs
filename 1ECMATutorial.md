@@ -109,13 +109,11 @@ Note: If you are using an LDAP connector, there is a virtual \&lt;dn\&gt; attrib
 
 1. Check to ensure that the connector host Windows Service is running.  Click on the start menu, and type services. In the services list, scroll to &quot;Microsoft ECMA2Host&quot;.  Ensure that the status is &quot;Running&quot;.  If the status is blank, click &quot;Start&quot;.
 
-1. Sign into Azure Portal as a global administrator in a tenant that has Azure AD Premium P1 or Premium P2 (EMS E3 or E5). This is required to be able to configure outbound provisioning via a non-gallery application.
+1. Sign into Azure Portal as a global administrator in a tenant that has Azure AD Premium P1 or Premium P2 (EMS E3 or E5). This is required to be able to provision to an on-prem application. 
 
 1. In the Azure Portal, change to the Azure Active Directory area, change to Enterprise Applications, and click on New Application.
 
-1. Search for &quot;Provisioning Private Preview Test Application&quot;. If the UI looks different than in the screenshot below, you can click the banner at the top of the screen to try the new preview experience.
-
-![](RackMultipart20210115-4-mlm6xl_html_65d3bb0c9062ec2b.png)
+1. Search for Provisioning Private Preview Test Application and add it to your tenant.  
 
 1. Once the app has been created, click on the Provisioning item in the Manage section of the app. If you see an error when you click on the provisioning page, please wait and refresh.
 
@@ -125,11 +123,7 @@ Note: If you are using an LDAP connector, there is a virtual \&lt;dn\&gt; attrib
 
 1. In the on-premises connectivity section, select the agent that you just deployed and click assign agent(s).
 
-![](RackMultipart20210115-4-mlm6xl_html_38fc14246a9c85ce.png)
-
-1. Assigning agents
-
-1. Before performing the next step,  **wait about 30 minutes**  for the agent registration to complete. Test connection will not succeed until the agent registration is completed.
+1. Before performing the next step,  **wait 10 minutes**  for the agent registration to complete. Test connection will not succeed until the agent registration is completed. You can also force the agent registration to complete by restarting the provisioning agent on your server by navigating to services, finding the provisioning agent service, and clicking restart. 
 
 1. In the tenant URL field, enter the following URL, replacing the IP address with that of the connector host system, and adding the name of the connector to the before the &quot;/scim&quot; suffix.  For example, if your hostname is &quot;10.20.30.40&quot;, the port number is the default 8585, and the connector name is &quot;connector1&quot;, then provide the URL
 
@@ -141,7 +135,6 @@ In the tenant URL field, enter the following URL. Replace the hostname with the 
 
 1. Once the connection test is complete and the message &quot;The supplied credentials are authorized&quot; appears, click Save.
 
-![](RackMultipart20210115-4-mlm6xl_html_fb1870091ae0d83f.png)
 ### Scoping
 
 Azure AD allows you to scope who should be provisioned based on assignment to an application and / or by filtering on a particular attribute. [Determine who should be in scope for provisioning](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts) and define your scoping rule as necessary. Most customers will stick with the default scope of "assigned users and groups," without doing any additional scoping configuration. 
@@ -155,31 +148,7 @@ If you chose scoping based on assignment in the previous step, please [assign us
 
 1. Navigate to the provisioning page of your application.
 
-1. Expand the Mappings section and click on &quot;Provision Azure Active Directory Users&quot;.
-
-1. Scroll to the bottom of the page, click &quot;Show advanced options&quot; and click &quot;Edit attribute list for scimOnPremises&quot;.
-
-![](RackMultipart20210115-4-mlm6xl_html_ddd5a66aa21a3984.png)
-_Advanced option for editing the list of application-required attributes in the Azure portal_
-
-1. Add rows for each attribute which the connector host requires which is not already on the list.  Type the name of the attribute, specify the type as String, and click Add Attribute as described [here](https://docs.microsoft.com/azure/active-directory/app-provisioning/customize-application-attributes#provisioning-a-custom-extension-attribute-to-a-scim-compliant-application).  Do not use square brackets when typing the name; instead use a pattern with just colon characters as delimiters, as in
-
-urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User  
-
- ![](RackMultipart20210115-4-mlm6xl_html_c1c28f8fabf94e51.png)
-
-_Editing the list of application-required attributes in the Azure portal (example 1)_
-
-![](RackMultipart20210115-4-mlm6xl_html_b8487a057ad16a03.png)
-
-_Editing the list of application-required attributes in the Azure portal (example 2)_
-
-1. After all the attributes have been added, click Save, and return to the Attribute Mapping screen.
-
-1.  You can delete mappings to attributes in the attribute mapping list which are not used in your connector.  For example, if you do not wish to send the mail nickname (which is not unique) to the target system, then remove the mapping of the mailNickname Azure AD attribute to the externalid customsso attribute.
-
-![](RackMultipart20210115-4-mlm6xl_html_5b82dcb9c772fe7.png)
-_Editing a mapping to an application-required attributes in the Azure portal_
+1. Expand the Mappings section and click on Provision Azure Active Directory Users;.
 
 1. Click on Add new mapping and add new rows for each Azure Active Directory attribute to be mapped to either a SCIM-defined attribute, or a custom attribute added at step 40.  Click OK after adding each row.
 
