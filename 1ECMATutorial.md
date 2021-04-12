@@ -70,64 +70,22 @@ The provisioning agent and host are two separate windows services that are insta
 
 ### Configure the provisioning agent
 
-### Configure the ECMA Host
-
-1. Navigate to the start menu and identify the Microsoft ECMA Host application. **Open this as an administrator.** 
-
 
 ## Step 3. Configure the host
 
-1. After installation is complete, if you specified an account above which is different than the account you&#39;re currently signed in as, sign out and switch to that account.
-
-2. Change to the directory c:\program files\Microsoft ECMA2host\Service\ECMA and ensure there are one or more DLLs already present in that directory.  (Those DLLs correspond to Microsoft-delivered connectors).
-
-``cd &quot;c:\Program Files\Microsoft ECMA2Host\Service\ECMA&quot;``
-
-3. Copy the MA DLL for your connector, and any of its prerequisite DLLs, to that same ECMA subdirectory of the Service directory.   If you do not have a DLL for your connector, but have a SQL Server in your environment, then you can continue testing with the Generic SQL Connector.    Similarly, if you have an LDAP Server or PowerShell, you can use one of included Generic connectors.
-
-Note: If you are using an LDAP connector, there is a virtual \&lt;dn\&gt; attribute that could be mapped to SCIM attribute for connectors that require DN calculation outside of connector logic. For example, using the Generic LDAP MA, you will be able to set up a mapping of _urn:ietf:params:scim:schemas:extension:ECMA:1.0:User:distinguishedName_ to \&lt;dn\&gt; in ECMA Connector Host Configuration Wizard and set up your custom expression in Azure AD to populate _urn:ietf:params:scim:schemas:extension:ECMA:1.0:User:distinguishedName_.
-
-4. Change to the directory C:\program files\Microsoft ECMA2Host\Wizard and run as an administrator the program Microsoft.ECMA2Host.ConfigWizard.exe to set up the ECMA Connector Host configuration.
-
-``cd &quot;c:\Program Files\Microsoft ECMA2Host\Wizard&quot;
- Microsoft.ECMA2Host.ConfigWizard.exe``
-
-
-5. A new window will appear with a list of connectors. The first time this is run, no connector configurations will be present.  Click &quot;New Connector&quot;.
-
- ![](RackMultipart20210115-4-mlm6xl_html_51c835392a6b14a9.png)
-_New connector properties page_
-
-If you will be importing an existing MA configuration from MIM, then perform the steps in Appendix A before proceeding.
-
-6. Pick and record the name of the connector, and a shared secret for use on the new connector properties page. The name of the connector should be exclusively ASCII letters and digits, the autosync timer should be 60 minutes, and the secret token a string of 10-20 ASCII letters and digits.    (You&#39;ll use the secret token later in configuring outgoing provisioning in Azure AD). For Connector, select from the drop-down the name DLL that was placed in the ECMA folder at the earlier step. Then click &quot;Next&quot;.
-
-7. The left-hand side of the wizard window may change to add additional tabs, such as Connectivity, as required by the connector.  Click &quot;Next&quot; after completing each tab.
-
-8. On the Partitions tab, if the connector does not have any partitions, leave the default partition selected, and click Next.
-
-9. On the Run Profiles tab, select the run profiles which the connector is capable of being used in.  The export profile is mandatory, but full and delta import are optional.  Note that if neither full import nor delta import is configured, the ECMA Connector host will not be able to determine whether an object already exists in the target system prior to exporting it.
-
-10. On the Export tab, specify the page size – default to 100.
-
-11. On the Object Types tab, select which object type provided by the target system corresponds to an Azure AD user. Then, select the anchor attribute for that object type.
-
-![](RackMultipart20210115-4-mlm6xl_html_a8b62338c0274b4d.png)_Object type and anchor attribute mapping for the Azure AD User object type_
-
-12. On the Schema Mapping tab, configure the unique identifier attribute for the Azure AD user.  The unique identifier will correspond to the primary key attribute that will be configured later in Azure AD portal. Then, add attribute mappings for each attribute in your target system&#39;s user to the corresponding Azure AD attribute, by clicking &quot;Add attribute mapping&quot; tab, selecting the attribute name of the connected system, and the corresponding SCIM attribute.  By default, the attribute names from SCIM are displayed; if you do not see a corresponding attribute, then type in the attribute name.  In the configuration wizard, custom attributes that are not displayed in the drop down must be written in the same format as in Azure AD portal, e.g.
-
- urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User
-
-![](RackMultipart20210115-4-mlm6xl_html_f59f681d68cf102a.png)
-_Schema Mappings tab for a user&#39;s attributes with a custom attribute_
-
-13. On the Deprovisioning tab, configure the desired behavior when a user&#39;s account in Azure AD is disabled from being able to sign in, and the desired behavior when a user&#39;s account in Azure AD is deleted.  If you do not wish users to be removed from the target system, then select &quot;None&quot; for the delete flow. Then click &quot;Finish&quot;.
-
-_Both deprovisioning flows use hardcoded SCIM attribute &quot;active&quot; which is available by default in Azure AD portal. Therefore, if you choose to Set attribute value in the Disable flow, the boolean value of &quot;active&quot; attribute will be copied to an attribute you select from the drop down list as follows:_
-
-![](RackMultipart20210115-4-mlm6xl_html_68f5d9406d7483b8.png)
-
-_Deprovisioning tab _
+1. Navigate to the start menu and identify the Microsoft ECMA Host application. **Open this as an administrator.** 
+2. Generate the certificate for connectivity to the provisioning agent.
+3. A new window will appear with a list of connectors. The first time this is run, no connector configurations will be present.  Click &quot;New Connector&quot;.
+4. Pick and record the name of the connector, and a shared secret for use on the new connector properties page. The name of the connector should be exclusively ASCII letters and digits, the autosync timer should be 60 minutes, and the secret token a string of 10-20 ASCII letters and digits.    (You&#39;ll use the secret token later in configuring outgoing provisioning in Azure AD). For Connector, select from the drop-down the name DLL that was placed in the ECMA folder at the earlier step. Then click &quot;Next&quot;.
+5. The left-hand side of the wizard window may change to add additional tabs, such as Connectivity, as required by the connector.  Click &quot;Next&quot; after completing each tab.
+6. On the Partitions tab, if the connector does not have any partitions, leave the default partition selected, and click Next.
+7. On the Run Profiles tab, select the run profiles which the connector is capable of being used in.  The export profile is mandatory, but full and delta import are optional.  Note that if neither full import nor delta import is configured, the ECMA Connector host will not be able to determine whether an object already exists in the target system prior to exporting it.
+8. On the Export tab, specify the page size – default to 100.
+9. On the Object Types tab, select which object type provided by the target system corresponds to an Azure AD user. Then, select the anchor attribute for that object type.
+10. On the Schema Mapping tab, configure the unique identifier attribute for the Azure AD user.  The unique identifier will correspond to the primary key attribute that will be configured later in Azure AD portal. Then, add attribute mappings for each attribute in your target system&#39;s user to the corresponding Azure AD attribute, by clicking &quot;Add attribute mapping&quot; tab, selecting the attribute name of the connected system, and the corresponding SCIM attribute.  By default, the attribute names from SCIM are displayed; if you do not see a corresponding attribute, then type in the attribute name.  In the configuration wizard, custom attributes that are not displayed in the drop down must be written in the same format as in Azure AD portal, 
+e.g.urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User
+11. On the Deprovisioning tab, configure the desired behavior when a user&#39;s account in Azure AD is disabled from being able to sign in, and the desired behavior when a user&#39;s account in Azure AD is deleted.  If you do not wish users to be removed from the target system, then select &quot;None&quot; for the delete flow. Then click &quot;Finish&quot;.
+12. _Both deprovisioning flows use hardcoded SCIM attribute &quot;active&quot; which is available by default in Azure AD portal. Therefore, if you choose to Set attribute value in the Disable flow, the boolean value of &quot;active&quot; attribute will be copied to an attribute you select from the drop down list as follows:_
 
 14. At this point you should now see the connector listed, and you can close the wizard window.
 
@@ -139,7 +97,7 @@ _Deprovisioning tab _
 
 [https://hostname:8585/ecma2host\_connectorName/scim/users](https://hostname:8585/ecma2host_connectorName/scim/usersm)
 
-![](RackMultipart20210115-4-mlm6xl_html_137c00ae78714e61.png)
+Note: If you are using an LDAP connector, there is a virtual \&lt;dn\&gt; attribute that could be mapped to SCIM attribute for connectors that require DN calculation outside of connector logic. For example, using the Generic LDAP MA, you will be able to set up a mapping of _urn:ietf:params:scim:schemas:extension:ECMA:1.0:User:distinguishedName_ to \&lt;dn\&gt; in ECMA Connector Host Configuration Wizard and set up your custom expression in Azure AD to populate _urn:ietf:params:scim:schemas:extension:ECMA:1.0:User:distinguishedName_.
 
 ## Step 4. Configure provisioning in Azure AD
 ### Establish connectivity between Azure AD and the ECMA Host 
