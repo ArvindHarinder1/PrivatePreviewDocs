@@ -25,15 +25,15 @@
 
 ## How do I troubleshoot configuration of the ECMA host? 
 
-#### The following issues can be resolved by running the ECMA host as an admin
+#### The following issues can be resolved by running the ECMA host as an admin:
 
-**I'm unable to configure the ECMA host wizard**
-You will need to run the ECMA host as an admin. Close the host and open it again as an admin. 
+* I get an error when opening the ECMA host wizard 
+![image](https://user-images.githubusercontent.com/36525136/114464200-4af87d80-9b9a-11eb-96f8-f05bebaa0113.png)
 
-**I've been able to configure the ECMA host wizard, but am not able to start the ECMA host service**
+* I've been able to configure the ECMA host wizard, but am not able to start the ECMA host service
 ![image](https://user-images.githubusercontent.com/36525136/114463488-58613800-9b99-11eb-85d8-e0b598a37995.png)
 
-**I'm unabled to start the ECMA host service**
+* I'm unabled to start the ECMA host service
 ![image](https://user-images.githubusercontent.com/36525136/114463772-bbeb6580-9b99-11eb-9252-9a3934aa83a1.png)
 
 
