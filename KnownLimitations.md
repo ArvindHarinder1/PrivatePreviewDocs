@@ -11,7 +11,7 @@
       1. The ECMA host is officially supported for the GLDAP and GSQL connectors. While it is possible to use other connectors such as the web services connector or custom ECMA connectors, it is not yet supported. We plan to support for all ECMA2 connectors, but have not yet announced support for connectors other than GSQL and GLDAP. 
 
    1. Azure Active Directory is not supported as a target system
-      1. On-prem provisioning allows you to take a user in Azure AD and provision them into a third party application. It does not allow you to bring a user into the directory from a third party application. Customers will need to rely on our native HR integrations, Azure AD Connect, or MIM to bring users intot he directory.  
+      1. On-prem provisioning allows you to take a user in Azure AD and provision them into a third party application. It does not allow you to bring a user into the directory from a third party application. Customers will need to rely on our native HR integrations, Azure AD Connect, or MIM to bring users into the directory.  
 
 1. Attributes and objects not yet supported
    1. Multi-valued attributes
