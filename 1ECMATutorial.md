@@ -1,9 +1,5 @@
 # Azure AD Outbound Provisioning with the Azure AD ECMA Connector Host Private Preview
 
-## Test Lab Guide for version 1.6.83.3
-
-Last updated December 2020
-
 Microsoft Confidential – Not for distribution
 
 This guide outlines how to validate that an Extensible Connectivity Management Agent (ECMA)-based connector, that today is used with FIM or MIM, will work with the upcoming Azure AD outbound provisioning via the Azure AD ECMA Connector Host, currently in private preview.
@@ -24,16 +20,13 @@ Once the setup described in this document is complete, then a user assignment to
 
 ![](RackMultipart20210115-4-mlm6xl_html_6f1d99f8a04ec528.png)
 
-Note that the purpose of this preview is to verify API compatibility; it is not a supported production release.
-
 ## Prerequisites for this preview
 
 This preview requires the following in the environment:
 
-- A target system, such as a database, or LDAP directory, in which users can be created, updated and deleted.  The ECMA connector host preview is not intended for use with production target systems, this system should hold only simulated/test data.
+- A target system, such as a SQL database, or LDAP directory, in which users can be created, updated and deleted.
 
 - An ECMA 2.0 or later connector for that target system, which supports export, schema retrieval, and optionally full import or delta import operations.  If you do not have an ECMA Connector ready during configuration, then you can still validate the end-to-end flow if you have a SQL Server in your environment and use the Generic SQL Connector.
-
 
 - A Windows Server 2016 or later computer with an Internet-accessible TCP/IP address, connectivity to the target system, and with outbound connectivity to login.microsoftonline.com (for example, a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy). The server should have at least 3GB of RAM.
 
@@ -64,49 +57,23 @@ Also, you&#39;ll record the schema mappings between your connector&#39;s schema 
 
 
 ## Step 2. Download and install the provisioning agent and on-prem host
-### Download provisioning agent and host
+### Download / install the provisioning agent and host
+The provisioning agent and host are two separate windows services that are installed using one installer. They are expected to be deployed on the same server. 
 
-1. Download the provisoining agent bits [here]().
-2. Download the ECMA host bits [here]().
+1. Sign into the Azure Portal
+2. Naviage to enterprise applications > Add a new application
+3. Search for the provisioning private preview test application and add it to your tenant
+4. Navigate to the provisioning blade
+5. Click on on-premises connectivity
+6. Download the agent installer in step 1 (you will need to copy it into the server that the app is hosted in if you're using 
+7. Open the agent installer > agree to the terms of service > click install
 
-### Install provisioning agent
+### Configure the provisioning agent
 
-1. Install it on your virtual machine or on-premises server.
+### Configure the ECMA Host
 
-1. Select the extension to provision to on-prem applications (selecting this will skip over the step to provide AD credentials).
+1. Navigate to the start menu and identify the Microsoft ECMA Host application. **Open this as an administrator.** 
 
-1. When prompted, you will need to provide credentials for a user that is a global administrator or hybrid administrator in Azure AD.
-
-1. Click next and confirm to complete the installation. 
-
-
-### Install ECMA host
-
-1. Prepare a Windows Server 2016 or later server with at least 3GB of RAM to run the Azure AD ECMA Connector Host.  One way to set up this server is by deploying an Azure Virtual Machine.  Note that this server requires Internet connectivity for incoming connections, either directly or via an HTTP proxy.  Record the IP address or hostname of that server.
-
-2. Sign in as a user who is an administrator on that server.
-
-3. Ensure Microsoft .NET 4.5.2 Framework or a later version of the .NET Framework is installed.  If using Windows Server 2016, launch Server Manager, click Add roles and features, and on the Features step of the wizard, ensure that &quot;.NET Framework 4.6&quot; is installed.
-
-4. Create a folder on a local drive on the server that will contain the software, e.g., c:\temp.
-
-5. Copy the ZIP file containing the Azure AD ECMA Connector Host software and unpack to that folder, so it creates a subfolder.
-
-6. Generate a self-signed certificate with the hostname as the subject as described in the appendix.
-
-7. Open an elevated command shell, by right clicking on Command Prompt on the Start menu and selecting &quot;Run as administrator&quot;.
-
-8. In that elevated command shell, change to the subfolder where the software was unpacked.
-
-``cd \temp``
-
-9. Use msiexec to install the software, by typing
-
-``msiexec /log log.txt /i Microsoft.ECMA2Host.Setup.msi``
-
-11. When prompted, select a certificate to be used for HTTPS endpoint. You can use the steps outlined in the appendix to generate the certificate.
-
-12. Provide the username and password of an account that is a local administrator. The user must be a member of the local Administrators group on the computer where the software is being installed.  If the account is a local machine account (not a domain account), provide the account name in the form &quot;hostname\username&quot;. _Otherwise, if the account is a domain account, provide the account name in the  &quot;domain\_fqdn\username&quot; form, including the full DNS domain name not just the NETBIOS name of the domain._ Then click Install, and when the install completes, click Finish.
 
 ## Step 3. Configure the host
 
