@@ -2,15 +2,13 @@ The Azure AD provisioning service supports a [SCIM 2.0](https://aka.ms/scimoverv
 
 ![image](https://user-images.githubusercontent.com/36525136/110343793-b2427100-7fe1-11eb-9bc3-05d6825f8f81.png)
 
-Note: The diagram above describes the data flow. It is not ...
-
 ## Pre-requisites
 * AAD P1
 * Admin role for installing the agent (one time effort) - Hybrid admin / Global admin 
 * Admin role for configuring the application in the cloud (Application admin, Cloud application admin, Global Administrator, Custom role with perms)
 
 ## Steps
-1. Add application from the [gallery](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal).
+1. Add the provisioning private preview test application from the [gallery](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal).
 1. Navigate to your app > Provisioning > Download the provisioning agent.
 1. Install agent on-prem (provide admin credentials).
 1. Configure any [attribute mappings](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/customize-application-attributes) or [scoping](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts) rules required for your application.  
