@@ -51,8 +51,8 @@ Also, you&#39;ll record the schema mappings between your connector&#39;s schema 
 
 | **Attribute name in target application**   | **Attribute name in SCIM**   | **Attribute name in Azure AD**   | 
 | --- | --- | --- |
-| firstName  | urn:ietf...  | givenName  | 
-| lastName  |  urn:ietf:... | surname | 
+| Country  | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:Country  | country  | 
+| InternalGUID  |  urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:InternalGUID | objectId | 
 
 
 
