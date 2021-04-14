@@ -9,14 +9,25 @@ The Azure AD provisioning service supports a [SCIM 2.0](https://aka.ms/scimoverv
 
 ## Steps
 1. Add the provisioning private preview test application from the [gallery](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal).
-1. Navigate to your app > Provisioning > Download the provisioning agent.
-1. Install agent on-prem (provide admin credentials).
-1. Configure any [attribute mappings](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/customize-application-attributes) or [scoping](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts) rules required for your application.  
-1. Add users to scope by [assigning users and groups](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-assign-users) to the application.
-1. Test provisioning a few users [on-demand](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/provision-on-demand). 
-1. Add additional users into scope by assigning them to your application. 
-1. Navigate to the provisioning blade and hit start provisioning. 
-1. Monitor using the [provisioning logs](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-provisioning-logs). 
+1. Navigate to your application > Provisioning > Download the provisioning agent.
+1. Click on on-premises connectivity and download the provisioning agent.
+2. Copy the agent onto your virtual machine or server that your appis hosted on.
+3. Open the provisioning agent installer, agree to the terms of service and click install.
+4. Open the provisioning agent wizard and select on-premises provisioning when prompted for the extension that you would like to enable. 
+5. Provide credentials for an Azure AD Administrator when prompted to authorize (Hybrid administrator or Global administrator required. 
+6. Click confirm to confirm the installation was successful. 
+7. Navigate back to your application to the on-premises connectivity section of the provisioning page. 
+8. Select the agent that you installed from the dropdown list and click assign agent. 
+9. Wait 10 minutes or restart the Azure AD Connect Provisioning agent service on your server / VM.
+10. Navigate back to the Azure Portal to the Admin credentials section of the provisioning page. 
+11. Provide the URL for your application (e.g. Https://localhost:8585/scim).
+12. Click test connection and save the credentials.
+13. Configure any [attribute mappings](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/customize-application-attributes) or [scoping](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts) rules required for your application.  
+14. Add users to scope by [assigning users and groups](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-assign-users) to the application.
+15. Test provisioning a few users [on-demand](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/provision-on-demand). 
+16. Add additional users into scope by assigning them to your application. 
+17. Navigate to the provisioning blade and hit start provisioning. 
+18. Monitor using the [provisioning logs](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-provisioning-logs). 
 
 ## Things to be aware of
 * Ensure your [SCIM](https://aka.ms/scimoverview) implementation meets the [Azure AD SCIM requirements](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).
