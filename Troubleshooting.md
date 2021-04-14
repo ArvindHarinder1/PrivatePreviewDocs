@@ -6,18 +6,18 @@
 
 ![image](https://user-images.githubusercontent.com/36525136/110372252-eaa67700-8002-11eb-968e-a6ea61a435ea.png)
 
-1. Test if a SCIM request works locally. If the request below returns a 405, you have the right endpoint and the host is receiving the request. If the request below does not return 405, you need to troubleshoot your host setup and ensure that you&#39;re using the right URL. See instructions below for the URL format. Make sure to add /users to the end of the request when testing in your browser (/users is not required when providing the URL in the cloud).
+1. Test that you are able to make a request to the ECMA host from the machine that it is deployed on. Make a request as shown below, replacing 1016VM with your hostname and SQL1 with your connector name. If the request below returns a 405, you have the right endpoint and the host is receiving the request. If the request below does not return 405, you need to troubleshoot your host setup and ensure that you're using the right URL. See instructions below for the URL format. Make sure to add /users to the end of the request when testing in your browser (/users is not required when providing the URL in the cloud).
 
 ![image](https://user-images.githubusercontent.com/36525136/114733626-5cf03280-9cf8-11eb-9ff8-8e8ae9af648a.png)
 
 
 1. Ensure that the agent is active by navigating to your application in the azure portal \&gt; click on admin connectivity \&gt; click on the agent dropdown and ensure your agent is active.
 
-1. Check if the secret token provided is the same as the secret token on-prem (you will need to go on-prem and provide the secret token again and then copy it into the cloud).
+1. Check if the secret token provided is the same as the secret token on-prem (you will need to go on-prem and provide the secret token again and then copy it into the Azure Portal).
 
-1. Ensure that the URL provided matches the following pattern:
+1. When providing the tenant URL in the Azure Portal, ensure that it follows the following pattern. You can replace localhost with your hostname, but it is not required. Replace "connectorName" with the name of the connector you specified in the ECMA host.   
 
-[https://hostname:8585/ecma2host\_connectorName/scim](https://hostname:8585/ecma2host_connectorName/scim)
+https://localhost:8585/ecma2host_connectorName/scim
 
 1. Ensure that you are using a valid certificate. Please see Appendix F for instructions on how to create a valid certificate.
 
