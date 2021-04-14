@@ -56,6 +56,14 @@ Once the ECMA Connector host schema mapping has been configured, start the servi
 |Xpath expression for filtering on a certain date-time range|input sample expression| 
 |Exporting the xpath events for support|input sample expression| 
 
+## Troubleshooting scripts
+Navigate to the folder where the ECMA Host was installed  > Troubleshooting > Scripts. 
+
+1. CollectTroubleshootingInfo
+   1. This script allows you to collect all logs that are in the event viewer and exprt them as a CSV file. 
+1. TestECMA2HostConnection
+   1. This script will send a SCIM GET or POST request in order to validate that the ECMA Connector Host is operating and responding to requests.
+    It should be run on the same computer as the ECMA Connector Host service itself.
 
 ## Understanding incoming SCIM requests 
 
