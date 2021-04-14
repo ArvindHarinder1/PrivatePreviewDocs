@@ -37,12 +37,6 @@ Exporting and saving your configuration allows you to roll back to a previous ve
 - Users will be evaluated again to determine if they should be in scope. If the scoping filters have changed a user is not in scope any more they will be disabled. While this is the desired behavior in most cases, there are times where you may want to prevent this and can use the [skip out of scope deletions](./skip-out-of-scope-deletions.md) functionality. 
 - Changing your provisioning configuration restarts the service and triggers an [initial cycle](./how-provisioning-works.md#provisioning-cycles-initial-and-incremental).
 
-## Export and import your provisioning configuration for an on-premises application using the ECMA host
-
-The on-premises ECMA host allows you to export your configuration for a single connector or for all connectors configured on that host. Clicking export at the top right corner of the screen allows you to export the configuration for all connectors and clicking export in the list of connectors exports the specific connector. Likewise, you can import an existing connector using the import button. Microsoft recommends storing a backup of your configuration before making a significant change. 
-
-![image](https://user-images.githubusercontent.com/36525136/114784623-59789d80-9d30-11eb-946b-8f6875b65795.png)
-
 ## Export and import your provisioning configuration by using the Microsoft Graph API
 
 You can use the Microsoft Graph API and the Microsoft Graph Explorer to export your User Provisioning attribute mappings and schema to a JSON file and import it back into Azure AD. You can also use the steps captured here to create a backup of your provisioning configuration.
@@ -105,3 +99,9 @@ In the "Request Headers" tab, add the Content-Type header attribute with value â
    [![Request Headers](./media/export-import-provisioning-configuration/wd_export_05.png)](./media/export-import-provisioning-configuration/wd_export_05.png#lightbox)
 
 Select **Run Query** to import the new schema.
+
+## Export and import your provisioning configuration for an on-premises application using the ECMA host
+
+The on-premises ECMA host allows you to export your configuration for a single connector or for all connectors configured on that host. Clicking export at the top right corner of the screen allows you to export the configuration for all connectors and clicking export in the list of connectors exports the specific connector. Likewise, you can import an existing connector using the import button. Microsoft recommends storing a backup of your configuration before making a significant change. 
+
+![image](https://user-images.githubusercontent.com/36525136/114784623-59789d80-9d30-11eb-946b-8f6875b65795.png)
