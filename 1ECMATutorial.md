@@ -61,7 +61,7 @@ The provisioning agent and host are two separate windows services that are insta
 
 Note: You will see two steps about providing AD credentials and setting up gMSA. Those steps are not required and will automatically be skipped in the latest version of the provisioning agent. 
 
-## Step 3. Configure the host
+## Step 3. Configure the ECMA host
 
 1. Navigate to the start menu and identify the Microsoft ECMA Host application. **Open this as an administrator.** 
 2. Generate the certificate for connectivity to the provisioning agent.
