@@ -19,9 +19,9 @@
 
 https://localhost:8585/ecma2host_connectorName/scim
 
-1. Ensure that you are using a valid certificate. Please see Appendix F for instructions on how to create a valid certificate.
+1. Ensure that you are using a valid certificate. Navigating the settings tab of the ECMA host allows you to generate a new certificate. 
 
-1. Restart the provisioning agent by navigating to the task bar on your VM \&gt; searching for the Microsoft Azure AD Connect provisioning agent \&gt; Right click stop and then start
+1. Restart the provisioning agent by navigating to the task bar on your VM by searching for the Microsoft Azure AD Connect provisioning agent. Right click stop and then start.
 
 
 ## How do I troubleshoot configuration of the ECMA host? 
