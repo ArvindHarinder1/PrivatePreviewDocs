@@ -34,26 +34,11 @@ This preview requires the following in the environment:
 
 
 ## Step 1. Plan your provisioning deployment
-
-As you complete the following configuration steps, be sure to record the following parameters about the environment.
-
-| **Parameter**   | **Determined in step**   | **Your value**   |
-| --- | --- | --- |
-| Hostname of the Windows Server hosting the ECMA Connector Host (will be used to define the tenant URL in the Azure Portal).|   |   |
-| Username of the account the Connector Host will run as  |   |   |
-| Password of the account the Connector Host will run as  |   |   |
-| Port number of the ECMA Connector Host  | Default  | 8585  |
-| Connector Name  |   |   |
-| Secret Token  |   |   |
-| Primary key and query attribute  |   |   |
-
-Also, you&#39;ll record the schema mappings between your connector&#39;s schema for the target system, the name of the attribute as transmitted in the SCIM protocol, and the name of the attribute in Azure AD.  Several examples are shown below.  _Note that the representation of attribute names in the Config Wizard and in the Azure AD portal is currently the same_, for extension attributes to SCIM.
-
-| **Attribute name in target application**   | **Attribute name in SCIM**   | **Attribute name in Azure AD**   | 
-| --- | --- | --- |
-| Country  | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:Country  | country  | 
-| InternalGUID  |  urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:InternalGUID | objectId | 
-
+1. Review the steps to configure [on-prem provisioning](https://linkToNewTutorial) 
+2. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
+3. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+4. Determine what data to [map between Azure AD and your LDAP directory](../app-provisioning/customize-application-attributes.md).
+5. Review the [known limitations](Fill here) 
 
 
 ## Step 2. Download and install the provisioning agent and on-prem host
@@ -145,6 +130,15 @@ If you chose scoping based on assignment in the previous step, please [assign us
 
 ### Counfigure your attribute mappings
 [Configure your attribute mappings.](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/customize-application-attributes)
+
+Also, you&#39;ll record the schema mappings between your connector&#39;s schema for the target system, the name of the attribute as transmitted in the SCIM protocol, and the name of the attribute in Azure AD.  Several examples are shown below.  _Note that the representation of attribute names in the Config Wizard and in the Azure AD portal is currently the same_, for extension attributes to SCIM.
+
+| **Attribute name in target application**   | **Attribute name in SCIM**   | **Attribute name in Azure AD**   | 
+| --- | --- | --- |
+| Country  | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:Country  | country  | 
+| InternalGUID  |  urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:InternalGUID | objectId | 
+
+
 
 1. Navigate to the provisioning page of your application.
 
