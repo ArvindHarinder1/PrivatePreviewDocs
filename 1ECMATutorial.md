@@ -37,8 +37,8 @@ This preview requires the following in the environment:
 1. Review the steps to configure [on-prem provisioning](https://linkToNewTutorial) 
 2. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 3. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-4. Determine what data to [map between Azure AD and your LDAP directory](../app-provisioning/customize-application-attributes.md).
-5. Review the [known limitations](Fill here) 
+4. Determine what data to [map between Azure AD and your target application](../app-provisioning/customize-application-attributes.md).
+5. Review the [known limitations](https://docs.microsoft.com/azure/active-directory/app-provisioning/known-issues) 
 
 
 ## Step 2. Download and install the provisioning agent and on-prem host
