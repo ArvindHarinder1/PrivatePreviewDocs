@@ -20,6 +20,8 @@ Once the setup described in this document is complete, then a user assignment to
 
 ![](RackMultipart20210115-4-mlm6xl_html_6f1d99f8a04ec528.png)
 
+This document provides the general steps for configuring on-premises application provisioning. For specific steps configuring the [SQL](input link) or LDAP (input link) connectors, please review the connector specific tutorials. 
+
 ## Prerequisites for this preview
 
 This preview requires the following in the environment:
@@ -66,7 +68,7 @@ Note: You will see two steps about providing AD credentials and setting up gMSA.
 1. Navigate to the start menu and identify the Microsoft ECMA Host application. **Open this as an administrator.** 
 2. Generate the certificate for connectivity to the provisioning agent.
 3. A new window will appear with a list of connectors. The first time this is run, no connector configurations will be present.  Click &quot;New Connector&quot;.
-4. Pick and record the name of the connector, and a shared secret for use on the new connector properties page. The name of the connector should be exclusively ASCII letters and digits, the autosync timer should be 60 minutes, and the secret token a string of 10-20 ASCII letters and digits.    (You&#39;ll use the secret token later in configuring outgoing provisioning in Azure AD). For Connector, select from the drop-down the name DLL that was placed in the ECMA folder at the earlier step. Then click &quot;Next&quot;.
+4. Pick and record the name of the connector, and a shared secret for use on the new connector properties page. The name of the connector should be exclusively ASCII letters and digits, the autosync timer should be 240 minutes, and the secret token a string of 10-20 ASCII letters and digits.    (You&#39;ll use the secret token later in configuring outgoing provisioning in Azure AD). For Connector, select from the drop-down the name DLL that was placed in the ECMA folder at the earlier step. Then click &quot;Next&quot;.
 5. The left-hand side of the wizard window may change to add additional tabs, such as Connectivity, as required by the connector.  Click &quot;Next&quot; after completing each tab.
 6. On the Partitions tab, if the connector does not have any partitions, leave the default partition selected, and click Next.
 7. On the Run Profiles tab, select the run profiles which the connector is capable of being used in.  The export profile is mandatory, but full and delta import are optional.  Note that if neither full import nor delta import is configured, the ECMA Connector host will not be able to determine whether an object already exists in the target system prior to exporting it.
@@ -128,7 +130,7 @@ Azure AD allows you to scope who should be provisioned based on assignment to an
 
 If you chose scoping based on assignment in the previous step, please [assign users and / or groups to your application](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-assign-users) if scoping is based on assignment to the application (recommended).
 
-### Counfigure your attribute mappings
+### Configure your attribute mappings
 [Configure your attribute mappings.](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/customize-application-attributes)
 
 Also, you&#39;ll record the schema mappings between your connector&#39;s schema for the target system, the name of the attribute as transmitted in the SCIM protocol, and the name of the attribute in Azure AD.  Several examples are shown below.  _Note that the representation of attribute names in the Config Wizard and in the Azure AD portal is currently the same_, for extension attributes to SCIM.
@@ -195,6 +197,10 @@ Click start to enable provisioning. The service will then synchronize all users 
 1. [Enable logging on the ECMA host](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/Monitoring.md) for detailed diagnostics on-premises. 
 1. Build customd alerts, dashboards, and queries using the [Azure Monitor integration] (https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics).
 1. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+
+## Next steps
+* Review the [SQL](input link) and [LDAP](input link) specific tutorialsfor more detailed guidance
 
 
 ## Feedback
