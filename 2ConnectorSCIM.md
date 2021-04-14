@@ -1,11 +1,11 @@
-The Azure AD provisioning service supports a [SCIM 2.0](https://aka.ms/scimoverview) client that can be used to automatically provision users into cloud or on-premises applications. This document outlines how you can use the Azure AD provisioning service to provision users into an on-premises application that is SCIM enabled. If you're looking to provision users into non-SCIM on-premises applications, please such as a non-AD LDAP directory or SQL DB, please see here (link to new doc that we will need to create). If you're looking to provisioning users into cloud apps such as DropBox, Atlassian, etc. please review the app specific tutorials. 
+The Azure AD provisioning service supports a [SCIM 2.0](https://aka.ms/scimoverview) client that can be used to automatically provision users into cloud or on-premises applications. This document outlines how you can use the Azure AD provisioning service to provision users into an on-premises application that is SCIM enabled. If you're looking to provision users into non-SCIM on-premises applications, please such as a non-AD LDAP directory or SQL DB, please see here (link to new doc that we will need to create). If you're looking to provisioning users into cloud apps such as DropBox, Atlassian, etc. please review the app specific [tutorials.](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 
 
 ![image](https://user-images.githubusercontent.com/36525136/110343793-b2427100-7fe1-11eb-9bc3-05d6825f8f81.png)
 
 ## Pre-requisites
-* AAD P1
-* Admin role for installing the agent (one time effort) - Hybrid admin / Global admin 
-* Admin role for configuring the application in the cloud (Application admin, Cloud application admin, Global Administrator, Custom role with perms)
+* Azure AD Premium license
+* Administrator role for installing the agent (one time effort) - Hybrid admin / Global admin 
+* Administrator role for configuring the application in the cloud (Application admin, Cloud application admin, Global Administrator, Custom role with perms)
 
 ## Steps
 1. Add the provisioning private preview test application from the [gallery](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal).
