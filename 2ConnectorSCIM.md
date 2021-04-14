@@ -32,7 +32,7 @@ The Azure AD provisioning service supports a [SCIM 2.0](https://aka.ms/scimoverv
 ## Things to be aware of
 * Ensure your [SCIM](https://aka.ms/scimoverview) implementation meets the [Azure AD SCIM requirements](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).
   * Azure AD offers open source [reference code](aka.ms/scimreferencecode) that developers can use to bootstrap their SCIM implementation (the code is as-is)
-* Support the /schemas endpoint to reduce configuration required in the Azure Portal. 
+* Support the /schemas endpoint to reduce the configuration required in the Azure Portal. 
 
 ## Next steps
 * Understand the Azure AD SCIM implementation
