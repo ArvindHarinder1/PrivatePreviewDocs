@@ -135,15 +135,15 @@ In the tenant URL field, enter the following URL. Replace the hostname with the 
 
 1. Once the connection test is complete and the message &quot;The supplied credentials are authorized&quot; appears, click Save.
 
-### Scoping
+### Configure who is in scope for provisioning
 
 Azure AD allows you to scope who should be provisioned based on assignment to an application and / or by filtering on a particular attribute. [Determine who should be in scope for provisioning](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts) and define your scoping rule as necessary. Most customers will stick with the default scope of "assigned users and groups," without doing any additional scoping configuration. 
 
-### Assign users
+### Assign users to your application
 
 If you chose scoping based on assignment in the previous step, please [assign users and / or groups to your application](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-assign-users) if scoping is based on assignment to the application (recommended).
 
-### Attribute mappings
+### Counfigure your attribute mappings
 [Configure your attribute mappings.](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/customize-application-attributes)
 
 1. Navigate to the provisioning page of your application.
@@ -161,7 +161,7 @@ _Mapping to an application-required attributes in the Azure portal_
 1. Change to the users and groups screen for this application and click Add user.  Select one user and assign them to the application. Ensure that they have the properties that you defined in the attribute mappings earlier.    You can retrieve those using [Graph explorer](https://developer.microsoft.com/graph/graph-explorer), however keep in mind that in Microsoft Graph, you need to ask for the attributes to be returned. Explicitly select the attributes like this:
  https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension\_9d98ed114c4840d298fad781915f27e4\_employeeID,extension\_9d98ed114c4840d298fad781915f27e4\_division
 
-### Provision on demand
+### Test your configuration by provisioning users on demand
 
 [Provision a user on-demand.](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/provision-on-demand)
 
@@ -189,18 +189,18 @@ For example, if a user is assigned to an application, then the Azure AD provisio
 If you are unsure if the Azure AD provisioning service has attempted to contact the connector host, start by checking the Azure AD provisioning logs..  Next, check for any  log messages on the ECMA Connector Host at the time of an update – if there are any errors or warnings they will indicate the connector host was unable to transform a request into an ECMA call, or the connector returned an exception, as described for the next section.
 
 
-### Add additional users to your application.
+### Add additional users to your application
 Assign additional users and groups to your application - https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/assign-user-or-group-access-portal
 
 
-### Turn provisioning on.
+### Turn provisioning on
 Click start to enable provisioning. The service will then synchronize all users and groups in scope. 
 
 ## Step 5. Monitor your deployment
-1. [Enable logging on the ECMA host](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/Monitoring.md).
-2. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully.
-3. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion.
-4. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully.
+1. [Enable logging on the ECMA host](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/Monitoring.md) for detailed diagnostics on-premises. 
+1. Build customd alerts, dashboards, and queries using the [Azure Monitor integration] (https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics).
+1. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 
 ## Feedback
