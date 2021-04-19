@@ -36,15 +36,15 @@ This preview requires the following in the environment:
 
 
 ## Step 1. Plan your provisioning deployment
-1. Review the steps to configure [on-prem provisioning](https://linkToNewTutorial) 
-2. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
-3. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-4. Determine what data to [map between Azure AD and your target application](../app-provisioning/customize-application-attributes.md).
-5. Review the [known limitations](https://docs.microsoft.com/azure/active-directory/app-provisioning/known-issues) 
+1. Review the [on-prem provisioning architecture](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/3Architecture.md) 
+2. Learn about [how the provisioning service works](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/how-provisioning-works).
+3. Determine who will be in [scope for provisioning](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts).
+4. Determine what data to [map between Azure AD and your target application](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/customize-application-attributes).
+5. Review the [known limitations](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/known-issues) 
 
 
 ## Step 2. Download and install the provisioning agent and on-prem host
-### Download / install the provisioning agent and host
+### Download and  install the provisioning agent / host
 The provisioning agent and host are two separate windows services that are installed using one installer. They are expected to be deployed on the same server. 
 
 1. Sign into the Azure Portal
@@ -55,6 +55,8 @@ The provisioning agent and host are two separate windows services that are insta
 6. Download the agent installer in step 1 (you will need to copy it into the server that the app is hosted in if you're using 
 7. Open the agent installer > agree to the terms of service > click install
 
+![image](https://user-images.githubusercontent.com/36525136/115305138-be5e3a00-a11a-11eb-9453-e0f0d48b94e5.png)
+
 ### Configure the provisioning agent
 1. Launch the provisioning agent wizard. A shortcut should be available in your desktop after completing the step above.
 2. When prompted to select an extension, select the on-prem provisioning option.
@@ -62,6 +64,8 @@ The provisioning agent and host are two separate windows services that are insta
 4. Click confirm.
 
 Note: You will see two steps about providing AD credentials and setting up gMSA. Those steps are not required and will automatically be skipped in the latest version of the provisioning agent. 
+
+![image](https://user-images.githubusercontent.com/36525136/115305268-eb125180-a11a-11eb-83d8-e266b11efbd4.png)
 
 ## Step 3. Configure the ECMA host
 
