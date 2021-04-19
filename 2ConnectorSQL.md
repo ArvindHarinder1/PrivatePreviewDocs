@@ -66,6 +66,11 @@ The steps below show you how to setup Microsoft SQL Server 2019. You can skip th
 
 ![image](https://user-images.githubusercontent.com/36525136/115304110-65da6d00-a119-11eb-92fd-4b1863d14a6d.png)
 
+![image](https://user-images.githubusercontent.com/36525136/115304249-96220b80-a119-11eb-88ef-3d7d2075d68f.png)
+
+![image](https://user-images.githubusercontent.com/36525136/115304275-9e7a4680-a119-11eb-9bf5-aa47fa78765f.png)
+
+![image](https://user-images.githubusercontent.com/36525136/115304299-a639eb00-a119-11eb-95ba-59e62b25ef80.png)
 
 ## Step 5. Configure provisioning in Azure AD
 1. Add the application from the app gallery > navigate to the provisioning page
