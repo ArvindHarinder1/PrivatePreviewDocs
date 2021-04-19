@@ -67,7 +67,7 @@ Replace the variables [proxy-server] and [proxy-port] with your proxy server nam
 ## Next steps 
 
 
-Appendix F: Generating a self-signed certificate 
+## Appendix F: Generating a self-signed certificate 
 
 Navigating the the setting page of the ECMA Host will gnerate the self-signed certificate. You can also follow the following steps to manually generate a certificate. Note that this certificate will have only a 1-year validity period by default: 
 
