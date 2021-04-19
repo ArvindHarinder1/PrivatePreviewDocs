@@ -157,9 +157,7 @@ Also, you&#39;ll record the schema mappings between your connector&#39;s schema 
 
 1. Click on Add new mapping and add new rows for each Azure Active Directory attribute to be mapped to either a SCIM-defined attribute, or a custom attribute added at step 40.  Click OK after adding each row.
 
- ![](RackMultipart20210115-4-mlm6xl_html_33d9819eae0c88f0.png)
 
-_Mapping to an application-required attributes in the Azure portal_
 
 1. On the attribute mapping screen, click Save and click Yes to confirm.  Then close the attribute mapping page to return to the provisioning screen.
 
@@ -175,10 +173,6 @@ _Mapping to an application-required attributes in the Azure portal_
 1. Test provisioning by provisioning a user on-demand as described [here](https://aka.ms/provisionondemanddocumentation).
 
 1. Once on-demand provisioning is successful, change back to the provisioning configuration page. Ensure that the scope is set to only assigned users and group, turn provisioning On and click Save.
-
-![](RackMultipart20210115-4-mlm6xl_html_cb1c08caacd4aa17.png)
-
-_Setting the provisioning status and scope for an application in the Azure portal_
 
 1. Wait several minutes for provisioning to start (it may take up to 40 minutes).  You can learn more about the provisioning service performance [here](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user). After the provisioning job has been completed, as described in the next section, you can change the provisioning status to Off, and click Save. This will stop the provisioning service from running in the future.
 
