@@ -69,7 +69,8 @@ Note: You will see two steps about providing AD credentials and setting up gMSA.
 
 ## Step 3. Configure the ECMA host
 
-1. Navigate to the start menu and identify the Microsoft ECMA Host application. **Open this as an administrator.** 
+1. Navigate to the start menu and identify the Microsoft ECMA Host application. **Open this as an administrator.** ![image](https://user-images.githubusercontent.com/36525136/115305371-11d08800-a11b-11eb-8f4f-bbde282eb1f7.png)
+
 2. Generate the certificate for connectivity to the provisioning agent.
 3. A new window will appear with a list of connectors. The first time this is run, no connector configurations will be present.  Click &quot;New Connector&quot;.
 4. Pick and record the name of the connector, and a shared secret for use on the new connector properties page. The name of the connector should be exclusively ASCII letters and digits, the autosync timer should be 240 minutes, and the secret token a string of 10-20 ASCII letters and digits.    (You&#39;ll use the secret token later in configuring outgoing provisioning in Azure AD). For Connector, select from the drop-down the name DLL that was placed in the ECMA folder at the earlier step. Then click &quot;Next&quot;.
