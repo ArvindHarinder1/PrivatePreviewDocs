@@ -83,9 +83,8 @@ Once you've configured provisioning, use the following resources to monitor your
 
 ## Troubleshooting tips
 
-* LDAP referrals between servers not supported (RFC 4511/4.1.10)
-* Review the known limiataions defined [here](link to troubleshooting doc)
-* Review the troubleshooting tips defined [here](link to troubleshooting doc)
+* Review the known limiataions defined [here](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/KnownLimitations.mdc)
+* Review the troubleshooting tips defined [here](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/Troubleshooting.md)
 
 
 ## Building a demo SQL environment for testing
