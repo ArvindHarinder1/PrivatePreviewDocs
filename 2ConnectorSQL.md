@@ -38,13 +38,13 @@ The steps below show you how to setup Microsoft SQL Server 2019. You can skip th
 
 1. Click on Browse for more, select the database under database engine (in my case 1110VM), and connect.
 
-![](RackMultipart20210115-4-mlm6xl_html_5deb250b6bf40dc6.png)
+![image](https://user-images.githubusercontent.com/36525136/115303696-cc12c000-a118-11eb-931f-2dd0ac3257a6.png)
 
 1. Right click databases and create a new database and provide a name. Mine is &quot;ECMA2Host\_AppName&quot;.
 
 1. Click new query and copy in the query from the employees file. Ensure that the table name matches as highlighted below.
 
-![](RackMultipart20210115-4-mlm6xl_html_59e4119366bf37c7.png)
+![image](https://user-images.githubusercontent.com/36525136/115303773-e3ea4400-a118-11eb-9655-6e3e314c2b49.png)
 
 1. Open the sap.dsn file and update the server name (in my case it is &quot;SERVER=1110VM&quot;).
 
