@@ -65,3 +65,30 @@ Replace the variables [proxy-server] and [proxy-port] with your proxy server nam
 
 
 ## Next steps 
+
+
+Appendix F: Generating a self-signed certificate 
+
+Navigating the the setting page of the ECMA Host will gnerate the self-signed certificate. You can also follow the following steps to manually generate a certificate. Note that this certificate will have only a 1-year validity period by default: 
+
+Identify your hostname 
+
+You can retrieve this by opening the command prompt, typing hostname, and hitting enter. 
+
+Open Powershell as an administrator and run the following command. Replace “hostname” with the value received from step 1. 
+
+ 
+
+New-SelfSignedCertificate -DnsName hostName -CertStoreLocation cert:\LocalMachine\My 
+
+ 
+
+Search for “Manage computer certificates” in the Windows task bar. 
+
+Identify the certificate you created under personal. 
+
+Right click and copy your certificate.  
+
+Navigate to the “Trusted root certificate authorities” folder, right click and paste the certificate.  
+
+ 
