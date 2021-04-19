@@ -40,6 +40,7 @@ The steps below show you how to setup Microsoft SQL Server 2019. You can skip th
 1. Ensure that the database name matches the name from step 6.
 
 ## Step 4. Configure the ECMA host
+The following screenshots show you how to configure the host, if you are using the demo environment described above.
 
 ![image](https://user-images.githubusercontent.com/36525136/115303969-2ca1fd00-a119-11eb-9047-201ebcf0c2c6.png)
 
@@ -87,19 +88,12 @@ Once you've configured provisioning, use the following resources to monitor your
 * Review the troubleshooting tips defined [here](link to troubleshooting doc)
 
 
-## Appendix G: Building a demo SQL environment for testing
+## Building a demo SQL environment for testing
 https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql-step-by-step
 https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql
 
 
-## Appendix H: Configuring the host using SQL
-
-The following screenshots show you how to configure the host, if you are using the demo environment described above.
-
- 
-
-
-## Appendix B: Configuring the Generic SQL Connector for SQL Server
+## Configuring the Generic SQL Connector for SQL Server
 
 If you do not have a connector MA, but have SQL Server in your environment, then you can still validate the provisioning process, using the instructions in the Generic SQL Connector guide at [https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql) and  [https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql-step-by-step](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql-step-by-step)
 
