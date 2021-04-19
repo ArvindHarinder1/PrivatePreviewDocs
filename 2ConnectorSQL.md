@@ -30,8 +30,8 @@ https://docs.microsoft.com/en-us/azure/azure-sql/database/single-database-create
 
 The steps below show you how to setup Microsoft SQL Server 2019. You can skip this tep if you already have a SQL DB setup. 
 
-1. Download SQL Server - [https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019)
-1. Download SSMS - [https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?redirectedfrom=MSDN&amp;view=sql-server-ver15](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?redirectedfrom=MSDN&amp;view=sql-server-ver15)
+1. Download [SQL Server](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019).
+1. Download [SSMS](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?redirectedfrom=MSDN&amp;view=sql-server-ver15).
 1. Open SQL Server management studio (SSMS).
 1. Click on Browse for more, select the database under database engine (in my case 1110VM), and connect. ![image](https://user-images.githubusercontent.com/36525136/115303696-cc12c000-a118-11eb-931f-2dd0ac3257a6.png)
 1. Right click databases and create a new database and provide a name. Mine is &quot;ECMA2Host\_AppName&quot;.
