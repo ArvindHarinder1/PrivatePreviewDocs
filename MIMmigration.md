@@ -1,4 +1,4 @@
-## Appendix A: Creating and exporting a connector configuration in MIM Sync
+## Creating and exporting a connector configuration in MIM Sync
 
 You can import into Azure AD ECMA Connector Host a configuration for a specific connector from a FIM Sync or MIM Sync installation.  Note that the MIM Sync installation is only used for configuration, not for the ongoing synchronization from Azure AD.
 
