@@ -1,4 +1,4 @@
-# Generic SQL Connector technical reference
+# Generic SQL Connector - SQL Server Sample
 
 This tutorial describes the steps you need to perform to automatically provision and deprovision users from Azure AD into a SQL DB.  For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
