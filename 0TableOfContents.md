@@ -1,10 +1,10 @@
 Overview
 
 Tutorials
-* [SQL Connector](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/2ConnectorSQL.md) (4)
-* [LDAP Connector](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/2ConnectorLDAP.md) (5)
+* [SQL Server Connector tutorial](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/2ConnectorSQL.md) (4)
+* [OpenLDAP Connector tutorial](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/2ConnectorLDAP.md) (5)
 * [SCIM app on-prem](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/2ConnectorSCIM.md) (6)
-* [Generic tutorial](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/1ECMATutorial.md) (7)
+* [Generic guide](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/1ECMATutorial.md) (7)
 
 Concepts
 * [Architecture](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/3Architecture.md) (1)
