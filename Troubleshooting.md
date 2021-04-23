@@ -1,4 +1,4 @@
-## Test connection is failing. How do I troubleshoot?
+## Test connection is failing
 
 1. Verify that the agent and ECMA host are running:
    1. On the server with the agent installed, open **Services** by going to **Start** > **Run** > **Services.msc**.
