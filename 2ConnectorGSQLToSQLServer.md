@@ -31,10 +31,10 @@ https://docs.microsoft.com/en-us/azure/azure-sql/database/single-database-create
 The steps below show you how to setup Microsoft SQL Server 2019. You can skip this tep if you already have a SQL DB setup. 
 
 1. Download [SQL Server](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019).
-1. Download [SSMS](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?redirectedfrom=MSDN&amp;view=sql-server-ver15).
-1. Open SQL Server management studio (SSMS).
+1. Download SQL Server management studio [SSMS](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?redirectedfrom=MSDN&amp;view=sql-server-ver15).
+1. Search for SSMS in the Windows search bar and open SSMS.
 1. Click on Browse for more, select the database under database engine (in my case 1110VM), and connect. ![image](https://user-images.githubusercontent.com/36525136/115303696-cc12c000-a118-11eb-931f-2dd0ac3257a6.png)
-1. Right click databases and create a new database and provide a name. Mine is &quot;ECMA2Host\_AppName&quot;.
+1. Right click databases and create a new database and provide a name. In the example below, the database is named ECMA2Host\_AppName;.
 1. Click new query and copy in the query from the employees file. Ensure that the table name matches as highlighted below. ![image](https://user-images.githubusercontent.com/36525136/115303773-e3ea4400-a118-11eb-9655-6e3e314c2b49.png)
 1. Open the sap.dsn file and update the server name (in my case it is &quot;SERVER=1110VM&quot;).
 1. Ensure that the database name matches the name from step 6.
