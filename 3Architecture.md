@@ -34,7 +34,7 @@ It's time to take Server 1 down for maintainence and failover to Server / Agent 
 1. Enable the service for Agent 2. 
 
 All requests going forward are sent to Agent 2 / Host 2 on Server 2 and customer ends up with an architecture that looks like the below: 
-![image](https://user-images.githubusercontent.com/36525136/115931638-79f3d680-a459-11eb-8e6a-422dd8516ed9.png)
+![image](https://user-images.githubusercontent.com/36525136/115932225-8462a000-a45a-11eb-8369-f72209802ad9.png)
 
 
 
