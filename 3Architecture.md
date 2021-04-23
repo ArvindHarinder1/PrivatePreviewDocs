@@ -31,9 +31,7 @@ The following diagram shows how the three components interact:
 
 ### High availability  
 
-Microsoft currently supports active / passive high availability. You can configure more than one agent / host to connect to one application. However, you should only leave one agent active at a time, ensuring that all requests are sent to the corresponding host. When you need to failover, you can disable the active agent and enable one of the agents on stand-by. In the image below, you can see all three hosts enabled and agent 1 enabled / running. When you need to failover from agent 1 to agent 2, you can disable the agent 1 service and enable the agent 2 service. 
-
-![image](https://user-images.githubusercontent.com/36525136/110338331-ba97ad80-7fdb-11eb-94c9-d5bfcad56689.png)
+Microsoft currently supports active / passive high availability. You can configure more than one agent / host to connect to one application. However, you should only leave one agent active at a time, ensuring that all requests are sent to the corresponding host. When you need to failover, you can disable the active agent and enable one of the agents on stand-by. 
 
 #### Workflow
 1. Install and configure Agent 1 and Host 1 on Server 1. 
