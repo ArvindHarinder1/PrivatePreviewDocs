@@ -122,29 +122,13 @@ Azure AD allows you to scope who should be provisioned based on assignment to an
 If you chose scoping based on assignment in the previous step, please [assign users and / or groups to your application](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-assign-users) if scoping is based on assignment to the application (recommended).
 
 ### Configure your attribute mappings
-[Configure your attribute mappings.](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/customize-application-attributes)
+You will need to map the user attributes in Azure AD to the attributes in the target application. The Azure AD Provisioning service relies on the SCIM standard for provisioning and as a result, the attributes surfaced have the SCIM name space. The example below shows how you can map the country and objectId attributes in Azure AD to the Country and InternalGUID attributes in your target application. [Learn more](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/customize-application-attributes#editing-user-attribute-mappings) about configuring attribute mappings. Note, the default mapping contains userPrincipalName to an attribute name PLACEHOLDER. You will need to change the PLACEHOLDER attribute to one that is found in your application. 
 
-Also, you&#39;ll record the schema mappings between your connector&#39;s schema for the target system, the name of the attribute as transmitted in the SCIM protocol, and the name of the attribute in Azure AD.  Several examples are shown below.  _Note that the representation of attribute names in the Config Wizard and in the Azure AD portal is currently the same_, for extension attributes to SCIM.
-
-| **Attribute name in target application**   | **Attribute name in SCIM**   | **Attribute name in Azure AD**   | 
+| **Attribute name in Azure AD**   | **Attribute name in SCIM**   | **Attribute name in target application**   | 
 | --- | --- | --- |
-| Country  | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:Country  | country  | 
-| InternalGUID  |  urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:InternalGUID | objectId | 
+| country  | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:Country  | Country  | 
+| objectId  |  urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:InternalGUID | InternalGUID | 
 
-
-
-1. Navigate to the provisioning page of your application.
-
-1. Expand the Mappings section and click on Provision Azure Active Directory Users;.
-
-1. Click on Add new mapping and add new rows for each Azure Active Directory attribute to be mapped to either a SCIM-defined attribute, or a custom attribute added at step 40.  Click OK after adding each row.
-
-
-
-1. On the attribute mapping screen, click Save and click Yes to confirm.  Then close the attribute mapping page to return to the provisioning screen.
-
-1. Change to the users and groups screen for this application and click Add user.  Select one user and assign them to the application. Ensure that they have the properties that you defined in the attribute mappings earlier.    You can retrieve those using [Graph explorer](https://developer.microsoft.com/graph/graph-explorer), however keep in mind that in Microsoft Graph, you need to ask for the attributes to be returned. Explicitly select the attributes like this:
- https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension\_9d98ed114c4840d298fad781915f27e4\_employeeID,extension\_9d98ed114c4840d298fad781915f27e4\_division
 
 ### Test your configuration by provisioning users on demand
 
