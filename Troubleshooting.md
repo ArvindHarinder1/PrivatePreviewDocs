@@ -1,4 +1,5 @@
-## Test connection is failing
+## Troubleshoot test connection issues. 
+After configuring the ECMA Host and Provisioning Agent, it's time to test connectivity from the Azure AD Provisioning service to the Provisioning Agent > ECMA Host > Application. This end to end test can be performed by clicking test connection in the application in the Azure Portal. When test connection fails, try the following troubleshooting steps:
 
 1. Verify that the agent and ECMA host are running:
    1. On the server with the agent installed, open **Services** by going to **Start** > **Run** > **Services.msc**.
@@ -22,7 +23,7 @@ https://localhost:8585/ecma2host_connectorName/scim
 1. Restart the provisioning agent by navigating to the task bar on your VM by searching for the Microsoft Azure AD Connect provisioning agent. Right click stop and then start.
 
 
-## How do I troubleshoot configuration of the ECMA host? 
+## Unable to configure ECMA host, view logs in event viewer, or start ECMA host service
 
 #### The following issues can be resolved by running the ECMA host as an admin:
 
@@ -36,43 +37,6 @@ https://localhost:8585/ecma2host_connectorName/scim
 * I've been able to configure the ECMA host wizard, but am not able to start the ECMA host service
 ![image](https://user-images.githubusercontent.com/36525136/114463772-bbeb6580-9b99-11eb-9252-9a3934aa83a1.png)
 
-
-#### Test connector in MIM...
-
-
-##### Reviewing events in the event viewer
-
-Once the ECMA Connector host schema mapping has been configured, start the service so it will listen for incoming connections.  Then, monitor for incoming requests. To do this, do the following:
-
-  1. Click on the start menu, type **event viewer**, and click on Event Viewer. 
-  2. In **Event Viewer**, expand **Applications and Services** Logs, and select **Microsoft ECMA2Host Logs**.     
-  3. As changes are received by the connector host, events will be written to the application log. 
-
-|Xpath|Example|
-|-----|-----|
-|Xpath for an event that contains a particular user|input sample expression|
-|Xpath expression for filtering on a certain date-time range|input sample expression| 
-|Exporting the xpath events for support|input sample expression| 
-
-## Troubleshooting scripts
-Navigate to the folder where the ECMA Host was installed  > Troubleshooting > Scripts. 
-
-1. CollectTroubleshootingInfo
-   1. This script allows you to collect all logs that are in the event viewer and exprt them as a CSV file. 
-1. TestECMA2HostConnection
-   1. This script will send a SCIM GET or POST request in order to validate that the ECMA Connector Host is operating and responding to requests.
-    It should be run on the same computer as the ECMA Connector Host service itself.
-
-## Understanding incoming SCIM requests 
-
-Requests made by Azure AD to the provisioning agent and connector host use the SCIM protocol. Requests made from the host to apps use the protocol the app support and the requests from the host to agent to azure ad rely on SCIM. You can learn more about our SCIM implementation [here](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).  
-
-Be aware that at the beginning of each provisioning cycle, before performing on-demand provisioning, and when doing the test connection the Azure AD provisioning service generally makes a get user call for a [dummy user](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#request-3) to ensure the target endpoint is available and returning SCIM compliant responses. 
-
-
-
-#### l
-After (during) configuration, if you wish to further debug the generic SQL or generic LDAP connectors, then you can enable the Connector specific log file, following the instructions in the PowerShell script [https://raw.githubusercontent.com/microsoft/MIMPowerShellConnectors/master/src/LyncConnector/EventLogConfig/Register-EventSource.ps1](https://raw.githubusercontent.com/microsoft/MIMPowerShellConnectors/master/src/LyncConnector/EventLogConfig/Register-EventSource.ps1) and updating the system.diagnostics section of the file c:\program files\Microsoft ECMA2Host\Service\Microsoft.ECMA2Host.Service.exe.config as follows:
 
 ## Turning on verbose logging 
 
@@ -118,6 +82,42 @@ File location for verbose wizard logging: C:\Program Files\Microsoft ECMA2Host\W
           <add initializeData="ECMA2Host" type="System.Diagnostics.EventLogTraceListener, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ECMA2HostListener" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack" /> 
 ```
 
+## Test connector in MIM...
+
+
+##### Reviewing events in the event viewer
+
+Once the ECMA Connector host schema mapping has been configured, start the service so it will listen for incoming connections.  Then, monitor for incoming requests. To do this, do the following:
+
+  1. Click on the start menu, type **event viewer**, and click on Event Viewer. 
+  2. In **Event Viewer**, expand **Applications and Services** Logs, and select **Microsoft ECMA2Host Logs**.     
+  3. As changes are received by the connector host, events will be written to the application log. 
+
+|Xpath|Example|
+|-----|-----|
+|Xpath for an event that contains a particular user|input sample expression|
+|Xpath expression for filtering on a certain date-time range|input sample expression| 
+|Exporting the xpath events for support|input sample expression| 
+
+## Troubleshooting scripts
+Navigate to the folder where the ECMA Host was installed  > Troubleshooting > Scripts. 
+
+1. CollectTroubleshootingInfo
+   1. This script allows you to collect all logs that are in the event viewer and exprt them as a CSV file. 
+1. TestECMA2HostConnection
+   1. This script will send a SCIM GET or POST request in order to validate that the ECMA Connector Host is operating and responding to requests.
+    It should be run on the same computer as the ECMA Connector Host service itself.
+
+## Understanding incoming SCIM requests 
+
+Requests made by Azure AD to the provisioning agent and connector host use the SCIM protocol. Requests made from the host to apps use the protocol the app support and the requests from the host to agent to azure ad rely on SCIM. You can learn more about our SCIM implementation [here](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).  
+
+Be aware that at the beginning of each provisioning cycle, before performing on-demand provisioning, and when doing the test connection the Azure AD provisioning service generally makes a get user call for a [dummy user](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#request-3) to ensure the target endpoint is available and returning SCIM compliant responses. 
+
+
+
+#### l
+After (during) configuration, if you wish to further debug the generic SQL or generic LDAP connectors, then you can enable the Connector specific log file, following the instructions in the PowerShell script [https://raw.githubusercontent.com/microsoft/MIMPowerShellConnectors/master/src/LyncConnector/EventLogConfig/Register-EventSource.ps1](https://raw.githubusercontent.com/microsoft/MIMPowerShellConnectors/master/src/LyncConnector/EventLogConfig/Register-EventSource.ps1) and updating the system.diagnostics section of the file c:\program files\Microsoft ECMA2Host\Service\Microsoft.ECMA2Host.Service.exe.config as follows:
 
 ## How do I troubleshoot the provisioning agent?
 #### Verify the port
