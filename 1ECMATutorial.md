@@ -20,7 +20,7 @@ Once the setup described in this document is complete, then a user assignment to
 
 ![image](https://user-images.githubusercontent.com/36525136/115899514-d260af00-a42c-11eb-9ea7-48ab8b137a67.png)
 
-This document provides the general steps for configuring on-premises application provisioning. For specific steps configuring the [SQL](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/2ConnectorGSQLToSQLServer.md) or LDAP(https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) connectors, please review the connector specific tutorials. 
+This document provides the general steps for configuring on-premises application provisioning. For specific steps configuring the [SQL](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/2ConnectorGSQLToSQLServer.md) or [LDAP](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) connectors, please review the connector specific tutorials. 
 
 ## Prerequisites for this preview
 
