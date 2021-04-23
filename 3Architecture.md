@@ -1,18 +1,3 @@
----
-title: 'On-premises application provisioning architecture | Microsoft Docs'
-description: Describes overview of on-premises application provisioning architecture.
-services: active-directory
-author: billmath
-manager: daveba
-ms.service: active-directory
-ms.workload: identity
-ms.topic: overview
-ms.date: 08/31/2020
-ms.subservice: hybrid
-ms.author: billmath
-ms.collection: M365-identity-device-management
----
-
 # On-premises application provisioning architecture
 
 There are three primary components to provisioning users into an on-premises application.
