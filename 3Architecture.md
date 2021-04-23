@@ -50,8 +50,10 @@ It's time to take Server 1 down for maintainence and failover to Server / Agent 
 1. Check the event viewer to ensure that the last full cycle for Host 2 has a timestamp that is later than the last full cycle for Host 1 (this ensures that the cache on both hosts is in sync).  
 1. Enable the service for Agent 2. 
 
-All requests going forward are sent to A2 / H2 on S2 and customer ends up with an architecture that looks like the below: 
-![image](https://user-images.githubusercontent.com/36525136/115930827-1d43ec00-a458-11eb-998e-8209f10eb893.png)
+All requests going forward are sent to Agent 2 / Host 2 on Server 2 and customer ends up with an architecture that looks like the below: 
+![image](https://user-images.githubusercontent.com/36525136/115931638-79f3d680-a459-11eb-8e6a-422dd8516ed9.png)
+
+
 
 ### Firewall requirements
 
