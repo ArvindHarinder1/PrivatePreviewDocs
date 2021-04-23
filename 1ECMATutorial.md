@@ -20,7 +20,7 @@ Once the setup described in this document is complete, then a user assignment to
 
 ![image](https://user-images.githubusercontent.com/36525136/115899514-d260af00-a42c-11eb-9ea7-48ab8b137a67.png)
 
-This document provides the general steps for configuring on-premises application provisioning. For specific steps configuring the [SQL](input link) or LDAP (input link) connectors, please review the connector specific tutorials. 
+This document provides the general steps for configuring on-premises application provisioning. For specific steps configuring the [SQL](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/2ConnectorGSQLToSQLServer.md) or LDAP(https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) connectors, please review the connector specific tutorials. 
 
 ## Prerequisites for this preview
 
@@ -42,24 +42,24 @@ This preview requires the following in the environment:
 4. Determine what data to [map between Azure AD and your target application](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/customize-application-attributes).
 5. Review the [known limitations](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/known-issues).
 
-
 ## Step 2. Download and install the provisioning agent and on-prem host
 ### Download and  install the provisioning agent / host
-The provisioning agent and host are two separate windows services that are installed using one installer. They are expected to be deployed on the same server. 
+The provisioning agent and host are two separate windows services that are installed using one installer, deployed on the same machine. They should have connectivity to the target application that you are looking to provision users into.   
 
-1. Sign into the Azure Portal
+1. Sign into the [Azure Portal](https://portal.azure.com)
 2. Naviage to enterprise applications > Add a new application
 3. Search for the provisioning private preview test application and add it to your tenant
 4. Navigate to the provisioning blade
 5. Click on on-premises connectivity
-6. Download the agent installer in step 1 (you will need to copy it into the server that the app is hosted in if you're using 
+6. Download the agent installer 
 7. Open the agent installer > agree to the terms of service > click install
+8. A shortcut should be created on your desktop to launch the Azure AD Connect Provisioning Agent Wizard. 
 
 ![image](https://user-images.githubusercontent.com/36525136/115305138-be5e3a00-a11a-11eb-9453-e0f0d48b94e5.png)
 
 ### Configure the provisioning agent
-1. Launch the provisioning agent wizard. A shortcut should be available in your desktop after completing the step above.
-2. When prompted to select an extension, select the on-prem provisioning option.
+1. Launch the provisioning agent wizard from your desktop. 
+2. When prompted to select an extension, select "on-prem provisioning" option.
 3. Click authorize and provide Azure AD credentials. The credentials provided should be for a user that is a global administrator or hybrid administrator.  
 4. Click confirm.
 
@@ -77,7 +77,7 @@ Note: You will see two steps about providing AD credentials and setting up gMSA.
 3. A new window will appear with a list of connectors. The first time this is run, no connector configurations will be present. Click New Connector.  
 ![image](https://user-images.githubusercontent.com/36525136/115305658-84416800-a11b-11eb-9917-3f1f408ad954.png)
 
-4. Walk through the pages of the ECMA host to configure your application. For more details, see the tutorials linked
+4. Walk through the pages of the ECMA host to configure your connector. For more details, see the tutorials linked below:
    1. [SQL ECMA tutorial](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/2ConnectorGSQLToSQLServer.md)
    1. [Generic SQL MIM tutorial](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql)
    1. [Generic LDAP MIM tutorial](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap)
@@ -85,15 +85,15 @@ Note: You will see two steps about providing AD credentials and setting up gMSA.
 ## Step 4. Configure provisioning in Azure AD
 ### Establish connectivity between Azure AD and the ECMA Host 
 
-1. Check to ensure that the connector host Windows Service is running.  Click on the start menu, and type services. In the services list, scroll to &quot;Microsoft ECMA2Host&quot;.  Ensure that the status is &quot;Running&quot;.  If the status is blank, click &quot;Start&quot;.
+1. Check to ensure that the connector host Windows Service is running.  Click on the start menu, and type services. In the services list, scroll to Microsoft ECMA2Host.  Ensure that the status is Running.  If the status is blank, click Start;.
 
-1. Sign into Azure Portal as a global administrator in a tenant that has Azure AD Premium P1 or Premium P2 (EMS E3 or E5). This is required to be able to provision to an on-prem application. 
+1. Sign into Azure Portal as an application administrator in a tenant that has Azure AD Premium P1 or Premium P2 (EMS E3 or E5). This is required to be able to provision to an on-prem application. 
 
-1. In the Azure Portal, change to the Azure Active Directory area, change to Enterprise Applications, and click on New Application.
+1. In the Azure Portal, switch to the Azure Active Directory area, change to Enterprise Applications, and click on New Application.
 
 1. Search for Provisioning Private Preview Test Application and add it to your tenant.  
 
-1. Once the app has been created, click on the Provisioning item in the Manage section of the app. If you see an error when you click on the provisioning page, please wait and refresh.
+1. Once the app has been created, click on the Provisioning.
 
 1. Click get started.
 
@@ -101,11 +101,11 @@ Note: You will see two steps about providing AD credentials and setting up gMSA.
 
 1. In the on-premises connectivity section, select the agent that you just deployed and click assign agent(s).
 
-1. Before performing the next step,  **wait 10 minutes**  for the agent registration to complete. Test connection will not succeed until the agent registration is completed. You can also force the agent registration to complete by restarting the provisioning agent on your server by navigating to services, finding the provisioning agent service, and clicking restart. 
+1. Before performing the next step,  **wait 10 minutes**  for the agent registration to complete. Test connection will not succeed until the agent registration is completed. Alternatively, you can force the agent registration to complete by restarting the provisioning agent on your server. Navigating to your server > search for servies in the windows search bar > identify the Azure AD Connect Provisioning Agent Service > right click on the service and restart. 
 
-1. In the tenant URL field, enter the following URL, replacing the IP address with that of the connector host system, and adding the name of the connector to the before the &quot;/scim&quot; suffix.  For example, if your hostname is &quot;10.20.30.40&quot;, the port number is the default 8585, and the connector name is &quot;connector1&quot;, then provide the URL
+1. In the tenant URL field, enter the following URL, replacing the name of the connector to the before the /scim&quot; suffix.  
 
-In the tenant URL field, enter the following URL. Replace the hostname with the name of your VM and connectorName with the name of your connector. [https://hostname:8585/ecma2host\_connectorName/scim](https://hostname:8585/ecma2host_connectorName/scim)
+[https://localhost:8585/ecma2host_connectorName/scim](https://localhost:8585/ecma2host_connectorName/scim)
 
 1. Enter the secret token you created earlier during configuration in the field Secret Token.
 
