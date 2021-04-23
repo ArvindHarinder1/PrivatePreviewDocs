@@ -3,12 +3,13 @@
 1. Verify that the agent and ECMA host are running:
    1. On the server with the agent installed, open **Services** by going to **Start** > **Run** > **Services.msc**.
    1. Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater**, **Microsoft Azure AD Connect Provisioning Agent**, and **Microsoft ECMA2Host** services are present and their status is *Running*. 
-![image](https://user-images.githubusercontent.com/36525136/110372252-eaa67700-8002-11eb-968e-a6ea61a435ea.png)
-1. Test that you are able to make a request to the ECMA host from the machine that it is deployed on. Make a request as shown below, replacing 1016VM with your hostname and SQL1 with your connector name. If the request below returns a 405, you have the right endpoint and the host is receiving the request. If the request below does not return 405, you need to troubleshoot your host setup and ensure that you're using the right URL. See instructions below for the URL format. Make sure to add /users to the end of the request when testing in your browser (/users is not required when providing the URL in the cloud).
+![image](https://user-images.githubusercontent.com/36525136/115927025-cd622680-a451-11eb-8052-56cdde2b557c.png)
 
-![image](https://user-images.githubusercontent.com/36525136/115926996-be7b7400-a451-11eb-9cb2-7dfd35a79e58.png)
+1. Test that you are able to make a request to the ECMA host from the machine that it is deployed on. Make a request as shown below. If the request below returns a 405, you have the right endpoint and the host is receiving the request. If the request below does not return 405, you need to troubleshoot your host setup and ensure that you're using the right URL. See instructions below for the URL format. Make sure to add /users to the end of the request when testing connection in your browser (/users is not required when providing the URL in the cloud).
 
-1. Ensure that the agent is active by navigating to your application in the azure portal \&gt; click on admin connectivity \&gt; click on the agent dropdown and ensure your agent is active.
+![image](https://user-images.githubusercontent.com/36525136/115927091-e539aa80-a451-11eb-9cb2-7eff360977f9.png)
+
+1. Ensure that the agent is active by navigating to your application in the azure portal > click on admin connectivity > click on the agent dropdown and ensure your agent is active.
 
 1. Check if the secret token provided is the same as the secret token on-prem (you will need to go on-prem and provide the secret token again and then copy it into the Azure Portal).
 
