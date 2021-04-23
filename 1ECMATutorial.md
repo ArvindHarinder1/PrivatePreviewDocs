@@ -18,7 +18,7 @@ Setting up this preview starts with your on-premises or IaaS-hosted VM, where yo
 
 Once the setup described in this document is complete, then a user assignment to an application in Azure AD will result, shortly afterward, in an equivalent call to ECMA export APIs to provision user to the target system.  This is a similar model as with other SaaS applications.  Note that other MIM features such as password synchronization or full export are not possible with Azure AD.
 
-![image](https://user-images.githubusercontent.com/36525136/115304670-10eb2680-a11a-11eb-8e95-3f01de6586ce.png)
+![image](https://user-images.githubusercontent.com/36525136/115899514-d260af00-a42c-11eb-9ea7-48ab8b137a67.png)
 
 This document provides the general steps for configuring on-premises application provisioning. For specific steps configuring the [SQL](input link) or LDAP (input link) connectors, please review the connector specific tutorials. 
 
