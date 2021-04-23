@@ -109,9 +109,9 @@ Note: You will see two steps about providing AD credentials and setting up gMSA.
 
 1. Enter the secret token you created earlier during configuration in the field Secret Token.
 
-1. Click Test Connection and wait one minute. If the error message &quot;We encountered an error&quot; or &quot;You appear to have entered invalid credentials&quot; appears, check the IP address or host name of the server is correct, that the server is reachable and look at the event log of the Windows Server, as described in the section Monitoring the Azure AD ECMA Connector Host service below, to see if there are any error messages.  If there are no messages, this may indicate that the firewall was unable to permit an incoming connection to the service, or that the connector name was not correctly specified.  **Please see the appendix for how to troubleshoot connectivity issues. **
+1. Click Test Connection and wait one minute. If you reveive an error message, please review the [troubleshooting steps](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/Troubleshooting.md). 
 
-1. Once the connection test is complete and the message &quot;The supplied credentials are authorized&quot; appears, click Save.
+1. Once connection test is successful, click save.  
 
 ### Configure who is in scope for provisioning
 
