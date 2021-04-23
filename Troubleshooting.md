@@ -78,29 +78,48 @@ After (during) configuration, if you wish to further debug the generic SQL or ge
 
 ## Turning on verbose logging 
 
-If you wish to further debug the generic SQL or generic LDAP connectors, then you can enable the Connector specific log file, following the instructions in the PowerShell script https://raw.githubusercontent.com/microsoft/MIMPowerShellConnectors/master/src/LyncConnector/EventLogConfig/Register-EventSource.ps1 and updating the system.diagnostics section of the file c:\program files\Microsoft ECMA2Host\Service\Microsoft.ECMA2Host.Service.exe.config as follows:
+Enable verbose logging for the ECMA host service and / or Wizar. Set the switchValue to verbose in both locations as shown below.
 
+File location for verbose service logging: c:\program files\Microsoft ECMA2Host\Service\Microsoft.ECMA2Host.Service.exe
 ```
-      <add key="WriteVerboseLog" value="true" /> 
-      </appSettings>  
-<system.diagnostics> 
-       <sources> 
-       <source name="ConnectorsLog" switchValue="Verbose"> 
-         <listeners> 
-           <add initializeData="ConnectorsLog" type="System.Diagnostics.EventLogTraceListener, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ConnectorsLog" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack"> 
-             <filter type=""/> 
-           </add> 
-         </listeners> 
-       </source> 
-         <source name="Microsoft ECMA2Host" switchValue="Verbose"> 
-           <listeners> 
-             <add initializeData="Microsoft ECMA2Host" type="System.Diagnostics.EventLogTraceListener, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ConnectorsLogListener" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack" /> 
-             <remove name="Default" /> 
-           </listeners> 
-         </source> 
-       </sources> 
-     </system.diagnostics> 
+<?xml version="1.0" encoding="utf-8"?> 
+<configuration> 
+    <startup>  
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6" /> 
+    </startup> 
+    <appSettings> 
+      <add key="Debug" value="true" /> 
+    </appSettings> 
+    <system.diagnostics> 
+      <sources> 
+    <source name="ConnectorsLog" switchValue="Verbose"> 
+          <listeners> 
+            <add initializeData="ConnectorsLog" type="System.Diagnostics.EventLogTraceListener, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ConnectorsLog" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack"> 
+              <filter type=""/> 
+            </add> 
+          </listeners> 
+        </source> 
+        <!-- Choose one of the following switchTrace:  Off, Error, Warning, Information, Verbose --> 
+        <source name="ECMA2Host" switchValue="Verbose"> 
+          <listeners>  
+            <add initializeData="ECMA2Host" type="System.Diagnos
 ```
+
+File location for verbose wizard logging: C:\Program Files\Microsoft ECMA2Host\Wizard\Microsoft.ECMA2Host.ConfigWizard.exe
+```
+      <source name="ConnectorsLog" switchValue="Verbose"> 
+        <listeners> 
+          <add initializeData="ConnectorsLog" type="System.Diagnostics.EventLogTraceListener, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ConnectorsLog" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack"> 
+            <filter type=""/> 
+          </add> 
+        </listeners> 
+      </source> 
+      <!-- Choose one of the following switchTrace:  Off, Error, Warning, Information, Verbose --> 
+      <source name="ECMA2Host" switchValue="Verbose"> 
+        <listeners> 
+          <add initializeData="ECMA2Host" type="System.Diagnostics.EventLogTraceListener, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ECMA2HostListener" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack" /> 
+```
+
 
 ## How do I troubleshoot the provisioning agent?
 #### Verify the port
