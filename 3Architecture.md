@@ -43,7 +43,7 @@ Microsoft currently supports active / passive high availability. You can configu
 1. Turn the service for Agent 2 off so that it cannot receive any requests from the Azure AD Provisioning service. 
 1. Turn provisioning on in the Azure Portal. 
 2. All requests will now be sent to Agent 1, since Agent 2 is inactive. Host 1 and Host 2 are both active and continually importing users from the target app. Only host 1 is exporting users to the target app. You will have an architecture that looks like the screenshot below. 
-![image](https://user-images.githubusercontent.com/36525136/115930218-14064f80-a457-11eb-8013-ba2338e8f94d.png)
+![image](https://user-images.githubusercontent.com/36525136/115931557-52047300-a459-11eb-9899-e3f8161d0362.png)
 
 It's time to take Server 1 down for maintainence and failover to Server / Agent / Host 2.   
 1. Disable the service for Agent 1.   
