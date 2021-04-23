@@ -170,6 +170,7 @@ Click start to enable provisioning. The service will then synchronize all users 
 
 ## Next steps
 * Review the [SQL](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/2ConnectorGSQLToSQLServer.md) and [LDAP](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) specific tutorials for more detailed guidance
+* Review the [troubleshooting tips](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/Troubleshooting.md) to diagnose and resolve configuration issues.
 
 
 ## Feedback
