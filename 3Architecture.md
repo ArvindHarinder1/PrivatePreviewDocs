@@ -35,6 +35,20 @@ Microsoft currently supports active / passive high availability. You can configu
 
 ![image](https://user-images.githubusercontent.com/36525136/110338331-ba97ad80-7fdb-11eb-94c9-d5bfcad56689.png)
 
+#### Workflow
+1. Set up Agent 1 and Host 1 on Server 1 and configure provisioning.
+1. Set up Agent 2 and Host2 on Server2.  
+1. Turn the service for Agent 2 off and then assign agent 2 to the application, same as was done with agent 1 in step 1. This will add agent 2 to the same agent group to process requests the next time it is activated. Host 2 is continuously doing full imports and refreshing the cache according to the schedule defined when setting up the host. However, it is not receiving any requests as Agent 2 is turned off. The cusotmer will have an architecture that looks like the screenshot below. 
+![image](https://user-images.githubusercontent.com/36525136/115930218-14064f80-a457-11eb-8013-ba2338e8f94d.png)
+
+It's time to take Server 1 down for maintainence and failover to Server / Agent / Host 2.   
+1. Disable the service for Agent 1.   
+1. Check the event viewer to ensure that the last full cycle for Host 2 has a timestamp that is later than the last full cycle for Host 1 (this ensures that the cache on both hosts is in sync).  
+1. Enable the service for Agent 2. 
+
+All requests going forward are sent to A2 / H2 on S2 and customer ends up with an architecture that looks like the below: 
+![image](https://user-images.githubusercontent.com/36525136/115930827-1d43ec00-a458-11eb-998e-8209f10eb893.png)
+
 ### Firewall requirements
 
 The provisioning agents only use outbound connections to the provisioning service, which means that there is **no need to open firewall ports** for incoming connections. You also do not need a perimeter (DMZ) network because all connections are outbound and take place over a secure channel. 
