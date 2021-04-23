@@ -1,15 +1,12 @@
 ## Test connection is failing. How do I troubleshoot?
 
-1. Verify that the agent is running:
-   1. On the server with the agent installed, open **Services** by either navigating to it or by going to **Start** > **Run** > **Services.msc**.
-   1. Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater** and **Microsoft Azure AD Connect Provisioning Agent** are there and their status is *Running*.
-
+1. Verify that the agent and ECMA host are running:
+   1. On the server with the agent installed, open **Services** by going to **Start** > **Run** > **Services.msc**.
+   1. Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater**, **Microsoft Azure AD Connect Provisioning Agent**, and **Microsoft ECMA2Host** services are present and their status is *Running*. 
 ![image](https://user-images.githubusercontent.com/36525136/110372252-eaa67700-8002-11eb-968e-a6ea61a435ea.png)
-
 1. Test that you are able to make a request to the ECMA host from the machine that it is deployed on. Make a request as shown below, replacing 1016VM with your hostname and SQL1 with your connector name. If the request below returns a 405, you have the right endpoint and the host is receiving the request. If the request below does not return 405, you need to troubleshoot your host setup and ensure that you're using the right URL. See instructions below for the URL format. Make sure to add /users to the end of the request when testing in your browser (/users is not required when providing the URL in the cloud).
 
 ![image](https://user-images.githubusercontent.com/36525136/114733626-5cf03280-9cf8-11eb-9ff8-8e8ae9af648a.png)
-
 
 1. Ensure that the agent is active by navigating to your application in the azure portal \&gt; click on admin connectivity \&gt; click on the agent dropdown and ensure your agent is active.
 
