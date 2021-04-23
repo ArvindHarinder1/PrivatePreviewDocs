@@ -21,11 +21,9 @@ Microsoft currently supports active / passive high availability. You can configu
 #### Workflow
 1. Install and configure Agent 1 and Host 1 on Server 1. 
 1. Export the configuration from Host 1.  
-1. Install Agent 2 and Host 2 on Server 2. You can import the configuration from Host 1. 
-1. Configure provisioning in the Azure Portal and assign both agents, but keep provisioning turned off.  
-1. Turn the service for Agent 2 off so that it cannot receive any requests from the Azure AD Provisioning service. 
-1. Turn provisioning on in the Azure Portal. 
-2. All requests will now be sent to Agent 1, since Agent 2 is inactive. Host 1 and Host 2 are both active and continually importing users from the target app. Only host 1 is exporting users to the target app. You will have an architecture that looks like the screenshot below. 
+1. Install Agent 2 and Host 2 on Server 2. You can import the configuration from Host 1. Turn the service for Agent 2 off so it cannot receive any requests from the Azure AD Provisioning service.  
+1. Configure provisioning in the Azure Portal and assign both agents.  
+1. All requests will now be sent to Agent 1, since Agent 2 is inactive. Host 1 and Host 2 are both active and continually importing users from the target app. Only host 1 is exporting users to the target app. You will have an architecture that looks like the screenshot below. 
 ![image](https://user-images.githubusercontent.com/36525136/115931557-52047300-a459-11eb-9899-e3f8161d0362.png)
 
 It's time to take Server 1 down for maintainence and failover to Server / Agent / Host 2.   
