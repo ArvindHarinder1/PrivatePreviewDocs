@@ -28,12 +28,6 @@ To Create a Generic SQL connector, in **Synchronization Service** select **Manag
 
 ![CreateConnector](./media/microsoft-identity-manager-2016-connector-genericsql/createconnector.png)
 
-## Prepare the sample database
-On a server running SQL Server, run the SQL script found in [Appendix A](#appendix-a). This script creates a sample database with the name GSQLDEMO. The object model for the created database looks like this picture:  
-![Object Model](./media/microsoft-identity-manager-2016-connector-genericsql-step-by-step/objectmodel.png)
-
-Also create a user you want to use to connect to the database. In this walkthrough, the user is called FABRIKAM\SQLUser and located in the domain.
-
 ## Create the ODBC connection file
 The Generic SQL Connector is using ODBC to connect to the remote server. First we need to create a file with the ODBC connection information.
 
@@ -63,6 +57,15 @@ The Generic SQL Connector is using ODBC to connect to the remote server. First w
     ![ODBC11](./media/microsoft-identity-manager-2016-connector-genericsql-step-by-step/odbc11.png)
 
 We now have the file we need and can start creating the Connector.
+
+## Troubleshooting the Generic SQL connector
+### Identify the query the ECMA host made to the SQL DB
+1. Enable verbose logging as described here.
+2. Review the event logs to identify the  request made. 
+
+
+### Test the SQL query directly in your database
+Sometimes, importing users from the SQL database may fail. Verify that the request the ECMA host is making to the SQL database works when made directly in the SQL database. To accomplish this, identify the query the ECMA host made, as described above. Navigate to SSMS to make the request yourself. 
 
 ## Configuring the Generic SQL Connector for SQL Server
 
