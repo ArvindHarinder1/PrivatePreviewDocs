@@ -77,6 +77,10 @@ Note: You will see two steps about providing AD credentials and setting up gMSA.
 3. A new window will appear with a list of connectors. The first time this is run, no connector configurations will be present. Click New Connector.  
 ![image](https://user-images.githubusercontent.com/36525136/115305658-84416800-a11b-11eb-9917-3f1f408ad954.png)
 
+4. Walk through the pages of the ECMA host to configure your application. For more details, see the tutorials linked
+   1. [SQL ECMA tutorial](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/2ConnectorGSQLToSQLServer.md)
+   1. [Generic SQL MIM tutorial](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql)
+   1. [Generic LDAP MIM tutorial](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap)
 
 ## Step 4. Configure provisioning in Azure AD
 ### Establish connectivity between Azure AD and the ECMA Host 
