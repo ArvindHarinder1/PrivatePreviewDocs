@@ -6,18 +6,18 @@ After configuring the ECMA Host and Provisioning Agent, it's time to test connec
    1. Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater**, **Microsoft Azure AD Connect Provisioning Agent**, and **Microsoft ECMA2Host** services are present and their status is *Running*. 
 ![image](https://user-images.githubusercontent.com/36525136/115927025-cd622680-a451-11eb-8052-56cdde2b557c.png)
 
-1. Test that you are able to make a request to the ECMA host from the machine that it is deployed on. Make a request as shown below. If the request below returns a 405, you have the right endpoint and the host is receiving the request. If the request below does not return 405, you need to troubleshoot your host setup and ensure that you're using the right URL. See instructions below for the URL format. Make sure to add /users to the end of the request when testing connection in your browser (/users is not required when providing the URL in the cloud).
+1. Test that you are able to make a request to the ECMA host from the machine that it is deployed on. Make a request as shown below, replacing "connectorName" with the name of your connector. If the request below returns a 405, as shown below, you have the right endpoint and the host is receiving the request. If the request below does not return 405, you need to troubleshoot your host setup and ensure that you're using the right URL. See instructions below for the URL format. Make sure to add /users to the end of the request when testing connection in your browser (/users is not required when providing the URL in the cloud).
 
-![image](https://user-images.githubusercontent.com/36525136/115927091-e539aa80-a451-11eb-9cb2-7eff360977f9.png)
+![image](https://user-images.githubusercontent.com/36525136/115927910-35fdd300-a453-11eb-9576-20a11561fe08.png)
 
 1. Ensure that the agent is active by navigating to your application in the azure portal > click on admin connectivity > click on the agent dropdown and ensure your agent is active.
 
 1. Check if the secret token provided is the same as the secret token on-prem (you will need to go on-prem and provide the secret token again and then copy it into the Azure Portal).
 
 1. When providing the tenant URL in the Azure Portal, ensure that it follows the following pattern. You can replace localhost with your hostname, but it is not required. Replace "connectorName" with the name of the connector you specified in the ECMA host.   
-
+```
 https://localhost:8585/ecma2host_connectorName/scim
-
+```
 1. Ensure that you are using a valid certificate. Navigating the settings tab of the ECMA host allows you to generate a new certificate. 
 
 1. Restart the provisioning agent by navigating to the task bar on your VM by searching for the Microsoft Azure AD Connect provisioning agent. Right click stop and then start.
