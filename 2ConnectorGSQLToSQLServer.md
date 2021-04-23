@@ -1,6 +1,6 @@
 # Generic SQL Connector - SQL Server Sample
 
-This tutorial describes the steps you need to perform to automatically provision and deprovision users from Azure AD into a SQL DB.  For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
+This tutorial describes the steps you need to perform to automatically provision and deprovision users from Azure AD into a SQL server using the generic SQL connector. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## Capabilities Supported
 > [!div class="checklist"]
@@ -9,9 +9,7 @@ This tutorial describes the steps you need to perform to automatically provision
 > * Keep user attributes synchronized between Azure AD and the SQL DB
 
 > [!Note]
-> Notable known directories or features not supported: Microsoft Active Directory Domain Services (AD DS), Password Change Notification, Service(PCNS), Exchange provisioning, Delete of Active Sync Devices,Support for TDescurityDescriptor,Oracle Internet Directory (OID)
-
-## Prerequisites
+> Notable known directories or features not supported: Microsoft Active Directory Domain Services (AD DS), Password Change Notification, Service(PCNS), provisioning group objects and memberships. 
 
 ## Step 1. Plan your provisioning deployment
 1. Review the steps to configure [on-prem provisioning](https://linkToNewTutorial) 
@@ -20,7 +18,7 @@ This tutorial describes the steps you need to perform to automatically provision
 4. Determine what data to [map between Azure AD and ServiceNow](../app-provisioning/customize-application-attributes.md). 
 5. Review [known limitations](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/KnownLimitations.md).
 
-## Step 2. Download and install the provisioning agent and on-prem host
+## Step 2. Download and install the provisioning agent and ECMA host
 
 You will need to download the provisioning agent and ECMA connector host to provide connectivity to your application as described in step 2 [here](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/1ECMATutorial.md).
 
