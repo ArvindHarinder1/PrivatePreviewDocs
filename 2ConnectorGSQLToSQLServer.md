@@ -1,15 +1,15 @@
 # Generic SQL Connector - SQL Server Sample
 
-This tutorial describes the steps you need to perform to automatically provision and deprovision users from Azure AD into a SQL server using the generic SQL connector. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
+This tutorial describes the steps you needed to automatically provision and deprovision users from Azure AD into a SQL server using the generic SQL connector. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## Capabilities Supported
 > [!div class="checklist"]
 > * Create users in a SQL DB
-> * Remove users from a SL DB when they do not require access anymore
+> * Remove users from a SQL DB when they do not require access anymore
 > * Keep user attributes synchronized between Azure AD and the SQL DB
 
 > [!Note]
-> Notable known directories or features not supported: Microsoft Active Directory Domain Services (AD DS), Password Change Notification, Service(PCNS), provisioning group objects and memberships. 
+> Notable known directories or features not supported: Microsoft Active Directory Domain Services (AD DS), Password Change Notification, Service(PCNS), provisioning group objects, and group memberships. 
 
 ## Step 1. Plan your provisioning deployment
 1. Review the steps to configure [on-prem provisioning](https://linkToNewTutorial) 
@@ -20,15 +20,15 @@ This tutorial describes the steps you need to perform to automatically provision
 
 ## Step 2. Download and install the provisioning agent and ECMA host
 
-You will need to download the provisioning agent and ECMA connector host to provide connectivity to your application as described in step 2 [here](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/1ECMATutorial.md).
+You will need to download the provisioning agent and ECMA connector host to provide connectivity to your application as described [here in step 2.](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/1ECMATutorial.md).
 
 ## Step 3. Setup your SQL environment
 
-The steps below show you how to setup Microsoft SQL Server 2019. You can skip this tep if you already have a SQL DB setup. 
+The steps below show you how to setup Microsoft SQL Server 2019. You can skip this step if you already have a SQL DB setup. 
 
 1. Download [SQL Server](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019).
 1. Download SQL Server management studio [SSMS](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?redirectedfrom=MSDN&amp;view=sql-server-ver15).
-1. Search for SSMS in the Windows search bar and open SSMS.
+1. Search for SSMS in the Windows search bar and open it.
 1. Click on Browse for more, select the database under database engine (in my case 1110VM), and connect. ![image](https://user-images.githubusercontent.com/36525136/115303696-cc12c000-a118-11eb-931f-2dd0ac3257a6.png)
 1. Right click databases and create a new database and provide a name. In the example below, the database is named ECMA2Host\_AppName.
 1. Click new query and copy in the query from the employees file. Ensure that the table name matches as highlighted below. ![image](https://user-images.githubusercontent.com/36525136/115303773-e3ea4400-a118-11eb-9655-6e3e314c2b49.png)
