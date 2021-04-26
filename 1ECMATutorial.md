@@ -24,7 +24,7 @@ This document provides the general steps for configuring on-premises application
 
 This preview requires the following in the environment:
 
-- A target system, such as a SQL database, or LDAP directory, in which users can be created, updated and deleted.
+- A target system, such as a SQL database, or LDAP directory (excluding AD DS), in which users can be created, updated and deleted.
 
 - An ECMA 2.0 or later connector for that target system, which supports export, schema retrieval, and optionally full import or delta import operations.  If you do not have an ECMA Connector ready during configuration, then you can still validate the end-to-end flow if you have a SQL Server in your environment and use the Generic SQL Connector.
 
@@ -42,7 +42,7 @@ This preview requires the following in the environment:
 
 ## Step 2. Download and install the provisioning agent and on-prem host
 ### Download and  install the provisioning agent / host
-The provisioning agent and host are two separate windows services that are installed using one installer, deployed on the same machine. They should have connectivity to the target application that you are looking to provision users into.   
+The provisioning agent and ECMA host are two separate windows services that are installed using one installer, deployed on the same machine. They should have connectivity to the target application that you are looking to provision users into.   
 
 1. Sign into the [Azure Portal](https://portal.azure.com)
 2. Navigate to enterprise applications > Add a new application
@@ -57,7 +57,7 @@ The provisioning agent and host are two separate windows services that are insta
 
 ### Configure the provisioning agent
 1. Launch the provisioning agent wizard from your desktop. 
-2. When prompted to select an extension, select "on-prem provisioning" option.
+2. When prompted to select an extension, select the "on-prem provisioning" option.
 3. Click authorize and provide Azure AD credentials. The credentials provided should be for a user that is a global administrator or hybrid administrator.  
 4. Click confirm.
 
@@ -83,15 +83,15 @@ Note: You will see two steps about providing AD credentials and setting up gMSA.
 ## Step 4. Configure provisioning in Azure AD
 ### Establish connectivity between Azure AD and the ECMA Host 
 
-1. Check to ensure that the connector host Windows Service is running.  Click on the start menu, and type services. In the services list, scroll to Microsoft ECMA2Host.  Ensure that the status is Running.  If the status is blank, click Start;.
+1. Check to ensure that the connector host Windows Service is running.  Click on the start menu, and type services. In the services list, scroll to Microsoft ECMA2Host.  Ensure that the status is Running.  If the status is blank, click Start.
 
-1. Sign into Azure Portal as an application administrator in a tenant that has Azure AD Premium P1 or Premium P2 (EMS E3 or E5). This is required to be able to provision to an on-prem application. 
+1. Sign into Azure Portal as an application administrator in the tenant used to register the provisioning agent. The tenant should have Azure AD Premium P1 or Premium P2 (EMS E3 or E5). This is required to be able to provision to an on-prem application. 
 
-1. In the Azure Portal, switch to the Azure Active Directory area, change to Enterprise Applications, and click on New Application.
+1. In the Azure Portal, navigate to Azure Active Directory area, navigate to Enterprise Applications, and click on New Application.
 
 1. Search for Provisioning Private Preview Test Application and add it to your tenant.  
 
-1. Once the app has been created, click on the Provisioning.
+1. Once the app has been created, click on the Provisioning page.
 
 1. Click get started.
 
@@ -101,11 +101,11 @@ Note: You will see two steps about providing AD credentials and setting up gMSA.
 
 1. Before performing the next step,  **wait 10 minutes**  for the agent registration to complete. Test connection will not succeed until the agent registration is completed. Alternatively, you can force the agent registration to complete by restarting the provisioning agent on your server. Navigating to your server > search for services in the windows search bar > identify the Azure AD Connect Provisioning Agent Service > right click on the service and restart. 
 
-1. In the tenant URL field, enter the following URL, replacing the name of the connector to the before the /scim&quot; suffix.  
+1. In the tenant URL field, enter the following URL, replacing "connectorName" with the name of the connector on the ECMA Host.   
 
 [https://localhost:8585/ecma2host_connectorName/scim](https://localhost:8585/ecma2host_connectorName/scim)
 
-1. Enter the secret token you created earlier during configuration in the field Secret Token.
+1. Enter the secret token value that you defined in the ECMA Host in the field Secret Token.
 
 1. Click Test Connection and wait one minute. If you reveive an error message, please review the [troubleshooting steps](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/Troubleshooting.md). 
 
@@ -113,14 +113,14 @@ Note: You will see two steps about providing AD credentials and setting up gMSA.
 
 ### Configure who is in scope for provisioning
 
-Azure AD allows you to scope who should be provisioned based on assignment to an application and / or by filtering on a particular attribute. [Determine who should be in scope for provisioning](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts) and define your scoping rule as necessary. Most customers will stick with the default scope of "assigned users and groups," without doing any additional scoping configuration. 
+Azure AD allows you to scope who should be provisioned based on assignment to an application and / or by filtering on a particular attribute. [Determine who should be in scope for provisioning](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts) and define your scoping rules as necessary. Most customers will stick with the default scope of "assigned users and groups," without doing any additional scoping configuration. 
 
 ### Assign users to your application
 
-If you chose scoping based on assignment in the previous step, please [assign users and / or groups to your application](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-assign-users) if scoping is based on assignment to the application (recommended).
+If you chose scoping based on assignment in the previous step (recommended), please [assign users and / or groups to your application](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-assign-users).
 
 ### Configure your attribute mappings
-You will need to map the user attributes in Azure AD to the attributes in the target application. The Azure AD Provisioning service relies on the SCIM standard for provisioning and as a result, the attributes surfaced have the SCIM name space. The example below shows how you can map the country and objectId attributes in Azure AD to the Country and InternalGUID attributes in your target application. [Learn more](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/customize-application-attributes#editing-user-attribute-mappings) about configuring attribute mappings. Note, the default mapping contains userPrincipalName to an attribute name PLACEHOLDER. You will need to change the PLACEHOLDER attribute to one that is found in your application. 
+You will need to map the user attributes in Azure AD to the attributes in the target application. The Azure AD Provisioning service relies on the SCIM standard for provisioning and as a result, the attributes surfaced have the SCIM name space. The example below shows how you can map the country and objectId attributes in Azure AD to the Country and InternalGUID attributes in an application. Note, the default mapping contains userPrincipalName to an attribute name PLACEHOLDER. You will need to change the PLACEHOLDER attribute to one that is found in your application. [Learn more](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/customize-application-attributes#editing-user-attribute-mappings) about configuring attribute mappings.
 
 | **Attribute name in Azure AD**   | **Attribute name in SCIM**   | **Attribute name in target application**   | 
 | --- | --- | --- |
@@ -132,11 +132,11 @@ You will need to map the user attributes in Azure AD to the attributes in the ta
 
 [Provision a user on-demand.](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/provision-on-demand)
 
-1. Navigate to the single sign-on blade and then back to the provisioning blade. From the new provisioning overview blade, click on on-demand provisioning to provision a user and test out a few users.
+1. Navigate to the single sign-on blade and then back to the provisioning blade. From the new provisioning overview blade, click on on-demand. 
 
-1. Test provisioning by provisioning a user on-demand as described [here](https://aka.ms/provisionondemanddocumentation).
+1. Test provisioning a few users on-demand as described [here](https://aka.ms/provisionondemanddocumentation).
 
-1. Once on-demand provisioning is successful, change back to the provisioning configuration page. Ensure that the scope is set to only assigned users and group, turn provisioning On and click Save.
+1. Once on-demand provisioning is successful, change back to the provisioning configuration page. Ensure that the scope is set to only assigned users and group, turn provisioning On, and click Save.
 
 1. Wait several minutes for provisioning to start (it may take up to 40 minutes).  You can learn more about the provisioning service performance [here](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user). After the provisioning job has been completed, as described in the next section, you can change the provisioning status to Off, and click Save. This will stop the provisioning service from running in the future.
 
@@ -153,16 +153,15 @@ If you are unsure if the Azure AD provisioning service has attempted to contact 
 
 
 ### Add additional users to your application
-Assign additional users and groups to your application - https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/assign-user-or-group-access-portal
-
+Assign additional users and groups to your [application](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/assign-user-or-group-access-portal
+). 
 
 ### Turn provisioning on
 Click start to enable provisioning. The service will then synchronize all users and groups in scope. 
 
 ## Step 5. Monitor your deployment
 1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully.
-1. [Enable logging on the ECMA host](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/Monitoring.md) for detailed diagnostics on-premises. 
-1. Build customd alerts, dashboards, and queries using the [Azure Monitor integration](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics).
+1. Build custom alerts, dashboards, and queries using the [Azure Monitor integration](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics).
 1. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/application-provisioning-quarantine-status).  
 
 
