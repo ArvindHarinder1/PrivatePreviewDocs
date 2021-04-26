@@ -22,7 +22,7 @@ This tutorial describes the steps you need to perform to automatically provision
 
 You will need to download the provisioning agent and ECMA connector host to provide connectivity to your application as described in step 2 [here](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/1ECMATutorial.md).
 
-## Step 3. Setup your SQL encironment
+## Step 3. Setup your SQL environment
 
 The steps below show you how to setup Microsoft SQL Server 2019. You can skip this tep if you already have a SQL DB setup. 
 
