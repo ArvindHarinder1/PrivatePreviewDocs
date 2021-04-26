@@ -10,8 +10,7 @@ Note: MIM Sync is not required. However, you can use MIM sync to build and test 
 
 The following diagram shows how the three components interact:
 
-![image](https://user-images.githubusercontent.com/36525136/111520402-4c5a9580-8715-11eb-94f6-1311b66b900e.png)
-
+![image](https://user-images.githubusercontent.com/36525136/116119808-d2f78080-a68c-11eb-9bc9-659db9552ebe.png)
 
 
 ### High availability  
