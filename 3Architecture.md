@@ -26,7 +26,7 @@ Microsoft currently supports active / passive high availability. You can configu
 1. All requests will now be sent to Agent 1, since Agent 2 is inactive. Host 1 and Host 2 are both active and continually importing users from the target app. Only host 1 is exporting users to the target app. You will have an architecture that looks like the screenshot below. 
 ![image](https://user-images.githubusercontent.com/36525136/115931557-52047300-a459-11eb-9899-e3f8161d0362.png)
 
-It's time to take Server 1 down for maintainence and failover to Server / Agent / Host 2.   
+It's time to take Server 1 down for maintenance and failover to Server / Agent / Host 2.   
 1. Disable the service for Agent 1.   
 1. Check the event viewer to ensure that the last full cycle for Host 2 has a timestamp that is later than the last full cycle for Host 1 (this ensures that the cache on both hosts is in sync).  
 1. Enable the service for Agent 2. 
