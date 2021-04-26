@@ -45,7 +45,7 @@ This preview requires the following in the environment:
 The provisioning agent and host are two separate windows services that are installed using one installer, deployed on the same machine. They should have connectivity to the target application that you are looking to provision users into.   
 
 1. Sign into the [Azure Portal](https://portal.azure.com)
-2. Naviage to enterprise applications > Add a new application
+2. Navigate to enterprise applications > Add a new application
 3. Search for the provisioning private preview test application and add it to your tenant
 4. Navigate to the provisioning blade
 5. Click on on-premises connectivity
@@ -99,7 +99,7 @@ Note: You will see two steps about providing AD credentials and setting up gMSA.
 
 1. In the on-premises connectivity section, select the agent that you just deployed and click assign agent(s).
 
-1. Before performing the next step,  **wait 10 minutes**  for the agent registration to complete. Test connection will not succeed until the agent registration is completed. Alternatively, you can force the agent registration to complete by restarting the provisioning agent on your server. Navigating to your server > search for servies in the windows search bar > identify the Azure AD Connect Provisioning Agent Service > right click on the service and restart. 
+1. Before performing the next step,  **wait 10 minutes**  for the agent registration to complete. Test connection will not succeed until the agent registration is completed. Alternatively, you can force the agent registration to complete by restarting the provisioning agent on your server. Navigating to your server > search for services in the windows search bar > identify the Azure AD Connect Provisioning Agent Service > right click on the service and restart. 
 
 1. In the tenant URL field, enter the following URL, replacing the name of the connector to the before the /scim&quot; suffix.  
 
