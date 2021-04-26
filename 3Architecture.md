@@ -18,7 +18,7 @@ The following diagram shows how the three components interact:
 
 Microsoft currently supports active / passive high availability. You can configure more than one agent / host to connect to one application. However, you should only leave one agent active at a time, ensuring that all requests are sent to the corresponding host. When you need to failover, you can disable the active agent and enable one of the agents on stand-by. 
 
-#### Workflow
+#### Failover Workflow
 1. Install and configure Agent 1 and Host 1 on Server 1. 
 1. Export the configuration from Host 1.  
 1. Install Agent 2 and Host 2 on Server 2. You can import the configuration from Host 1. Turn the service for Agent 2 off so it cannot receive any requests from the Azure AD Provisioning service.  
@@ -31,7 +31,7 @@ It's time to take Server 1 down for maintenance and failover to Server / Agent /
 1. Check the event viewer to ensure that the last full cycle for Host 2 has a timestamp that is later than the last full cycle for Host 1 (this ensures that the cache on both hosts is in sync).  
 1. Enable the service for Agent 2. 
 
-All requests going forward are sent to Agent 2 / Host 2 on Server 2 and customer ends up with an architecture that looks like the below: 
+All requests going forward are sent to Agent 2 / Host 2 on Server 2 and you end up with an architecture that looks like the below: 
 ![image](https://user-images.githubusercontent.com/36525136/115932225-8462a000-a45a-11eb-8369-f72209802ad9.png)
 
 
