@@ -1,22 +1,3 @@
----
-title: Generic LDAP Connector | Microsoft Docs
-description: This article describes how to configure Microsoft's Generic LDAP Connector.
-services: active-directory
-documentationcenter: ''
-author: billmath
-manager: daveba
-editor: ''
-ms.assetid: 984beeb0-4d91-4908-ad81-c19797c4891b
-ms.reviewer: davidste
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.prod: microsoft-identity-manager
-ms.date: 03/01/2020
-ms.author: billmath
----
-
 # Generic LDAP Connector technical reference
 
 This tutorial describes the steps you need to perform to automatically provision and deprovision users from Azure AD into an [LDAP v3 server](https://LinkToSectionBelowWithFullList) (e.g. Apache DS, OpenLDAP, or ODSEE). This tutorial **should not** be used to [write users into AD DS](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/16887037-enable-user-writeback-to-on-premise-ad-from-azure). Click [here](https://sectionLaterInTheDoc) for a list of tested LDAP directories. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
