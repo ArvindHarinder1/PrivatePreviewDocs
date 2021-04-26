@@ -63,6 +63,6 @@ Configure provisioning in Azure AD as described in step 4 and step 5 [here](http
 
 ## Troubleshooting tips
 
-* Review the known limiataions defined [here](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/KnownLimitations.mdc)
+* Review the known limitations defined [here](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/KnownLimitations.mdc)
 * Review the troubleshooting tips defined [here](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/Troubleshooting.md)
 
