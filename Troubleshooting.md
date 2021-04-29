@@ -67,7 +67,7 @@ File location for verbose service logging: c:\program files\Microsoft ECMA2Host\
             <add initializeData="ECMA2Host" type="System.Diagnos
 ```
 
-File location for verbose wizard logging: C:\Program Files\Microsoft ECMA2Host\Wizard\Microsoft.ECMA2Host.ConfigWizard.exe
+File location for verbose wizard logging: C:\Program Files\Microsoft ECMA2Host\Wizard\Microsoft.ECMA2Host.ConfigWizard.exe.config
 ```
       <source name="ConnectorsLog" switchValue="Verbose"> 
         <listeners> 
