@@ -54,7 +54,9 @@ The following screenshots show you how to configure the host, if you are using t
 
 ![image](https://user-images.githubusercontent.com/36525136/115304249-96220b80-a119-11eb-88ef-3d7d2075d68f.png)
 
-![image](https://user-images.githubusercontent.com/36525136/115304275-9e7a4680-a119-11eb-9bf5-aa47fa78765f.png)
+![image](https://user-images.githubusercontent.com/36525136/116597748-fcfeac00-a8f3-11eb-88fa-9b1d28b48393.png)
+
+![image](https://user-images.githubusercontent.com/36525136/116597847-1acc1100-a8f4-11eb-954c-4eea166f299d.png)
 
 ![image](https://user-images.githubusercontent.com/36525136/115304299-a639eb00-a119-11eb-95ba-59e62b25ef80.png)
 
