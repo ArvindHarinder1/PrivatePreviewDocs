@@ -8,7 +8,7 @@ Tutorials
 * [SCIM app on-prem](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/2ConnectorSCIM.md)
 
 How-to guides
-* [Troubleshooting](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/Monitoring.md) 
+* [Troubleshooting](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/Troubleshooting.md) 
 * [MIM Migration](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/MIMmigration.md)
 
 Reference
