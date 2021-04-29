@@ -40,9 +40,9 @@ https://localhost:8585/ecma2host_connectorName/scim
 
 ## Turning on verbose logging 
 
-Enable verbose logging for the ECMA host service and / or Wizar. Set the switchValue to verbose in both locations as shown below.
+Enable verbose logging for the ECMA host service and / or Wizar. Set the "switchValue" to verbose in both locations as shown below.
 
-File location for verbose service logging: c:\program files\Microsoft ECMA2Host\Service\Microsoft.ECMA2Host.Service.exe
+File location for verbose service logging: c:\program files\Microsoft ECMA2Host\Service\Microsoft.ECMA2Host.Service.exe.config
 ```
 <?xml version="1.0" encoding="utf-8"?> 
 <configuration> 
