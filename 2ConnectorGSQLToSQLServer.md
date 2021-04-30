@@ -52,6 +52,8 @@ The following screenshots show you how to configure the host, if you are using t
 
 ![image](https://user-images.githubusercontent.com/36525136/115304110-65da6d00-a119-11eb-92fd-4b1863d14a6d.png)
 
+* The ECMA host discovers the attributes supported by the target system. You can choose which of those attributes you would like to expose to Azure AD. These attributes can then be configured in the Azure Portal for provisioning. 
+
 ![image](https://user-images.githubusercontent.com/36525136/115304249-96220b80-a119-11eb-88ef-3d7d2075d68f.png)
 
 * Anchor - this attribute should be uniqie in the target system. The Azure AD provisioning service will query the ECMA host using this attribute after the initial cycle. 
