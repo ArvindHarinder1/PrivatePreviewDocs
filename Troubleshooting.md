@@ -6,9 +6,9 @@ After configuring the ECMA Host and Provisioning Agent, it's time to test connec
    1. Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater**, **Microsoft Azure AD Connect Provisioning Agent**, and **Microsoft ECMA2Host** services are present and their status is *Running*. 
 ![image](https://user-images.githubusercontent.com/36525136/115927025-cd622680-a451-11eb-8052-56cdde2b557c.png)
 
-1. Test that you are able to make a request to the ECMA host from the machine that it is deployed on. Make a request as shown below, replacing "connectorName" with the name of your connector. If the request below returns a 405, as shown below, you have the right endpoint and the host is receiving the request. If the request below does not return 405, you need to troubleshoot your host setup and ensure that you're using the right URL. See instructions below for the URL format. Make sure to add /users to the end of the request when testing connection in your browser (/users is not required when providing the URL in the cloud).
-
-![image](https://user-images.githubusercontent.com/36525136/115927910-35fdd300-a453-11eb-9576-20a11561fe08.png)
+1. Navigate to the folder where the ECMA Host was installed  > Troubleshooting > Scripts > TestECMA2HostConnection
+   1. This script will send a SCIM GET or POST request in order to validate that the ECMA Connector Host is operating and responding to requests.
+    It should be run on the same computer as the ECMA Connector Host service itself.
 
 1. Ensure that the agent is active by navigating to your application in the azure portal > click on admin connectivity > click on the agent dropdown and ensure your agent is active.
 
@@ -99,14 +99,10 @@ Once the ECMA Connector host schema mapping has been configured, start the servi
 |Xpath expression for filtering on a certain date-time range|input sample expression| 
 |Exporting the xpath events for support|input sample expression| 
 
-## Troubleshooting scripts
+## Collect logs from event viewer as a zip file
 Navigate to the folder where the ECMA Host was installed  > Troubleshooting > Scripts. 
 
-1. CollectTroubleshootingInfo
-   1. This script allows you to collect all logs that are in the event viewer and exprt them as a CSV file. 
-1. TestECMA2HostConnection
-   1. This script will send a SCIM GET or POST request in order to validate that the ECMA Connector Host is operating and responding to requests.
-    It should be run on the same computer as the ECMA Connector Host service itself.
+CollectTroubleshootingInfo -This script allows you to collect all logs that are in the event viewer and exprt them as a CSV file. 
 
 ## Understanding incoming SCIM requests 
 
