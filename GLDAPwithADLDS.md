@@ -1,4 +1,4 @@
-# Generic LDAP Connector - AD LDS Server Sample
+# Generic LDAP Connector - AD LDS Server Sample (Work in progress)
 
 This tutorial describes the steps you needed to automatically provision and deprovision users from Azure AD into AD LDS using the generic LDAP connector. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
