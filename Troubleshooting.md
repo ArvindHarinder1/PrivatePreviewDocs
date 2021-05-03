@@ -14,14 +14,16 @@ After configuring the ECMA Host and Provisioning Agent, it's time to test connec
 
 1. Check if the secret token provided is the same as the secret token on-prem (you will need to go on-prem and provide the secret token again and then copy it into the Azure Portal).
 
-1. When providing the tenant URL in the Azure Portal, ensure that it follows the following pattern. You can replace localhost with your hostname, but it is not required. Replace "connectorName" with the name of the connector you specified in the ECMA host.   
-```
-https://localhost:8585/ecma2host_connectorName/scim
-```
+1. Ensure that you have assigned one or more agents to the application.  
+
 1. Ensure that you are using a valid certificate. Navigating the settings tab of the ECMA host allows you to generate a new certificate. 
 
 1. Restart the provisioning agent by navigating to the task bar on your VM by searching for the Microsoft Azure AD Connect provisioning agent. Right click stop and then start.
 
+1. When providing the tenant URL in the Azure Portal, ensure that it follows the following pattern. You can replace localhost with your hostname, but it is not required. Replace "connectorName" with the name of the connector you specified in the ECMA host.   
+```
+https://localhost:8585/ecma2host_connectorName/scim
+```
 
 ## Unable to configure ECMA host, view logs in event viewer, or start ECMA host service
 
