@@ -1,27 +1,28 @@
-# Summary
+# Generic LDAP Connector - AD LDS Server Sample
 
-This document provides steps for CSS Support engineers to create their own Azure AD ECMA Connector host lab. Provisioning will target a Windows server running in Azure. Accounts will be provisioned to an Active Directory Lightweight Services (AD LDS) instance.
+This tutorial describes the steps you needed to automatically provision and deprovision users from Azure AD into AD LDS using the generic LDAP connector. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
-This document was created using a "Standard_B2s" Azure VM using Windows Server 2019 Datacenter. The VM shares a network with an Active Directory domain to which it is joined as a member server. This allows Kerberos to be used for Authentication to the ECMA connector.
+## Capabilities Supported
+> [!div class="checklist"]
+> * Create users in AD LDS
+> * Remove users from AD LDS when they do not require access anymore
+> * Keep user attributes synchronized between Azure AD and AD LDS
 
-**Note**: The ECMA connector can also be used with OpenLDAP or any other LDAPv3 directory.
+> [!Note]
+> Notable known directories or features not supported: Microsoft Active Directory Domain Services (AD DS), Password Change Notification, Service(PCNS), provisioning group objects, and group memberships. 
 
-# Requirements
+## Step 1. Plan your provisioning deployment
+1. Review the steps to configure [on-prem provisioning](https://linkToNewTutorial) 
+2. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
+3. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+4. Determine what data to [map between Azure AD and ServiceNow](../app-provisioning/customize-application-attributes.md). 
+5. Review [known limitations](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/KnownLimitations.md).
 
-* Azure subscription
-* Azure AD Premium 1 or Premium P2 (EMS E3 or E5)
-    * The Azure AD tenant must be associated with the Azure subscription
-* Azure VM running Windows Server 2016 or later with a Static IP Public Address
-    * AD LDS is a free role that can be installed on Windows Server. This is a cost effective lab for CSS.
-    **NOTE**: This lab uses a domain member server because it is easier to manage than a server in a workgroup. 
-* Microsoft .NET 4.5.2 Framework or later.
-    * If using Windows Server 2016, launch Server Manager, click Add roles and features, and on the Features step of the wizard, ensure that **.NET Framework 4.6** is installed.
-* TCP Port 8585 does not need to be exposed on the Azure VM Networking tab. The cloud provisioning agent handles connectivity.
-* ECMA Connector software has been installed.
+## Step 2. Download and install the provisioning agent and ECMA host
 
-# Install and Configure AD LDS
+You will need to download the provisioning agent and ECMA connector host to provide connectivity to your application as described [here in step 2.](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/1ECMATutorial.md).
 
-Before proceeding, the ECMA Connector software should have been installed using the steps outlined in [Install ECMA Connector Software](https://supportability.visualstudio.com/AzureAD/_wiki/wikis/AzureAD?pageID=326861&anchor=install-ecma-connector-software)
+## Step 3. Setup your AD LDS environment
 
 **Install AD LDS Role**
 
@@ -227,3 +228,30 @@ These steps allow the AD LDS admin to view the users imported in the AD LDS inst
 * Select the **CN=Contoso** naming context from the drop-down list and click **OK**.
 9. Click the **+** icon to the left of **CN=Contoso** and the Imported users should appear directly below as **CN=username@contoso.com,CN=Contoso**.
 
+
+
+
+
+
+
+
+# Summary
+
+This document provides steps for CSS Support engineers to create their own Azure AD ECMA Connector host lab. Provisioning will target a Windows server running in Azure. Accounts will be provisioned to an Active Directory Lightweight Services (AD LDS) instance.
+
+This document was created using a "Standard_B2s" Azure VM using Windows Server 2019 Datacenter. The VM shares a network with an Active Directory domain to which it is joined as a member server. This allows Kerberos to be used for Authentication to the ECMA connector.
+
+**Note**: The ECMA connector can also be used with OpenLDAP or any other LDAPv3 directory.
+
+# Requirements
+
+* Azure subscription
+* Azure AD Premium 1 or Premium P2 (EMS E3 or E5)
+    * The Azure AD tenant must be associated with the Azure subscription
+* Azure VM running Windows Server 2016 or later with a Static IP Public Address
+    * AD LDS is a free role that can be installed on Windows Server. This is a cost effective lab for CSS.
+    **NOTE**: This lab uses a domain member server because it is easier to manage than a server in a workgroup. 
+* Microsoft .NET 4.5.2 Framework or later.
+    * If using Windows Server 2016, launch Server Manager, click Add roles and features, and on the Features step of the wizard, ensure that **.NET Framework 4.6** is installed.
+* TCP Port 8585 does not need to be exposed on the Azure VM Networking tab. The cloud provisioning agent handles connectivity.
+* ECMA Connector software has been installed.
