@@ -71,7 +71,7 @@ Note: You will see two steps about providing AD credentials and setting up gMSA.
 
 1. Navigate to the start menu and identify the Microsoft ECMA Host application. **Open this as an administrator.** ![image](https://user-images.githubusercontent.com/36525136/115305371-11d08800-a11b-11eb-8f4f-bbde282eb1f7.png)
 
-2. Generate the certificate for connectivity to the provisioning agent. 
+2. Generate the certificate for connectivity to the provisioning agent. The auto-generated certificate will be self-signed / part of the trusted root and the SAN matches the hostname. 
 ![image](https://user-images.githubusercontent.com/36525136/115305574-607e2200-a11b-11eb-8c47-30c7acced3eb.png)
 
 3. A new window will appear with a list of connectors. The first time this is run, no connector configurations will be present. Click New Connector.  
