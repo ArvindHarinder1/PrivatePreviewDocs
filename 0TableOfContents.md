@@ -3,7 +3,7 @@ Concepts
 
 Tutorials
 * [Generic guide - starting point](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/1ECMATutorial.md) 
-* [SQL Server tutorial](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/2ConnectorSQL.md) 
+* [SQL Server tutorial](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/2ConnectorGSQLToSQLServer.md) 
 * OpenLDAP Connector tutorial - pending
 * [SCIM app on-prem](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/2ConnectorSCIM.md)
 
