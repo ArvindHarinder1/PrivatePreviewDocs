@@ -20,7 +20,7 @@ This tutorial describes the steps you needed to automatically provision and depr
 
 ## Step 2. Download and install the provisioning agent and ECMA host
 
-You will need to download the provisioning agent and ECMA connector host to provide connectivity to your application as described [here in step 2.](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/1ECMATutorial.md).
+You will need to download the provisioning agent and ECMA connector host to provide connectivity to your application as described [here in step 2.](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/1ECMATutorial.md)
 
 ## Step 3. Setup your AD LDS environment
 
@@ -229,29 +229,3 @@ These steps allow the AD LDS admin to view the users imported in the AD LDS inst
 9. Click the **+** icon to the left of **CN=Contoso** and the Imported users should appear directly below as **CN=username@contoso.com,CN=Contoso**.
 
 
-
-
-
-
-
-
-# Summary
-
-This document provides steps for CSS Support engineers to create their own Azure AD ECMA Connector host lab. Provisioning will target a Windows server running in Azure. Accounts will be provisioned to an Active Directory Lightweight Services (AD LDS) instance.
-
-This document was created using a "Standard_B2s" Azure VM using Windows Server 2019 Datacenter. The VM shares a network with an Active Directory domain to which it is joined as a member server. This allows Kerberos to be used for Authentication to the ECMA connector.
-
-**Note**: The ECMA connector can also be used with OpenLDAP or any other LDAPv3 directory.
-
-# Requirements
-
-* Azure subscription
-* Azure AD Premium 1 or Premium P2 (EMS E3 or E5)
-    * The Azure AD tenant must be associated with the Azure subscription
-* Azure VM running Windows Server 2016 or later with a Static IP Public Address
-    * AD LDS is a free role that can be installed on Windows Server. This is a cost effective lab for CSS.
-    **NOTE**: This lab uses a domain member server because it is easier to manage than a server in a workgroup. 
-* Microsoft .NET 4.5.2 Framework or later.
-    * If using Windows Server 2016, launch Server Manager, click Add roles and features, and on the Features step of the wizard, ensure that **.NET Framework 4.6** is installed.
-* TCP Port 8585 does not need to be exposed on the Azure VM Networking tab. The cloud provisioning agent handles connectivity.
-* ECMA Connector software has been installed.
