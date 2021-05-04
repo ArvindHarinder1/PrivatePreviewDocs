@@ -56,7 +56,7 @@ The following screenshots show you how to configure the host, if you are using t
 
 ![image](https://user-images.githubusercontent.com/36525136/115304249-96220b80-a119-11eb-88ef-3d7d2075d68f.png)
 
-* Anchor - this attribute should be uniqie in the target system. The Azure AD provisioning service will query the ECMA host using this attribute after the initial cycle. 
+* Anchor - this attribute should be uniqie in the target system. The Azure AD provisioning service will query the ECMA host using this attribute after the initial cycle. This anchor value should be the same as the anchor value in schema 3. 
 * Query attribute - used by the ECMA host to query the in-memory cache. This attribute should be unique. 
 * DN - The autogenerate option should be selected in most cases. If deselected, ensure that the DN attribute is mapped to an attribute in Azure AD that stores the DN in this format: CN = anchorValue, Object = objectType
 
