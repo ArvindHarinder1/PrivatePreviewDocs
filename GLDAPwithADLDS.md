@@ -86,7 +86,7 @@ ldifde -i -u -f AddPerson.ldf -s deWeb:389 -b <username> <domainname> <password>
 
 **NOTE**: If the server is a stand-alone in a Workgroup and not joined to a domain, enter the name of the computer where the domain name would go.
 
-# Configure ECMA Connector for LDAP
+## Step 4. Configure ECMA Host for LDAP
 
 To learn more about which connector DLLs are available with the ECMA connector installer see the [Configuration](https://supportability.visualstudio.com/AzureAD/_wiki/wikis/AzureAD?pageID=343348&anchor=configuration) section of the "Azure AD ECMA Connector" CSS wiki page.
 
@@ -99,7 +99,7 @@ To learn more about which connector DLLs are available with the ECMA connector i
 
 This demo shows minimal settings needed and likely will not match your customer's.
 
-## Properties tab
+### Properties tab
 
 Be sure to record the *Name* and *Shared Token* for use later on when configuring outgoing provisioning in Azure AD. Also, customers can click **Import connector** to restore an exported configuration.
 
@@ -113,7 +113,7 @@ Be sure to record the *Name* and *Shared Token* for use later on when configurin
 
 ![FirsttimeSetupLDAP](/.attachments/AAD-Synchronization/343347/FirsttimeSetupLDAP.jpg =791x529)
 
-## Connectivity tab
+### Connectivity tab
 
 The LDAP connector DLL presents a **Connectivity** tab to define how to bind to the AD LDS instance.
 
@@ -127,7 +127,7 @@ The LDAP connector DLL presents a **Connectivity** tab to define how to bind to 
 
 ![ConnectivityToADLDS](/.attachments/AAD-Synchronization/343347/ConnectivityToADLDS.jpg =791x529)
 
-## Global tab
+### Global tab
 
 This view lists the server name and supported SASL Mechanisms when Kerberos is selected. It also shows a summary of **Supported Controls** and **Mandatory Features Not Found**.
 
@@ -137,7 +137,7 @@ This view lists the server name and supported SASL Mechanisms when Kerberos is s
 
 ![GlobalCheck](/.attachments/AAD-Synchronization/343347/GlobalCheck.jpg =792x530)
 
-## Partitions tab
+### Partitions tab
 
 This tab lists all partitions that are available to accept user accounts in in the AD LDS instance. If only one is present it will be selected.  If a connector does not have any partitions, leave the default partition selected. Select the partition where the users should be created.
 
@@ -145,7 +145,7 @@ This tab lists all partitions that are available to accept user accounts in in t
 
 ![SelectPartition](/.attachments/AAD-Synchronization/343347/SelectPartition.jpg =791x529)
 
-## Run Profiles tab
+### Run Profiles tab
 
 Select the run profiles that the connector is capable of using. The export profile is mandatory, but *Full import* and *Delta import* are optional.  The default settings should suffice.
 
@@ -155,21 +155,21 @@ Select the run profiles that the connector is capable of using. The export profi
 
 ![RunProfiles](/.attachments/AAD-Synchronization/343347/RunProfiles.jpg =791x529)
 
-## Export tab
+### Export tab
 
 - **Page Size** should be set to `100`
 - Click **Next** to move to the **FullImport** tab.
 
 ![ExportPageSize](/.attachments/AAD-Synchronization/343347/ExportPageSize.jpg =791x529)
 
-## FullImport tab
+### FullImport tab
 
 - **Page Size** should be set to `1000`.
 - Click **Next** to move to the **Object Types** tab.
 
 ![FullImportPageSize](/.attachments/AAD-Synchronization/343347/FullImportPageSize.jpg =791x529)
 
-## Object Types tab
+### Object Types tab
 
 The admin specifies the type of object that the target system will create that corresponds to the Azure AD user when the import takes place. Set the following:
 
@@ -182,7 +182,7 @@ The admin specifies the type of object that the target system will create that c
 
 ![ObjectTypesLDAP](/.attachments/AAD-Synchronization/343347/ObjectTypesLDAP.jpg =791x529)
 
-## Select Attributes tab
+### Select Attributes tab
 
 Add attribute mappings for each of the attribute that should be configured on the target system's user account. These will map to Azure AD user attributes being sent by SCIM to be added to the imported account.
 
@@ -195,25 +195,29 @@ The attribute names from the target database will be in the drop-down list.
 
 ![SchemaMappingLDAP](/.attachments/AAD-Synchronization/343347/SchemaMappingLDAP.jpg =791x529)
 
-## Deprovisioning tab
+### Deprovisioning tab
 
 The default values for **Disable flow** and **Delete flow** are **None**. This should remain unchanged.
 
 ![Deprovisioning](/.attachments/AAD-Synchronization/343347/Deprovisioning.jpg =791x529)
 
-# Verify Connectivity
+### Verify Connectivity
 
 Testing Inbound connectivity.
 
 See [Verify Inbound TCP Port 8585 is Open]() for more information.
 
-# Verify User Import to ECMA Connector Works
+### Verify User Import to ECMA Connector Works
 
 A PowerShell script can be used to create a test user using the ECMA connector endpoint. This check can be done before an Azure AD application is configured to Provision accounts.
 
 The [Verify User Import to ECMA Connector Works]() section of the "Azure AD ECMA Connector" CSS wiki has a PowerShell script that calls to the ECMA connector endpoint and imports a test user. 
 
-# Examine Users Imported to AD LDS
+
+## Step 5. Configure provisioning in Azure AD and Monitor
+Configure provisioning in Azure AD as described in step 4 and step 5 [here](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/1ECMATutorial.md).
+
+## Step 6. Examine Users provisioned to AD LDS
 
 These steps allow the AD LDS admin to view the users imported in the AD LDS instance.
 
@@ -228,4 +232,7 @@ These steps allow the AD LDS admin to view the users imported in the AD LDS inst
 * Select the **CN=Contoso** naming context from the drop-down list and click **OK**.
 9. Click the **+** icon to the left of **CN=Contoso** and the Imported users should appear directly below as **CN=username@contoso.com,CN=Contoso**.
 
+## Troubleshooting tips
 
+* Review the known limitations defined [here](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/KnownLimitations.mdc)
+* Review the troubleshooting tips defined [here](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/Troubleshooting.md)
