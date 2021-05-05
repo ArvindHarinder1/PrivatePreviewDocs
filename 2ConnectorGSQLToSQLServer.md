@@ -38,13 +38,43 @@ The steps below show you how to setup Microsoft SQL Server 2019. You can skip th
 ## Step 4. Configure the ECMA host
 The following screenshots show you how to configure the host, if you are using the demo environment described above.
 
+Enter a **Name** for the connector, and a **Shared Token**.
+
+**IMPORTANT**: Be sure to record the **Name** and **Shared Token** for use later on when configuring outgoing provisioning in Azure AD.
+
+- **Name**: This is the name of the ECMA Connector and will be part of the URL.
+- **Autosync timer (minutes)**: Minimum allowed is `120` minutes.
+- **Secret Token**: `123456` [This must be a string of 10-20 ASCII letters and/or digits.]
+- **Extension DLL**: Click the drop-down and select the **Microsoft.ISM.Connector.GenericSql.dll**.
+- Click **Next** to move to the **Connectivity** tab.
+
+**NOTE**: Depending on the connector DLL selected, the left hand side of the wizard may change to add additional tabs, such as *Connectivity*, as required by the connector. Click **Next** after completing each tab.
 ![image](https://user-images.githubusercontent.com/36525136/115303969-2ca1fd00-a119-11eb-9047-201ebcf0c2c6.png)
+
+
+- **User Name**: This must be in the form of `hostname\sqladminaccount` for standalone servers, or `domain\sqladminaccount` for domain member servers.
+- Provide the DSN file that can be found in the [sharepoint site](https://aka.ms/onpremprovisioning) and update the server name in the file to match yours.
+- Click **Next** to proceed through the *Schema Detection* tabs.
+
+**NOTE**: Unless the customer's environment is known to require these settings, leave **DN is Anchor** and **Export Type:Object Replace** deselected.
 
 ![image](https://user-images.githubusercontent.com/36525136/115303996-362b6500-a119-11eb-9a46-327b20cf500f.png)
 
+- **Object type detection method**: This should be set to `Fixed Value`.
+    - **Fixed value list/Table/View/SP**: This should contain `User`.
+    - Click **Next** to move to the next schema tab.
+
 ![image](https://user-images.githubusercontent.com/36525136/115304025-404d6380-a119-11eb-9fb7-c45838953780.png)
 
+- **users:Attribute Detection**: This should be set to `Table`.
+    - **users:Table/View/SP**: This should contain `Employees`.
+    - Click **Next** to move to the next schema tab.
+
 ![image](https://user-images.githubusercontent.com/36525136/115304044-480d0800-a119-11eb-8ca9-113ae5c30454.png)
+
+- Place a check next to `User:SAPLogin`.
+- **Select DN attribute for users** should then be set to `UPN`.
+- Click **Next** to move to the next schema tab.
 
 ![image](https://user-images.githubusercontent.com/36525136/115304068-522f0680-a119-11eb-97d8-fa9987771de9.png)
 
