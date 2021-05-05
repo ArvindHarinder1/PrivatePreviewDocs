@@ -91,11 +91,12 @@ The provisioning service automatically discovers attributes in your target appli
 1. Ensure that the ECMA host service is turned on. 
 1. Review the ECMA host logs to verify that a /schemas request was made and review the attributes in the response. This information will be valuable for support to troubleshoot the issue. 
 
+## Collect logs from event viewer as a zip file
+Navigate to the folder where the ECMA Host was installed  > Troubleshooting > Scripts. 
 
-## Test connector in MIM...
+CollectTroubleshootingInfo -This script allows you to collect all logs that are in the event viewer and exprt them as a CSV file. 
 
-
-##### Reviewing events in the event viewer
+## Reviewing events in the event viewer
 
 Once the ECMA Connector host schema mapping has been configured, start the service so it will listen for incoming connections.  Then, monitor for incoming requests. To do this, do the following:
 
@@ -109,11 +110,6 @@ Once the ECMA Connector host schema mapping has been configured, start the servi
 |Xpath expression for filtering on a certain date-time range|input sample expression| 
 |Exporting the xpath events for support|input sample expression| 
 
-## Collect logs from event viewer as a zip file
-Navigate to the folder where the ECMA Host was installed  > Troubleshooting > Scripts. 
-
-CollectTroubleshootingInfo -This script allows you to collect all logs that are in the event viewer and exprt them as a CSV file. 
-
 ## Understanding incoming SCIM requests 
 
 Requests made by Azure AD to the provisioning agent and connector host use the SCIM protocol. Requests made from the host to apps use the protocol the app support and the requests from the host to agent to azure ad rely on SCIM. You can learn more about our SCIM implementation [here](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).  
@@ -121,17 +117,8 @@ Requests made by Azure AD to the provisioning agent and connector host use the S
 Be aware that at the beginning of each provisioning cycle, before performing on-demand provisioning, and when doing the test connection the Azure AD provisioning service generally makes a get user call for a [dummy user](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#request-3) to ensure the target endpoint is available and returning SCIM compliant responses. 
 
 
-
-#### l
-After (during) configuration, if you wish to further debug the generic SQL or generic LDAP connectors, then you can enable the Connector specific log file, following the instructions in the PowerShell script [https://raw.githubusercontent.com/microsoft/MIMPowerShellConnectors/master/src/LyncConnector/EventLogConfig/Register-EventSource.ps1](https://raw.githubusercontent.com/microsoft/MIMPowerShellConnectors/master/src/LyncConnector/EventLogConfig/Register-EventSource.ps1) and updating the system.diagnostics section of the file c:\program files\Microsoft ECMA2Host\Service\Microsoft.ECMA2Host.Service.exe.config as follows:
-
 ## How do I troubleshoot the provisioning agent?
-#### Verify the port
-Verify that Azure is listening on port 443 and that your agent can communicate with it.
-![image](https://user-images.githubusercontent.com/36525136/110371023-44a63d00-8001-11eb-9dfc-83407452c991.png)
-
-
-#### Agent failed to start
+### Agent failed to start
 
 You might receive an error message that states:
 
@@ -148,7 +135,7 @@ To resolve this problem, follow these steps.
 
 This test verifies that your agents can communicate with Azure over port 443. Open a browser, and go to the previous URL from the server where the agent is installed.
 
-#### Agent times out or certificate is invalid
+### Agent times out or certificate is invalid
 
 You might get the following error message when you attempt to register the agent.
 
@@ -171,7 +158,7 @@ Replace the variables `[proxy-server]` and `[proxy-port]` with your proxy server
         </defaultProxy>
     </system.net>
 ```
-#### Agent registration fails with security error
+### Agent registration fails with security error
 
 You might get an error message when you install the cloud provisioning agent.
 
@@ -191,23 +178,7 @@ To gather additional details for troubleshooting agent-related problems, follow 
       - TracingDurationMins to specify a different capture duration (default = 3 mins)
       - OutputPath to specify a different output path (default = User’s Documents)
 
-
 ---------------------
 
-
-
 Azure AD allows you monitor the provisioning service in the cloud as well as collect logs on-premises. The provisioning service emits logs for each user that was evaluated as part of the synchronization process. Those logs can be consumed through the [Azure Portal UI, APIs, and log analytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#ways-of-interacting-with-the-provisioning-logs). In addition, the ECMA host generates logs on-premises, showing each provisioning request received and the response sent to Azure AD.
-
-
-## Next Steps
-
-Once the ECMA Connector host schema mapping has been configured, start the service so it will listen for incoming connections, if you haven&#39;t already, as described in step 29 above.  Then, monitor for incoming requests.
-
-1. Click on the start menu, type &quot;event viewer&quot;, and click on Event Viewer.
-
-1. In Event Viewer, expand Applications and Services Logs, and select ECMA2Host Logs.
-
-1. As changes are received by the connector host, events will be written to the application log.
-
-
 
