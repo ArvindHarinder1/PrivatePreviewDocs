@@ -119,3 +119,30 @@ Configure provisioning in Azure AD as described in step 4 and step 5 [here](http
 * Review the known limitations defined [here](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/KnownLimitations.mdc)
 * Review the troubleshooting tips defined [here](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/Troubleshooting.md)
 
+## Appendix A
+
+```SQL
+USE [SAP]
+GO
+
+/****** Object:  Table [dbo].[Employees]    ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Employees](
+	[SAPLogin] [nvarchar](128) NULL,
+	[FirstName] [nvarchar](50) NOT NULL,
+	[LastName] [nvarchar](50) NOT NULL,
+	[Email] [nvarchar](128) NULL,
+	[InternalGUID] [uniqueidentifier] NULL,
+	[AzureID] [uniqueidentifier] NULL,
+	[textID] [nvarchar](128) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Employees] ADD  CONSTRAINT [DF_Employees_InternalGUID]  DEFAULT (newid()) FOR [InternalGUID]
+GO
+```
