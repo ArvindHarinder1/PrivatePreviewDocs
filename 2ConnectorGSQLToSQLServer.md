@@ -20,7 +20,7 @@ This tutorial describes the steps you needed to automatically provision and depr
 
 ## Step 2. Download and install the provisioning agent and ECMA host
 
-You will need to download the provisioning agent and ECMA connector host to provide connectivity to your application as described [here in step 2.](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/1ECMATutorial.md).
+You will need to download the provisioning agent and ECMA connector host to provide connectivity to your application as described [here in step 2.](https://github.com/ArvindHarinder1/PrivatePreviewDocs/blob/main/1ECMATutorial.md)
 
 ## Step 3. Setup your SQL environment
 
