@@ -91,7 +91,10 @@ Enter a **Name** for the connector, and a **Shared Token**.
 
 ![image](https://user-images.githubusercontent.com/36525136/115304110-65da6d00-a119-11eb-92fd-4b1863d14a6d.png)
 
-* The ECMA host discovers the attributes supported by the target system. You can choose which of those attributes you would like to expose to Azure AD. These attributes can then be configured in the Azure Portal for provisioning. 
+- **Operation Method**: This should be set to `Table`.
+- **Table/View/SP**: This should contain `users`.
+- **Page Size**: Scroll to the very bottom of the page. This should be set to `100`.
+- Click **Next** to move to what will be the **FullImport** tab.
 
 ![image](https://user-images.githubusercontent.com/36525136/115304249-96220b80-a119-11eb-88ef-3d7d2075d68f.png)
 
@@ -101,14 +104,10 @@ Enter a **Name** for the connector, and a **Shared Token**.
 
 ![image](https://user-images.githubusercontent.com/36525136/116597748-fcfeac00-a8f3-11eb-88fa-9b1d28b48393.png)
 
-- **Operation Method**: This should be set to `Table`.
-- **Table/View/SP**: This should contain `users`.
-- **Page Size**: Scroll to the very bottom of the page. This should be set to `100`.
-- Click **Next** to move to what will be the **FullImport** tab.
-
 **NOTE**: Everything else can be blank.
 ![image](https://user-images.githubusercontent.com/36525136/116597847-1acc1100-a8f4-11eb-954c-4eea166f299d.png)
 
+* The ECMA host discovers the attributes supported by the target system. You can choose which of those attributes you would like to expose to Azure AD. These attributes can then be configured in the Azure Portal for provisioning. 
 
 ![image](https://user-images.githubusercontent.com/36525136/115304299-a639eb00-a119-11eb-95ba-59e62b25ef80.png)
 
