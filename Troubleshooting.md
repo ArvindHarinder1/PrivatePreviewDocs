@@ -85,16 +85,14 @@ File location for verbose wizard logging: C:\Program Files\Microsoft ECMA2Host\W
 ```
 
 ## Target attribute missing 
-The provisioning service automatically discovers attributes in your target application. If you see that a target attribute is missing in the target attribute list, perform the following troubleshooting step:
+The provisioning service automatically discovers attributes in your target application. If you see that a target attribute is missing in the target attribute list in the Azure Portal, perform the following troubleshooting step:
 
 1. Review the "Select Attributes" page of your ECMA host configuration to verify that the attribute has been selected to be exposed to the Azure Portal.
 1. Ensure that the ECMA host service is turned on. 
 1. Review the ECMA host logs to verify that a /schemas request was made and review the attributes in the response. This information will be valuable for support to troubleshoot the issue. 
 
 ## Collect logs from event viewer as a zip file
-Navigate to the folder where the ECMA Host was installed  > Troubleshooting > Scripts. 
-
-CollectTroubleshootingInfo -This script allows you to collect all logs that are in the event viewer and exprt them as a CSV file. 
+Navigate to the folder where the ECMA Host was installed  > Troubleshooting > Scripts. Run the `CollectTroubleshootingInfo` script as an admin. It allows you to capture the logs in a zip file and export them.  
 
 ## Reviewing events in the event viewer
 
