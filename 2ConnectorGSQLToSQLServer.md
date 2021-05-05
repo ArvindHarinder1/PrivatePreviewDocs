@@ -66,8 +66,8 @@ Enter a **Name** for the connector, and a **Shared Token**.
 
 ![image](https://user-images.githubusercontent.com/36525136/115304025-404d6380-a119-11eb-9fb7-c45838953780.png)
 
-- **users:Attribute Detection**: This should be set to `Table`.
-    - **users:Table/View/SP**: This should contain `Employees`.
+- **User:Attribute Detection**: This should be set to `Table`.
+    - **User:Table/View/SP**: This should contain `Employees`.
     - Click **Next** to move to the next schema tab.
 
 ![image](https://user-images.githubusercontent.com/36525136/115304044-480d0800-a119-11eb-8ca9-113ae5c30454.png)
