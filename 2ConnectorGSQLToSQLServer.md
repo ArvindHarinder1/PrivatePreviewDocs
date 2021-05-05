@@ -150,14 +150,20 @@ GO
 ## Appendix B
 
 Navigate to the ODBC utility.
+
 ![image](https://user-images.githubusercontent.com/36525136/117201807-12c01580-adbb-11eb-9bb3-de2d41b415de.png)
+
 Click Add
+
 ![image](https://user-images.githubusercontent.com/36525136/117201863-266b7c00-adbb-11eb-9f38-630883aae008.png)
 ![image](https://user-images.githubusercontent.com/36525136/117201916-34b99800-adbb-11eb-8e86-2730d4154e10.png)
 ![image](https://user-images.githubusercontent.com/36525136/117201999-5024a300-adbb-11eb-90e1-af161d056fac.png)
+
 Provide the name of your SQL server
+
 ![image](https://user-images.githubusercontent.com/36525136/117202106-6e8a9e80-adbb-11eb-939f-859b205d5e68.png)
 ![image](https://user-images.githubusercontent.com/36525136/117202141-79ddca00-adbb-11eb-89ef-4a3607f233a3.png)
 ![image](https://user-images.githubusercontent.com/36525136/117202224-9417a800-adbb-11eb-8b51-6cba69bb161a.png)
 ![image](https://user-images.githubusercontent.com/36525136/117202246-9b3eb600-adbb-11eb-8283-d76b9dabc611.png)
+
 Finish, then click test connection. 
