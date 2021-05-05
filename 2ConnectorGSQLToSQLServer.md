@@ -78,7 +78,16 @@ Enter a **Name** for the connector, and a **Shared Token**.
 
 ![image](https://user-images.githubusercontent.com/36525136/115304068-522f0680-a119-11eb-97d8-fa9987771de9.png)
 
+- **Delta Strategy:**: This should default to `None`*`
+- **Water Mark Query**: This should default to `*`SELECT GETDATE()`*`
+- **Data Source Time Zone**: This can be set to the desired time zone, or use the default of `(UTC) Coordinated Universal Time`.
+- **Data Source Date Time Format**: This should be set to the format desired. If prompted to populate this field, the default is `yyyy-MM-dd HH:mm:ss`.
+- **Operation Methods**: This should default to `Password extension`.
+- Click **Next** to move to the **Partitions** tab.  This also triggers a validation check of the that were credentials entered.
+
+**NOTE**: No other parameters need to be set.
 ![image](https://user-images.githubusercontent.com/36525136/115304082-59eeab00-a119-11eb-842b-17f126c089b0.png)
+
 
 ![image](https://user-images.githubusercontent.com/36525136/115304110-65da6d00-a119-11eb-92fd-4b1863d14a6d.png)
 
@@ -92,7 +101,14 @@ Enter a **Name** for the connector, and a **Shared Token**.
 
 ![image](https://user-images.githubusercontent.com/36525136/116597748-fcfeac00-a8f3-11eb-88fa-9b1d28b48393.png)
 
+- **Operation Method**: This should be set to `Table`.
+- **Table/View/SP**: This should contain `users`.
+- **Page Size**: Scroll to the very bottom of the page. This should be set to `100`.
+- Click **Next** to move to what will be the **FullImport** tab.
+
+**NOTE**: Everything else can be blank.
 ![image](https://user-images.githubusercontent.com/36525136/116597847-1acc1100-a8f4-11eb-954c-4eea166f299d.png)
+
 
 ![image](https://user-images.githubusercontent.com/36525136/115304299-a639eb00-a119-11eb-95ba-59e62b25ef80.png)
 
