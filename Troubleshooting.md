@@ -84,6 +84,14 @@ File location for verbose wizard logging: C:\Program Files\Microsoft ECMA2Host\W
           <add initializeData="ECMA2Host" type="System.Diagnostics.EventLogTraceListener, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ECMA2HostListener" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack" /> 
 ```
 
+## Target attribute missing 
+The provisioning service automatically discovers attributes in your target application. If you see that a target attribute is missing in the target attribute list, perform the following troubleshooting step:
+
+1. Review the "Select Attributes" page of your ECMA host configuration to verify that the attribute has been selected to be exposed to the Azure Portal.
+1. Ensure that the ECMA host service is turned on. 
+1. Review the ECMA host logs to verify that a /schemas request was made and review the attributes in the response. This information will be valuable for support to troubleshoot the issue. 
+
+
 ## Test connector in MIM...
 
 
