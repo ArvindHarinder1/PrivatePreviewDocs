@@ -108,7 +108,7 @@ Enter a **Name** for the connector, and a **Shared Token**.
 
 ![image](https://user-images.githubusercontent.com/36525136/116597847-1acc1100-a8f4-11eb-954c-4eea166f299d.png)
 
-
+* The set attribute dropdown will show any attribute that has been discovered in the target system and has not been chosen in the previous select attributes page. In this example, we will always delete the user. 
 ![image](https://user-images.githubusercontent.com/36525136/115304299-a639eb00-a119-11eb-95ba-59e62b25ef80.png)
 
 ## Step 5. Configure provisioning in Azure AD and Monitor
