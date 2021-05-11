@@ -48,7 +48,8 @@ The provisioning agent and ECMA host are two separate windows services that are 
 
 1. Sign into the [Azure Portal](https://portal.azure.com)
 2. Navigate to enterprise applications > Add a new application
-3. Search for the provisioning private preview test application and add it to your tenant
+3. Search for the "On-premises provisioning" application and add it to your tenant 
+![image](https://user-images.githubusercontent.com/36525136/117818662-d404e200-b236-11eb-913b-63b22df0c1a8.png)
 4. Navigate to the provisioning blade
 5. Click on on-premises connectivity
 6. Download the agent installer 
