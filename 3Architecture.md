@@ -12,29 +12,6 @@ The following diagram shows how the three components interact:
 
 ![image](https://user-images.githubusercontent.com/36525136/116119808-d2f78080-a68c-11eb-9bc9-659db9552ebe.png)
 
-
-### High availability  
-
-Microsoft currently supports active / passive high availability. You can configure more than one agent / host to connect to one application. However, you should only leave one agent active at a time, ensuring that all requests are sent to the corresponding host. When you need to failover, you can disable the active agent and enable one of the agents on stand-by. 
-
-#### Failover Workflow
-1. Install and configure Agent 1 and Host 1 on Server 1. 
-1. Export the configuration from Host 1.  
-1. Install Agent 2 and Host 2 on Server 2. You can import the configuration from Host 1. Turn the service for Agent 2 off so it cannot receive any requests from the Azure AD Provisioning service.  
-1. Configure provisioning in the Azure Portal and assign both agents.  
-1. All requests will now be sent to Agent 1, since Agent 2 is inactive. Host 1 and Host 2 are both active and continually importing users from the target app. Only host 1 is exporting users to the target app. You will have an architecture that looks like the screenshot below. 
-![image](https://user-images.githubusercontent.com/36525136/115931557-52047300-a459-11eb-9899-e3f8161d0362.png)
-
-It's time to take Server 1 down for maintenance and failover to Server / Agent / Host 2.   
-1. Disable the service for Agent 1.   
-1. Check the event viewer to ensure that the last full cycle for Host 2 has a timestamp that is later than the last full cycle for Host 1 (this ensures that the cache on both hosts is in sync).  
-1. Enable the service for Agent 2. 
-
-All requests going forward are sent to Agent 2 / Host 2 on Server 2 and you end up with an architecture that looks like the below: 
-![image](https://user-images.githubusercontent.com/36525136/115932225-8462a000-a45a-11eb-8369-f72209802ad9.png)
-
-
-
 ### Firewall requirements
 
 The provisioning agents only use outbound connections to the provisioning service, which means that there is **no need to open firewall ports** for incoming connections. You also do not need a perimeter (DMZ) network because all connections are outbound and take place over a secure channel. 
