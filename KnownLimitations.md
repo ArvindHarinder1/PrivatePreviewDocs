@@ -1,6 +1,6 @@
 ## Known limitations
 
-1. The following applications and directories are not yet supported
+1. The following **applications and directories** are not yet supported
    1. **AD DS** (user / group writeback from Azure AD, using the on-prem provisioning preview)
       1. When a user is managed by Azure AD connect, the source of authority is on-prem AD. Therefore, user attributes cannot be changed in Azure AD. This preview does not change the source of authority for users managed by Azure AD Connect.
       1. Attempting to use Azure AD Connect and the on-prem provisioning to provision groups / users into AD DS can lead to creation of a loop, where Azure AD Connect can overwrite a change was made by the provisioning service in the cloud. Microsoft is working on a dedicated capability for group / user writeback. Please upvote the  UserVoice feedback [here](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/16887037-enable-user-writeback-to-on-premise-ad-from-azure) to track the status of the preview. Alternatively, you can use Microsoft Identity Manager for user / group writeback from Azure AD to AD. 
@@ -11,7 +11,7 @@
    1. Azure Active Directory 
       1. On-prem provisioning allows you to take a user already in Azure AD and provision them into a third party application. It does not allow you to bring a user into the directory from a third party application. Customers will need to rely on our native HR integrations, Azure AD Connect, MIM, or Microsoft Graph to bring users into the directory.  
 
-1. The following attributes and objects not yet supported:
+1. The following **attributes and objects** not yet supported:
    1. Multi-valued attributes
    1. Reference attributes (e.g. manager).
    1. Groups 
